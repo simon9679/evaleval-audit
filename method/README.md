@@ -1,12 +1,37 @@
-# Method Directory Status
+﻿# Method Directory Status
 
-`COMPLETED_TESTS_RATIONALE.md` is a historical method snapshot written when only T01 and T02 were complete and T03 was still planned. It is preserved unchanged for chronology.
+This directory contains both historical method snapshots and current
+test-level provenance records.
 
-Do not use that file to determine current test count or current audit status.
+## Historical snapshots
 
-Current sources of truth:
+The following files are preserved unchanged for chronology and must not be
+used to determine the current audit status:
+
+- `COMPLETED_TESTS_RATIONALE.md` — written when only T01 and T02 were
+  complete and T03 was still planned;
+- `TEST_SOURCE_ATTRIBUTION.json` — retrospective method record after T01/T02
+  and before T03 execution. It therefore lists only T01/T02 as completed and
+  T03 as not yet completed.
+
+`TEST_SOURCE_ATTRIBUTION.json` also contains a historical `S2:U17` reference.
+The current Validation Handbook version reviewed for publication defines
+U1-U16 only. That reference is covered by `../METHOD_ERRATA.md` and must not
+be interpreted as evidence that the current Handbook contains U17.
+
+The historical files are intentionally not rewritten because they document
+the audit chronology.
+
+## Current sources of truth
+
+Use these for the completed T01-T17 audit:
 
 - `../TEST_INDEX.json` — canonical final verdicts;
 - `../CLAIM_INDEX.json` — claim-to-verdict mapping;
 - `../AUDIT_STATUS.md` — current publication status;
-- each test's own `TEST_RATIONALE.md`, `PREREGISTRATION.md`, `SOURCE_ATTRIBUTION.md`, and `results/RESULT_ANALYSIS.md`.
+- `../METHOD_ERRATA.md` — post-freeze method-reference corrections;
+- each test's own `TEST_RATIONALE.md`, `PREREGISTRATION.md`,
+  `SOURCE_ATTRIBUTION.md`, and `results/RESULT_ANALYSIS.md`.
+
+There are currently 17 completed tests. Historical method snapshots do not
+override those current publication-layer indexes.
