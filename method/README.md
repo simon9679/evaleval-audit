@@ -14,11 +14,6 @@ used to determine the current audit status:
   and before T03 execution. It therefore lists only T01/T02 as completed and
   T03 as not yet completed.
 
-`TEST_SOURCE_ATTRIBUTION.json` also contains a historical `S2:U17` reference.
-The current Validation Handbook version reviewed for publication defines
-U1-U16 only. That reference is covered by `../METHOD_ERRATA.md` and must not
-be interpreted as evidence that the current Handbook contains U17.
-
 The historical files are intentionally not rewritten because they document
 the audit chronology.
 
