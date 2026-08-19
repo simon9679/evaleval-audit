@@ -24,7 +24,6 @@ Use these for the completed T01-T17 audit:
 - `../TEST_INDEX.json` — canonical final verdicts;
 - `../CLAIM_INDEX.json` — claim-to-verdict mapping;
 - `../AUDIT_STATUS.md` — current publication status;
-- `../METHOD_ERRATA.md` — post-freeze method-reference corrections;
 - each test's own `TEST_RATIONALE.md`, `PREREGISTRATION.md`,
   `SOURCE_ATTRIBUTION.md`, and `results/RESULT_ANALYSIS.md`.
 
