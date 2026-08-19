@@ -7,7 +7,7 @@ This repository is a compact review/publication copy of the EvalEval audit.
 - `CLAIM_INDEX.json`: the preregistered claim or primary decision predicate for each test, plus preregistration hash.
 - `TEST_INDEX.json`: the canonical final verdict and canonical summary hash for each test.
 - `tests/<test>/results/summary.json`: canonical machine-readable result for that test.
-- `tests/<test>/PREREGISTRATION.md`: frozen claim, competing predictions, and verdict rule.
+- `tests/<test>/PREREGISTRATION.md`: frozen claim and competing predictions. Where the explicit verdict mapping is split across frozen artifacts, read it together with that test's `TEST_RATIONALE.md` and analyzer.
 - `tests/<test>/results/RESULT_ANALYSIS.md`: bounded post-run interpretation.
 
 There are 17 completed tests: **12 CONFIRMED / 5 REFUTED / 0 INCONCLUSIVE / 0 ERROR**.
@@ -33,7 +33,21 @@ Run:
 python tools/verify_public_bundle.py
 ```
 
-Each test also has `verify_prereg.py`. Those scripts check preregistration/artifact immutability against frozen hashes. They do **not** prove that a final verdict follows from the data; that requires inspecting/re-running the analyzer and its preregistered decision rule.
+Each test also has `verify_prereg.py`. Those scripts check preregistration/artifact immutability against frozen hashes. They do **not** prove that a final verdict follows from the data; that requires inspecting the analyzer, the frozen decision rule, and the evidence it consumes. A full scientific re-execution of some tests requires the omitted full freeze; see `REPRODUCTION.md`.
+
+## Safe analyzer re-execution
+
+Do not run test analyzers directly in the canonical publication checkout unless you intend to modify that checkout.
+
+Some analyzers write generated evidence or summaries into their own `raw/` and `results/` directories. Re-execution should therefore use a disposable copy or separate worktree, with the full frozen dependencies restored when the selected test requires them.
+
+The compact bundle's supported in-place mechanical check is:
+
+```bash
+python tools/verify_public_bundle.py
+```
+
+See `REPRODUCTION.md` for the boundary between compact-bundle verification and full from-source re-execution.
 
 ## T14 special case
 
