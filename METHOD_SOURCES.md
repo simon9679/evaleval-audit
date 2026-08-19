@@ -26,9 +26,5 @@ require a separate source audit before public release. The audit therefore
 does not ask readers to treat the unpublished Handbook as independent
 evidence.
 
-A post-freeze method-reference issue involving `U17` is documented in
-[`METHOD_ERRATA.md`](METHOD_ERRATA.md). The frozen test artifacts are preserved
-unchanged.
-
 Test-level method provenance remains visible in each `TEST_RATIONALE.md` and
 `SOURCE_ATTRIBUTION.md`.
