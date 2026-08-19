@@ -1,4 +1,4 @@
-param(
+﻿param(
     [string]$RepoUrl = "https://github.com/simon9679/evaleval-audit.git"
 )
 
@@ -28,11 +28,17 @@ if (-not $status) {
 
 git branch -M main
 
-$remote = git remote get-url origin 2>$null
-if ($LASTEXITCODE -ne 0) {
+$remotes = @(git remote)
+
+if ($remotes -notcontains "origin") {
     git remote add origin $RepoUrl
-} elseif ($remote -ne $RepoUrl) {
-    throw "Existing origin is $remote, expected $RepoUrl"
+}
+else {
+    $remote = git remote get-url origin
+
+    if ($remote -ne $RepoUrl) {
+        throw "Existing origin is $remote, expected $RepoUrl"
+    }
 }
 
 git push -u origin main
