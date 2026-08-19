@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "purpose": "Public-claims freeze before confirmatory EvalEval tests.",
+  "fetched_at_utc": "2026-08-19T02:51:21.030272+00:00",
+  "targets": [
+    {
+      "name": "evaluation_cards_launch",
+      "requested_url": "https://evalevalai.com/infrastructure/2026/06/09/evaluation-cards-launch/",
+      "status": 200,
+      "final_url": "https://evalevalai.com/infrastructure/2026/06/09/evaluation-cards-launch/",
+      "content_type": "text/html; charset=utf-8",
+      "etag": null,
+      "last_modified": "Fri, 31 Jul 2026 11:44:26 GMT",
+      "sha256": "54bf3608ec93f8d025ff1385c208a5f0892bef8d61cf74f2192663c5a8ddccc9",
+      "bytes": 93125,
+      "raw_file": "claims_freeze/raw/evaluation_cards_launch.html",
+      "error": null
+    },
+    {
+      "name": "evaluation_cards_project",
+      "requested_url": "https://evalevalai.com/projects/eval-cards/",
+      "status": 200,
+      "final_url": "https://evalevalai.com/projects/eval-cards/",
+      "content_type": "text/html; charset=utf-8",
+      "etag": null,
+      "last_modified": "Fri, 31 Jul 2026 11:44:26 GMT",
+      "sha256": "b97f85d08a9a1295dfbd0331ea258edf3e85aeba641e2b89269418e7a6e89038",
+      "bytes": 71098,
+      "raw_file": "claims_freeze/raw/evaluation_cards_project.html",
+      "error": null
+    },
+    {
+      "name": "evaluation_cards_live",
+      "requested_url": "https://evalcards.evalevalai.com/",
+      "status": 200,
+      "final_url": "https://evalcards.evalevalai.com/",
+      "content_type": "text/html; charset=utf-8",
+      "etag": "\"117odm01fqz15g0\"",
+      "last_modified": null,
+      "sha256": "ae9979c04cb2835d9f8822c2f53b8745b1086e7bc3058242a68b0aa12e515dff",
+      "bytes": 53786,
+      "raw_file": "claims_freeze/raw/evaluation_cards_live.html",
+      "error": null
+    },
+    {
+      "name": "evaluation_cards_help_general_public",
+      "requested_url": "https://evalcards.evalevalai.com/help/general-public",
+      "status": 200,
+      "final_url": "https://evalcards.evalevalai.com/help/general-public",
+      "content_type": "text/html; charset=utf-8",
+      "etag": "\"qhudbklbasvhf\"",
+      "last_modified": null,
+      "sha256": "e057e5c50a4484f35e7ea16a1c13514d6ef6d6eb622908bb67e91a762f076d71",
+      "bytes": 40873,
+      "raw_file": "claims_freeze/raw/evaluation_cards_help_general_public.html",
+      "error": null
+    },
+    {
+      "name": "every_eval_ever_project",
+      "requested_url": "https://evalevalai.com/projects/every-eval-ever/",
+      "status": 200,
+      "final_url": "https://evalevalai.com/projects/every-eval-ever/",
+      "content_type": "text/html; charset=utf-8",
+      "etag": null,
+      "last_modified": "Fri, 31 Jul 2026 11:44:26 GMT",
+      "sha256": "0783f86862a62c4c0bd2e4ac202b5755f3636e3545e9a6154f59316a4e2a3454",
+      "bytes": 95853,
+      "raw_file": "claims_freeze/raw/every_eval_ever_project.html",
+      "error": null
+    }
+  ]
+}

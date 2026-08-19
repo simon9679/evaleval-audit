@@ -1,0 +1,48 @@
+{
+  "backend_commit": "9c16ab3f93a4ba02a5b44590858bbdf824ed09d3",
+  "comparability_groups_scanned": 93495,
+  "competing_predictions": {
+    "P1": "row_unit_mismatches = 0; group_unit_set_mismatches = 0; pointer_or_index_errors = 0",
+    "P2": "row_unit_mismatches >= 1 or group_unit_set_mismatches >= 1 on otherwise valid traces"
+  },
+  "evaluation_id_mismatches": 0,
+  "evidence": {
+    "group_mismatches_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "group_trace_sha256": "8df4b702cd709285ecd58058f468bcd7069c3ae3fd628ad625793683aa99d1df",
+    "input_fact_sha256": "e9edc3bf8c6c07f968ff4fb556ceb75a55219ca11076a0130cde419fab5f7196",
+    "integrity_errors_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "row_mismatches_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "row_trace_sha256": "f7567701c3492d14ff178822e667f567c939a10bc0b93fbb42a4db91eae1fa11"
+  },
+  "fact_rows_scanned": 209382,
+  "group_unit_set_matches": 1234,
+  "group_unit_set_mismatches": 0,
+  "integrity_error_records": 0,
+  "limitations": [
+    "T06 verifies the frozen EEE datastore, not the original publisher or leaderboard.",
+    "Source-record agreement does not establish semantic correctness of the unit.",
+    "T06 does not test whether EvalEval should normalize or reject mixed-unit groups.",
+    "T06 does not test final comparability boolean impact; T04 tested that separately."
+  ],
+  "mixed_unit_groups": 1234,
+  "mixed_unit_rows": 28196,
+  "pointer_or_index_errors": 0,
+  "row_traces_complete": 28196,
+  "row_unit_matches": 28196,
+  "row_unit_mismatches": 0,
+  "source_files_opened": 4278,
+  "source_files_referenced": 4278,
+  "source_unit_patterns": {
+    "'percent'": 2866,
+    "'points'": 1299,
+    "'proportion'": 1054,
+    "'score'": 326,
+    "'seconds'": 7096,
+    "'tokens_per_second'": 3543,
+    "'usd'": 15,
+    "'usd_per_1m_tokens'": 10629,
+    "'words'": 1368
+  },
+  "test_id": "T06_eee_source_unit_trace",
+  "verdict": "CONFIRMED"
+}

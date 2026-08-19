@@ -1,0 +1,12 @@
+{
+  "backend_commit": "9c16ab3f93a4ba02a5b44590858bbdf824ed09d3",
+  "files": {
+    "src/eval_card_backend/signals/reproducibility.py": "8132b54a6499305d2b5f3d199a73c7425085cebdde64e8542c8fea14492105a2",
+    "src/eval_card_backend/signals/completeness.py": "443a8ad267bd950b0fc4f1cc56b2a91aceb800745589f9bc1f1a9c456a628fa0",
+    "src/eval_card_backend/signals/comparability.py": "f48752aba0bf5be0026cb1c9895f92816cc62621d1e80268c60f9c47183b19f1",
+    "src/eval_card_backend/signals/setup.py": "d751fe0c6d72a83a77d4ee05590b90c5d72d3fa40fb2bd32c754566dd3120bdc",
+    "src/eval_card_backend/canonicalise/thresholds.py": "7fba2e99615400b6a6834be676c43e8953fb5ed1a4d034598338cceb5beb6166",
+    "src/eval_card_backend/canonicalise/stages.py": "cf91b6f5e3be24ac7c3212564907aafd6ef57472c654cc87cab8430acf46b769",
+    "src/eval_card_backend/registry/completeness_fields.json": "9cd365b24bfd098942574f764e5ccc64705f17376ad3f8e17fd7e7f39a93063d"
+  }
+}

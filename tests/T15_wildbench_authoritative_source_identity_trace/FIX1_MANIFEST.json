@@ -1,0 +1,26 @@
+{
+  "files": [
+    {
+      "bytes": 1730,
+      "path": "tests/T15_wildbench_authoritative_source_identity_trace/HARNESS_FIX_01.md",
+      "sha256": "54c57c8316451374b6616418d8d798b9122b9cc42ffa83fbd06e5031bda57b68"
+    },
+    {
+      "bytes": 246,
+      "path": "tests/T15_wildbench_authoritative_source_identity_trace/analyze_fix1.py",
+      "sha256": "d9818719b01e9fa78b10fb05016ac24c6d7cb908bb5713ec5ab774e599d2ec70"
+    },
+    {
+      "bytes": 314,
+      "path": "tests/T15_wildbench_authoritative_source_identity_trace/preflight_fix1.py",
+      "sha256": "73251672b301e85cd2bbca2a3431ee00d4c3d7eb73049b6da33de88ad2b142ad"
+    },
+    {
+      "bytes": 778,
+      "path": "tests/T15_wildbench_authoritative_source_identity_trace/verify_fix1.py",
+      "sha256": "22e53a092ae893cb15de7ff963f381612a2c030dd79efdc4b505dbdc1306e704"
+    }
+  ],
+  "fix_id": "HARNESS_FIX_01",
+  "test_id": "T15_wildbench_authoritative_source_identity_trace"
+}

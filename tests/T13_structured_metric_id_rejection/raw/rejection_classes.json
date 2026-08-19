@@ -1,0 +1,179 @@
+{
+  "catch_all_metric_ids": [
+    "mean-score",
+    "overall",
+    "score"
+  ],
+  "rejection_class_by_source_metric_id": {
+    "cocoabench.overall.accuracy_percent": [
+      {
+        "classification": "rejected_catch_all_only",
+        "direct_result": null,
+        "source_config": "cocoabench"
+      }
+    ],
+    "cocoabench.overall.avg_time_seconds": [
+      {
+        "classification": "rejected_catch_all_only",
+        "direct_result": null,
+        "source_config": "cocoabench"
+      }
+    ],
+    "openeval.wildbench.claude-score": [
+      {
+        "classification": "rejected_no_hits",
+        "direct_result": null,
+        "source_config": "openeval"
+      }
+    ],
+    "openeval.wildbench.gpt-score": [
+      {
+        "classification": "rejected_no_hits",
+        "direct_result": null,
+        "source_config": "openeval"
+      }
+    ],
+    "openeval.wildbench.llama-score": [
+      {
+        "classification": "rejected_no_hits",
+        "direct_result": null,
+        "source_config": "openeval"
+      }
+    ],
+    "openeval.wildbench.wildbench-score-rescaled": [
+      {
+        "classification": "rejected_no_hits",
+        "direct_result": null,
+        "source_config": "openeval"
+      }
+    ]
+  },
+  "segment_hits_by_source_metric_id": {
+    "cocoabench.overall.accuracy_percent": [
+      {
+        "segment_results": [
+          {
+            "canonical_id": "overall",
+            "confidence": 1.0,
+            "is_catch_all": true,
+            "segment": "overall",
+            "strategy": "exact"
+          },
+          {
+            "canonical_id": null,
+            "confidence": 0.0,
+            "is_catch_all": false,
+            "segment": "accuracy_percent",
+            "strategy": "no_match"
+          }
+        ],
+        "source_config": "cocoabench"
+      }
+    ],
+    "cocoabench.overall.avg_time_seconds": [
+      {
+        "segment_results": [
+          {
+            "canonical_id": "overall",
+            "confidence": 1.0,
+            "is_catch_all": true,
+            "segment": "overall",
+            "strategy": "exact"
+          },
+          {
+            "canonical_id": null,
+            "confidence": 0.0,
+            "is_catch_all": false,
+            "segment": "avg_time_seconds",
+            "strategy": "no_match"
+          }
+        ],
+        "source_config": "cocoabench"
+      }
+    ],
+    "openeval.wildbench.claude-score": [
+      {
+        "segment_results": [
+          {
+            "canonical_id": null,
+            "confidence": 0.0,
+            "is_catch_all": false,
+            "segment": "wildbench",
+            "strategy": "no_match"
+          },
+          {
+            "canonical_id": null,
+            "confidence": 0.0,
+            "is_catch_all": false,
+            "segment": "claude-score",
+            "strategy": "no_match"
+          }
+        ],
+        "source_config": "openeval"
+      }
+    ],
+    "openeval.wildbench.gpt-score": [
+      {
+        "segment_results": [
+          {
+            "canonical_id": null,
+            "confidence": 0.0,
+            "is_catch_all": false,
+            "segment": "wildbench",
+            "strategy": "no_match"
+          },
+          {
+            "canonical_id": null,
+            "confidence": 0.0,
+            "is_catch_all": false,
+            "segment": "gpt-score",
+            "strategy": "no_match"
+          }
+        ],
+        "source_config": "openeval"
+      }
+    ],
+    "openeval.wildbench.llama-score": [
+      {
+        "segment_results": [
+          {
+            "canonical_id": null,
+            "confidence": 0.0,
+            "is_catch_all": false,
+            "segment": "wildbench",
+            "strategy": "no_match"
+          },
+          {
+            "canonical_id": null,
+            "confidence": 0.0,
+            "is_catch_all": false,
+            "segment": "llama-score",
+            "strategy": "no_match"
+          }
+        ],
+        "source_config": "openeval"
+      }
+    ],
+    "openeval.wildbench.wildbench-score-rescaled": [
+      {
+        "segment_results": [
+          {
+            "canonical_id": null,
+            "confidence": 0.0,
+            "is_catch_all": false,
+            "segment": "wildbench",
+            "strategy": "no_match"
+          },
+          {
+            "canonical_id": null,
+            "confidence": 0.0,
+            "is_catch_all": false,
+            "segment": "wildbench-score-rescaled",
+            "strategy": "no_match"
+          }
+        ],
+        "source_config": "openeval"
+      }
+    ]
+  }
+}

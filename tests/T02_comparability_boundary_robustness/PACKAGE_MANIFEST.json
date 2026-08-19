@@ -1,0 +1,30 @@
+{
+  "files": {
+    "PREREGISTRATION.md": {
+      "bytes": 2199,
+      "sha256": "8add27d64149cae0dec1aebcdda9a1aac6b58b124f8aa5c4163c9d0faaa9296f"
+    },
+    "README.md": {
+      "bytes": 440,
+      "sha256": "4af64c752c5b027a393ed2a5516946ae229875bba1d898a1dfb2f3f3e8b6404f"
+    },
+    "TEST_RATIONALE.md": {
+      "bytes": 3949,
+      "sha256": "b9aa5c575c9cd9844d75e405a6cf685ab7a01cb5e12384cfc5f98efdfb8aa2cb"
+    },
+    "fixtures.json": {
+      "bytes": 3825,
+      "sha256": "35cff9e922efdd9312b4fbaaf2a9b01b93e2c21b955845ec2ae0103cd5abc5b9"
+    },
+    "preflight.py": {
+      "bytes": 1360,
+      "sha256": "5082175ab30a936af123ffcffd86987462fdefc3496970791adcca3860cba97e"
+    },
+    "run_test.py": {
+      "bytes": 6403,
+      "sha256": "b842cc3029ac6efd737a2ddd2cfea401bbe8e914094f1fa824f5784d3fd59973"
+    }
+  },
+  "schema_version": 1,
+  "test_id": "T02_comparability_boundary_robustness"
+}

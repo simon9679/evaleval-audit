@@ -1,0 +1,20 @@
+{
+  "files": [
+    {
+      "bytes": 1607,
+      "path": "tests/T08_within_unit_variant_counterfactual/POSTRUN_METHOD_NOTE.md",
+      "sha256": "e122942cd295b2d9c6995fbbe87a1cfc116a7a9c4e1a93b638136018f225743e"
+    },
+    {
+      "bytes": 1502,
+      "path": "tests/T08_within_unit_variant_counterfactual/results/POSTRUN_DECISION.md",
+      "sha256": "3dbfbe95225f718fa3fbc424b1214450d228fe4c25e7995924ed41b5d6915868"
+    },
+    {
+      "bytes": 12602,
+      "path": "tests/T08_within_unit_variant_counterfactual/results/RESULT_ANALYSIS.md",
+      "sha256": "e78261ac61b1afd79926c918a7e2000b9a960a4bb41f93cd45bcb062a6ea6024"
+    }
+  ],
+  "test_id": "T08_within_unit_variant_counterfactual"
+}

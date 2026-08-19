@@ -1,0 +1,58 @@
+{
+  "actual_mixed_unit_groups": 1234,
+  "comparability_groups_scanned": 93495,
+  "competing_predictions": {
+    "P1": "full_resolved_canonical_convergence_groups = 0",
+    "P2": "full_resolved_canonical_convergence_groups >= 1"
+  },
+  "evidence": {
+    "full_canonical_convergence_groups_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "full_canonical_convergence_rows_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "input_fact_sha256": "e9edc3bf8c6c07f968ff4fb556ceb75a55219ca11076a0130cde419fab5f7196",
+    "integrity_errors_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "mixed_group_attribution_sha256": "7514906daeaf939f1fc852a08169776b307de27d97d20adfb107fe280215e6bb"
+  },
+  "fact_rows_scanned": 209382,
+  "full_resolved_canonical_convergence_groups": 0,
+  "groups_with_unresolved_metric_rows": 0,
+  "integrity_error_records": 0,
+  "limitations": [
+    "Structural canonical convergence is not semantic error.",
+    "T05 does not decide whether converged raw labels are synonyms or distinct estimands.",
+    "T05 does not decide whether upstream metadata or EvalEval is causally responsible for any semantic mismatch.",
+    "T05 is snapshot-bound to the frozen T03 Stage F artifact."
+  ],
+  "metric_unit_provenance_patterns": {
+    "eee_record": 1234
+  },
+  "multi_metric_id_groups": 0,
+  "multi_raw_metric_groups": 0,
+  "multi_resolution_strategy_groups": 0,
+  "multi_unit_provenance_groups": 0,
+  "partial_or_mixed_resolution_convergence_groups": 0,
+  "resolution_strategy_patterns": {
+    "exact": 1234
+  },
+  "single_metric_id_groups": 1234,
+  "single_raw_metric_groups": 1234,
+  "source_config_group_counts": {
+    "artificial-analysis-llms": 474,
+    "cocoabench": 8,
+    "llm-stats": 151,
+    "openeval": 286,
+    "vectara-hallucination-leaderboard": 315
+  },
+  "test_id": "T05_metric_unit_provenance_decomposition",
+  "unit_patterns": {
+    "percent | points": 7,
+    "percent | seconds": 8,
+    "percent | words": 315,
+    "points | proportion": 183,
+    "points | proportion | score": 78,
+    "points | score": 88,
+    "points | usd": 4,
+    "proportion | score": 77,
+    "seconds | tokens_per_second | usd_per_1m_tokens": 474
+  },
+  "verdict": "REFUTED"
+}

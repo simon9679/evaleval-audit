@@ -1,0 +1,26 @@
+{
+  "files": {
+    "PREREGISTRATION.md": {
+      "bytes": 4984,
+      "sha256": "77f1289c75c81bdedd4a5a1a56994d08036dbcf06e19d4c4a67350d95b008dbf"
+    },
+    "README.md": {
+      "bytes": 536,
+      "sha256": "6636022fe44865dab10a70e45f90f1f30f754e0b3786194741cc08b48607f597"
+    },
+    "TEST_RATIONALE.md": {
+      "bytes": 6109,
+      "sha256": "de25cb898945ac98c105667fc170de39b5b50afda37a0692d2b9acdd0d09f85a"
+    },
+    "preflight.py": {
+      "bytes": 1694,
+      "sha256": "d57fbc735285658152f7b5a4456d4ce5829584624bf8c6aad0bcb1d72fd4bdef"
+    },
+    "run_test.py": {
+      "bytes": 18900,
+      "sha256": "052d4b1454905d5aaba830da625ecd56b80f6f9329117f42e4f7a062fe758486"
+    }
+  },
+  "schema_version": 1,
+  "test_id": "T01_signal_calibration"
+}

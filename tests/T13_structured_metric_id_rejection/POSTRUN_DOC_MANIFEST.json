@@ -1,0 +1,20 @@
+{
+  "files": [
+    {
+      "bytes": 1032,
+      "path": "tests/T13_structured_metric_id_rejection/POSTRUN_METHOD_NOTE.md",
+      "sha256": "c164ff7a634d41fd0f50e10e27e0c314728d9833a57ff20f44b1017a300962ff"
+    },
+    {
+      "bytes": 826,
+      "path": "tests/T13_structured_metric_id_rejection/results/POSTRUN_DECISION.md",
+      "sha256": "dc0b44e491b050cebbcbead433c12e470740f5b4c0c08d9e0b944032490a17ba"
+    },
+    {
+      "bytes": 6969,
+      "path": "tests/T13_structured_metric_id_rejection/results/RESULT_ANALYSIS.md",
+      "sha256": "77c8b2f8b89de1b5298684564e3a7bd082509e119d4d122645e429658f7749a3"
+    }
+  ],
+  "test_id": "T13_structured_metric_id_rejection"
+}

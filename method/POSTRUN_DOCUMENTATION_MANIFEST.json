@@ -1,0 +1,42 @@
+{
+  "files": [
+    {
+      "bytes": 3664,
+      "path": "tests/T01_signal_calibration/SOURCE_ATTRIBUTION.md",
+      "sha256": "6fedae19b98ed09f7c76eb067d50056fe0a4d492b8ab1637fc447a801db751ae"
+    },
+    {
+      "bytes": 2179,
+      "path": "tests/T01_signal_calibration/results/RESULT_ANALYSIS.md",
+      "sha256": "19b5d8bc1ea7f67c2afa8d4f8e253a47973daf490e1ab0701ea57893836788f7"
+    },
+    {
+      "bytes": 3005,
+      "path": "tests/T02_comparability_boundary_robustness/SOURCE_ATTRIBUTION.md",
+      "sha256": "98a7209226301009a21c3b1ec3e0224e564815d02514e7f5e9f705a77e0f2b69"
+    },
+    {
+      "bytes": 2035,
+      "path": "tests/T02_comparability_boundary_robustness/results/RESULT_ANALYSIS.md",
+      "sha256": "ebf4b81869299317ddfe518629572a05d2aab11da0d3adea5b104247960edd0a"
+    },
+    {
+      "bytes": 3245,
+      "path": "tests/T03_corpus_boundary_impact/SOURCE_ATTRIBUTION.md",
+      "sha256": "101c1a86a905ecd9a026ea26bc1d9b67e4cb69e7d2bfcccf12dbd76aa8c3a07d"
+    },
+    {
+      "bytes": 4070,
+      "path": "tests/T03_corpus_boundary_impact/results/RESULT_ANALYSIS.md",
+      "sha256": "2ed8a7b2ce6b73f2445c7b0dcc1d3d62c1bba940a478214c9ea82be660232398"
+    },
+    {
+      "bytes": 4890,
+      "path": "tools/verify_completed_tests.py",
+      "sha256": "14f22af46202555128ecd6642d52a9e8237ad2e7af65dfb8e166069f659b5fb7"
+    }
+  ],
+  "manifest_type": "post-run documentation patch",
+  "note": "These files were created after the completed tests and do not modify frozen preregistration, rationale, fixtures, test code, or verdict criteria.",
+  "scope": "T01-T03 source attribution, result analysis, and local artifact verification"
+}

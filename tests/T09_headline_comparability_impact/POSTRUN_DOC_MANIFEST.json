@@ -1,0 +1,20 @@
+{
+  "files": [
+    {
+      "bytes": 1303,
+      "path": "tests/T09_headline_comparability_impact/POSTRUN_METHOD_NOTE.md",
+      "sha256": "84d2df11e547cf65113f54cbc3b7a95ac06c1264ebd5758bbb43a327340b7fca"
+    },
+    {
+      "bytes": 1168,
+      "path": "tests/T09_headline_comparability_impact/results/POSTRUN_DECISION.md",
+      "sha256": "f2e9ac5ebac167a7b36c400b2a68008ce986ead3173e498cfa18dc7f099e0609"
+    },
+    {
+      "bytes": 8367,
+      "path": "tests/T09_headline_comparability_impact/results/RESULT_ANALYSIS.md",
+      "sha256": "b13b78adf5a7a20f5c30e8ef3c452b442611ee473337acb0ada1a936122ec69c"
+    }
+  ],
+  "test_id": "T09_headline_comparability_impact"
+}

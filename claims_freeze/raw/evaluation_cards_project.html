@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluation Cards | EvalEval Coalition</title>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://evalevalai.com/projects/eval-cards/">
+    <meta property="og:title" content="Evaluation Cards | EvalEval Coalition">
+    <meta property="og:description" content="A live interpretive layer over AI evaluation reporting — surfacing reproducibility, completeness, provenance, and comparability across 100,000+ reported evaluation results.">
+    <meta property="og:image" content="https://evalevalai.com/assets/img/blogs/evalcards_launch_banner.webp">
+    <meta property="og:image:alt" content="Evaluation Cards Launch Banner">
+    <meta property="og:site_name" content="EvalEval Coalition">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://evalevalai.com/projects/eval-cards/">
+    <meta name="twitter:title" content="Evaluation Cards | EvalEval Coalition">
+    <meta name="twitter:description" content="A live interpretive layer over AI evaluation reporting — surfacing reproducibility, completeness, provenance, and comparability across 100,000+ reported evaluation results.">
+    <meta name="twitter:image" content="https://evalevalai.com/assets/img/blogs/evalcards_launch_banner.webp">
+
+    <!-- Pinterest -->
+    <meta name="pinterest-rich-pin" content="true">
+
+    <link rel="icon" type="image/png" href="/assets/img/favicon.png">
+
+    <!-- Set theme before paint to avoid flash -->
+    <script>
+        (function() {
+            var saved = localStorage.getItem('theme');
+            var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (saved === 'dark' || (!saved && prefersDark)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        mono: ['IBM Plex Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;600;700&display=swap');
+
+        /* ============================================================
+           EvalEval Coalition — Design Tokens
+           Source: EvalEval Design System (colors_and_type.css)
+           ============================================================ */
+        :root {
+            /* surfaces — warm off-white stack */
+            --bg:           #ffffff;
+            --bg-warm:      #faf9f6;
+            --bg-subtle:    #f5f4f1;
+            --bg-surface:   #eeece8;
+            /* foreground — warm near-black, never pure black */
+            --fg:           #1a1916;
+            --fg-muted:     #5c5a55;
+            --fg-subtle:    #9c9a95;
+            /* borders — 1px hairlines */
+            --border:        #e8e6e1;
+            --border-strong: #c8c6c0;
+            /* accent — the one brand color (sky blue) */
+            --accent:       #5bacd1;
+            --accent-hover: #4a9bb8;
+            --accent-fg:    #ffffff;
+            /* chrome */
+            --nav-bg:      rgba(255, 255, 254, 0.95);
+            --shadow-card: 0 1px 2px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.07);
+            /* type */
+            --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+            --fs-xs:     0.75rem;
+            --tracking-widest: 0.15em;
+            /* categorical region tints (signal colors) */
+            --r-repro: #5bacd1;   /* reproducibility — brand blue */
+            --r-comp:  #8a7aa8;   /* completeness — muted violet */
+            --r-prov:  #5b9c7d;   /* provenance — muted green */
+            --r-compa: #c08a3e;   /* comparability — warm amber */
+            --r-alert: #c25b4e;   /* findings — muted red */
+        }
+        [data-theme="dark"] {
+            --bg:            #111110;
+            --bg-warm:       #141412;
+            --bg-subtle:     #1a1916;
+            --bg-surface:    #252420;
+            --fg:            #f0ede8;
+            --fg-muted:      #a09d97;
+            --fg-subtle:     #5c5a55;
+            --border:        #2e2c28;
+            --border-strong: #484540;
+            --accent:        #7dc3e0;
+            --accent-hover:  #9dd3ec;
+            --accent-fg:     #111110;
+            --nav-bg:        rgba(17, 17, 16, 0.96);
+            --shadow-card:   0 1px 2px rgba(0,0,0,0.3), 0 4px 16px rgba(0,0,0,0.5);
+            --r-repro: #7dc3e0;
+            --r-comp:  #ab9bca;
+            --r-prov:  #7cbf9e;
+            --r-compa: #d6a85f;
+            --r-alert: #e08a7e;
+        }
+
+        html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+        body {
+            background-color: var(--bg);
+            color: var(--fg);
+            font-family: var(--font-sans);
+        }
+        @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+        ::selection { background-color: var(--accent); color: var(--accent-fg); }
+
+        /* kicker — ubiquitous mono uppercase label above section headings */
+        .kicker {
+            font-family: var(--font-mono);
+            font-size: var(--fs-xs);
+            letter-spacing: var(--tracking-widest);
+            text-transform: uppercase;
+            color: var(--fg-subtle);
+            font-weight: 400;
+        }
+
+        /* nav underline animation */
+        .nav-link { position: relative; color: var(--fg); font-weight: 500; transition: color .2s ease; }
+        .nav-link::after {
+            content: ''; position: absolute; left: 0; bottom: -4px;
+            width: 0; height: 1.5px; background: var(--accent); transition: width .3s ease;
+        }
+        .nav-link:hover::after { width: 100%; }
+        .nav-link:hover { color: var(--accent); }
+
+        /* buttons — solid fg that turns brand-blue on hover (signature interaction) */
+        .btn-solid {
+            background: var(--fg); color: var(--bg); border: 1.5px solid var(--fg);
+            transition: background-color .2s ease, border-color .2s ease, color .2s ease;
+        }
+        .btn-solid:hover { background: var(--accent); border-color: var(--accent); color: var(--accent-fg); }
+        .btn-ghost {
+            background: transparent; color: var(--fg); border: 1.5px solid var(--border-strong);
+            transition: background-color .2s ease;
+        }
+        .btn-ghost:hover { background: var(--bg-surface); }
+
+        /* feature / record cards — border-only, shadow appears on hover */
+        .feat {
+            border: 1px solid var(--border); background: var(--bg);
+            transition: box-shadow .25s ease, border-color .25s ease, transform .25s ease;
+        }
+        .feat:hover { box-shadow: var(--shadow-card); border-color: var(--border-strong); }
+        .feat-lift:hover { transform: translateY(-2px); }
+        /* icon well inside a card — the recurring brand moment */
+        .well {
+            width: 44px; height: 44px; border-radius: 2px;
+            display: flex; align-items: center; justify-content: center;
+            background: var(--bg-surface); color: var(--accent);
+        }
+
+        /* stat cards */
+        .stat-card {
+            border: 1px solid var(--border); background: var(--bg-subtle);
+            transition: border-color .25s ease;
+        }
+        .stat-card:hover { border-color: var(--border-strong); }
+
+        /* live embed frame */
+        .evalcard-embed {
+            background: var(--bg); border: 1px solid var(--border);
+            box-shadow: 0 1px 2px rgba(0,0,0,.05), 0 18px 50px -20px rgba(0,0,0,.22);
+        }
+
+        /* theme toggle */
+        .theme-toggle {
+            width: 34px; height: 34px; border-radius: 50%;
+            border: 1.5px solid var(--border); background: var(--bg); color: var(--fg-muted);
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: all .2s ease;
+        }
+        .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+        .theme-toggle .icon-sun { display: none; }
+        [data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+        [data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+
+        /* footer logo + socials */
+        .eee-footer-logo svg { height: 44px; width: auto; display: block; }
+        .social-link {
+            border: 1px solid var(--border-strong); color: var(--fg-muted);
+            transition: all .2s ease;
+        }
+        .social-link:hover { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+
+        /* contributor panel stays a light matte so logos read in dark mode */
+        [data-theme="dark"] #contributors .matte {
+            background: #fafaf9; border-color: #e8e6e1;
+        }
+        [data-theme="dark"] #contributors .matte .c-dark { color: #1a1916 !important; }
+        [data-theme="dark"] #contributors .matte .c-muted { color: #5c5a55 !important; }
+        [data-theme="dark"] img[alt="Hugging Face"] { filter: grayscale(1) invert(1) opacity(0.75); }
+
+        /* ============================================================
+           THE EVALUATION-CARD ARTIFACT — the signature object
+           ============================================================ */
+        :root { --card-paper: #fffefb; }
+        [data-theme="dark"] { --card-paper: #1b1a17; }
+
+        .ec {
+            background: var(--card-paper);
+            border: 1px solid var(--border-strong);
+            box-shadow: 0 1px 2px rgba(0,0,0,.05), 0 18px 50px -20px rgba(0,0,0,.28);
+            width: 100%; overflow: hidden; border-radius: 4px;
+        }
+        .ec-head {
+            background: var(--fg); color: var(--bg);
+            padding: 18px 22px;
+            display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;
+        }
+        /* annotation accordion */
+        .anno { border: 1px solid var(--border); background: var(--bg); border-radius: 4px; cursor: pointer; transition: border-color .2s ease, box-shadow .2s ease; }
+        .anno:hover { border-color: var(--border-strong); }
+        .anno.active { border-color: var(--region-c, var(--accent)); box-shadow: var(--shadow-card); }
+        .anno-head { display: flex; align-items: center; gap: 14px; padding: 16px 18px; }
+        .anno-num { font-family: var(--font-mono); font-size: 12px; color: #fff; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex: none; }
+        .anno-body { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+        .anno.active .anno-body { max-height: 260px; }
+        .anno-body-inner { padding: 0 18px 18px 58px; color: var(--fg-muted); font-size: 14px; line-height: 1.6; }
+        .anno .chev { transition: transform .3s ease; color: var(--fg-subtle); }
+        .anno.active .chev { transform: rotate(180deg); }
+
+        /* paper-stack effect behind the hero card */
+        .paper-stack { position: absolute; inset: 0; transform: translate(10px, 10px); z-index: -1; border: 1px solid var(--border); background: var(--card-paper); border-radius: 4px; opacity: .55; }
+
+        /* embed view-tabs (anatomy) */
+        .embed-tab {
+            font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em;
+            padding: 4px 10px; border-radius: 2px; border: 1px solid transparent;
+            color: var(--fg-muted); background: transparent; cursor: pointer; transition: all .2s ease;
+        }
+        .embed-tab:hover { color: var(--fg); background: var(--bg-surface); }
+        .embed-tab.active { color: var(--bg); background: var(--fg); border-color: var(--fg); }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- ===================== NAV ===================== -->
+    <header class="fixed top-0 inset-x-0 z-50">
+        <div class="border-b" style="background: var(--nav-bg); border-color: var(--border); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <div class="flex items-center gap-2.5">
+                        <a href="/" class="hover:opacity-80 transition-opacity">
+                            <img src="/assets/img/logo-square.png" alt="EvalEval" class="w-8 h-8 rounded-md object-cover">
+                        </a>
+                        <a href="#" class="font-bold text-sm sm:text-xl tracking-tight whitespace-nowrap hover:opacity-80 transition-opacity" style="color: var(--fg);">Evaluation Cards</a>
+                        <span class="hidden sm:inline-block px-2 py-0.5 rounded-full text-xs font-mono" style="background: var(--bg-surface); color: var(--fg-muted);">beta</span>
+                    </div>
+                    <nav class="flex items-center gap-5 sm:gap-7 text-sm">
+                        <a href="#why" class="nav-link hidden md:inline">Why</a>
+                        <a href="#anatomy" class="nav-link hidden md:inline">Anatomy</a>
+                        <a href="#explore" class="nav-link hidden lg:inline">Explore</a>
+                        <a href="#findings" class="nav-link hidden lg:inline">Findings</a>
+                        <a href="https://arxiv.org/abs/2606.09809" target="_blank" rel="noopener" class="nav-link hidden md:inline-flex items-center gap-1.5">
+                            <i class="fas fa-file-lines"></i> Paper
+                        </a>
+                        <a href="https://evalcards.evalevalai.com/" target="_blank" rel="noopener" class="flex items-center gap-2 text-sm font-medium px-3 py-1.5 sm:px-4 sm:py-2 btn-solid" style="border-radius: 6px; font-family: var(--font-mono);">
+                            <i data-lucide="layout-grid" class="w-4 h-4"></i>
+                            <span class="hidden sm:inline">Launch App</span>
+                        </a>
+                        <button onclick="eeeToggleTheme()" class="theme-toggle" aria-label="Toggle dark mode">
+                            <svg class="icon-moon w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                            <svg class="icon-sun w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                        </button>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===================== HERO ===================== -->
+    <section class="pt-28 pb-16 sm:pt-36 sm:pb-20 px-4 sm:px-6 lg:px-8" style="background: var(--bg-warm);">
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+            <!-- left: copy -->
+            <div>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full mb-6" style="background: var(--bg); border: 1px solid var(--border);">
+                    <span class="w-2 h-2 rounded-full" style="background: var(--accent);"></span>
+                    <span class="kicker" style="color: var(--fg-muted);">Infrastructure @ EvalEval · Now in Beta</span>
+                </div>
+
+                <h1 class="font-bold tracking-tight mb-6" style="font-size: clamp(2.4rem, 5.5vw, 4rem); line-height: 1.05; letter-spacing: -0.03em; color: var(--fg);">
+                    A card for<br class="hidden sm:block">
+                    <span style="border-bottom: 4px solid var(--accent);">every evaluation.</span>
+                </h1>
+
+                <p class="text-lg mb-8 leading-relaxed" style="color: var(--fg-muted); max-width: 32rem;">
+                    A <strong style="color: var(--fg); font-weight: 600;">live interpretive layer</strong> over AI evaluation reporting. Evaluation Cards composes run data, benchmark metadata, and model metadata into one canonical record — and surfaces <strong style="color: var(--fg); font-weight: 600;">reproducibility, completeness, provenance, and comparability</strong> across the whole ecosystem.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <a href="https://evalcards.evalevalai.com/" target="_blank" rel="noopener" class="px-6 py-3 btn-solid font-semibold text-sm inline-flex items-center justify-center gap-2" style="font-family: var(--font-mono);">
+                        Explore Evaluation Cards
+                        <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                    </a>
+                    <a href="/infrastructure/2026/06/09/evaluation-cards-launch/" class="px-6 py-3 btn-ghost font-semibold text-sm inline-flex items-center justify-center gap-2" style="font-family: var(--font-mono);">
+                        Launch Announcement
+                        <i data-lucide="megaphone" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <div class="mt-6">
+                    <a href="https://arxiv.org/abs/2606.09809" target="_blank" rel="noopener" class="text-sm font-medium inline-flex items-center gap-1.5" style="color: var(--accent);">
+                        <i data-lucide="file-text" class="w-4 h-4"></i> Read the full paper (arXiv:2606.09809)
+                    </a>
+                </div>
+            </div>
+
+            <!-- right: a LIVE evaluation embed, framed as the signature card -->
+            <div class="relative">
+                <div class="ec" id="heroCard">
+                    <div class="ec-head">
+                        <div>
+                            <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; opacity: .7;">LIVE LEADERBOARD</div>
+                            <div class="font-bold mt-1" style="font-size: 18px;">MMLU · HELM</div>
+                            <div style="font-size: 12px; opacity: .65; margin-top: 2px;">Reported results across the model ecosystem</div>
+                        </div>
+                        <span class="inline-flex items-center gap-1.5" style="font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; opacity: .8;">
+                            <span class="w-1.5 h-1.5 rounded-full animate-pulse" style="background: #5b9c7d;"></span>LIVE
+                        </span>
+                    </div>
+                    <div style="background: var(--card-paper);">
+                        <iframe
+                            src="https://evalcards.evalevalai.com/embed/eval/leaderboard/helm-mmlu/mmlu"
+                            title="MMLU leaderboard — live Evaluation Card data"
+                            loading="lazy" frameborder="0" width="100%"
+                            style="display:block; height: 460px; border: 0;"></iframe>
+                    </div>
+                </div>
+                <div aria-hidden="true" class="paper-stack"></div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ===================== LIVE STATS BAND ===================== -->
+    <section class="pb-20 px-4 sm:px-6 lg:px-8" style="background: var(--bg-warm);">
+        <div class="max-w-5xl mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="stat-card p-6 text-center" style="border-radius: 4px;">
+                    <div class="text-3xl sm:text-4xl font-extrabold mb-1" style="color: var(--fg);">101,955</div>
+                    <div class="kicker">Reported results</div>
+                </div>
+                <div class="stat-card p-6 text-center" style="border-radius: 4px;">
+                    <div class="text-3xl sm:text-4xl font-extrabold mb-1" style="color: var(--fg);">638</div>
+                    <div class="kicker">Benchmarks</div>
+                </div>
+                <div class="stat-card p-6 text-center" style="border-radius: 4px;">
+                    <div class="text-3xl sm:text-4xl font-extrabold mb-1" style="color: var(--fg);">5,816</div>
+                    <div class="kicker">Models</div>
+                </div>
+                <div class="stat-card p-6 text-center" style="border-radius: 4px;">
+                    <div class="text-3xl sm:text-4xl font-extrabold mb-1" style="color: var(--fg);">31</div>
+                    <div class="kicker">Organizations</div>
+                </div>
+            </div>
+            <p class="text-center text-sm mt-5" style="color: var(--fg-subtle);">The largest and most comprehensive corpus of reported evaluation results yet assembled (as of 9 June 2026).</p>
+        </div>
+    </section>
+
+    <!-- ===================== WHY ===================== -->
+    <section id="why" class="py-24 px-4 sm:px-6 lg:px-8" style="background: var(--bg);">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 max-w-2xl mx-auto">
+                <span class="kicker">The Problem</span>
+                <h2 class="font-bold mt-3 mb-4" style="font-size: clamp(1.8rem,3.5vw,2.4rem); color: var(--fg); letter-spacing: -.01em;">Why Evaluation Cards?</h2>
+                <p class="text-lg leading-relaxed" style="color: var(--fg-muted);">
+                    Results are reported everywhere and in every way — but rarely with enough information to interpret them. Evaluation Cards fixes the reporting layer.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="feat p-8" style="border-radius: 4px;">
+                    <div class="well mb-6"><i data-lucide="shuffle" class="w-5 h-5"></i></div>
+                    <h3 class="font-bold mb-2" style="font-size: 18px; color: var(--fg);">Fragmented Reporting</h3>
+                    <p style="color: var(--fg-muted); font-size: 14px; line-height: 1.65;">
+                        Scores live in leaderboards, model cards, blog posts, papers, and posters. With no shared standard, there is no way to compare results across sources or identify what a report leaves out.
+                    </p>
+                </div>
+                <div class="feat p-8" style="border-radius: 4px;">
+                    <div class="well mb-6"><i data-lucide="git-compare" class="w-5 h-5"></i></div>
+                    <h3 class="font-bold mb-2" style="font-size: 18px; color: var(--fg);">Hidden Discrepancies</h3>
+                    <p style="color: var(--fg-muted); font-size: 14px; line-height: 1.65;">
+                        Three organizations report GPT-5's MATH-500 score anywhere from 84.7% to 98.9% — depending on configuration that is rarely fully reported. Evaluation Cards surfaces the discrepancies <em>and</em> why they exist.
+                    </p>
+                </div>
+                <div class="feat p-8" style="border-radius: 4px;">
+                    <div class="well mb-6"><i data-lucide="search-check" class="w-5 h-5"></i></div>
+                    <h3 class="font-bold mb-2" style="font-size: 18px; color: var(--fg);">From Scores to Claims</h3>
+                    <p style="color: var(--fg-muted); font-size: 14px; line-height: 1.65;">
+                        Evals are more than numbers — they are interpretive claims. By unflattening the model–benchmark–score triple, we recover the structure needed to answer deeper questions about what results actually mean.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== ANATOMY (interactive card + signals) ===================== -->
+    <section id="anatomy" class="py-24 px-4 sm:px-6 lg:px-8" style="background: var(--bg-subtle);">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-14 max-w-2xl mx-auto">
+                <span class="kicker">Anatomy of a Card</span>
+                <h2 class="font-bold mt-3 mb-4" style="font-size: clamp(1.8rem,3.5vw,2.4rem); color: var(--fg); letter-spacing: -.01em;">Four interpretive signals, one record.</h2>
+                <p class="text-lg leading-relaxed" style="color: var(--fg-muted);">
+                    Across 100,000+ records, every card computes four signals — grounded in our user interviews with evaluation stakeholders. Explore them beside a live view of the underlying data.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-10 lg:gap-14 items-start">
+                <!-- live embed (sticky) — real data the signals are computed over -->
+                <div class="lg:sticky lg:top-24">
+                    <div class="ec">
+                        <div class="ec-head">
+                            <div>
+                                <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; opacity: .7;">LIVE EVALUATION CARD</div>
+                                <div class="font-bold mt-1" style="font-size: 18px;">MATH-500 · Vals AI</div>
+                                <div style="font-size: 12px; opacity: .65; margin-top: 2px;">Reported scores across reporters &amp; setups</div>
+                            </div>
+                            <span class="inline-flex items-center gap-1.5" style="font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; opacity: .8;">
+                                <span class="w-1.5 h-1.5 rounded-full animate-pulse" style="background: #5b9c7d;"></span>LIVE
+                            </span>
+                        </div>
+                        <!-- view tabs -->
+                        <div class="flex items-center gap-1 px-3 py-2" style="border-bottom: 1px solid var(--border); background: var(--bg);">
+                            <button class="embed-tab active" data-src="https://evalcards.evalevalai.com/embed/eval/distribution/vals-ai/math-500">Distribution</button>
+                            <button class="embed-tab" data-src="https://evalcards.evalevalai.com/embed/eval/frontier/vals-ai/math-500">Frontier</button>
+                            <button class="embed-tab" data-src="https://evalcards.evalevalai.com/embed/eval/leaderboard/vals-ai/math-500">Leaderboard</button>
+                        </div>
+                        <div style="background: var(--card-paper);">
+                            <iframe id="anatomyEmbed"
+                                src="https://evalcards.evalevalai.com/embed/eval/distribution/vals-ai/math-500"
+                                title="MATH-500 — live Evaluation Card data"
+                                loading="lazy" frameborder="0" width="100%"
+                                style="display:block; height: 440px; border: 0;"></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- annotations -->
+                <div class="flex flex-col gap-3">
+                    <div class="anno active" data-region="repro" style="--region-c: var(--r-repro);">
+                        <div class="anno-head">
+                            <span class="anno-num" style="background: var(--r-repro);">01</span>
+                            <span class="font-bold flex-1" style="color: var(--fg);">Reproducibility</span>
+                            <i data-lucide="chevron-down" class="chev w-4 h-4"></i>
+                        </div>
+                        <div class="anno-body"><div class="anno-body-inner">Can someone else run this evaluation and get the same results? We check for the minimal set of fields — like temperature and max-tokens — needed to re-run it. 96.5% of records are missing at least one.</div></div>
+                    </div>
+                    <div class="anno" data-region="comp" style="--region-c: var(--r-comp);">
+                        <div class="anno-head">
+                            <span class="anno-num" style="background: var(--r-comp);">02</span>
+                            <span class="font-bold flex-1" style="color: var(--fg);">Completeness</span>
+                            <i data-lucide="chevron-down" class="chev w-4 h-4"></i>
+                        </div>
+                        <div class="anno-body"><div class="anno-body-inner">Is benchmark documentation sufficient to interpret scores? We assess construct definitions, validation, intended use, limitations, and provenance — median completeness today is just 10.7%.</div></div>
+                    </div>
+                    <div class="anno" data-region="prov" style="--region-c: var(--r-prov);">
+                        <div class="anno-head">
+                            <span class="anno-num" style="background: var(--r-prov);">03</span>
+                            <span class="font-bold flex-1" style="color: var(--fg);">Provenance</span>
+                            <i data-lucide="chevron-down" class="chev w-4 h-4"></i>
+                        </div>
+                        <div class="anno-body"><div class="anno-body-inner">Who reported the score, and who has reproduced it? We distinguish first-party from third-party reporters and track corroboration across sources — 98.2% of pairs are reported by only one party.</div></div>
+                    </div>
+                    <div class="anno" data-region="compa" style="--region-c: var(--r-compa);">
+                        <div class="anno-head">
+                            <span class="anno-num" style="background: var(--r-compa);">04</span>
+                            <span class="font-bold flex-1" style="color: var(--fg);">Comparability</span>
+                            <i data-lucide="chevron-down" class="chev w-4 h-4"></i>
+                        </div>
+                        <div class="anno-body"><div class="anno-body-inner">What is the measurement target, and how faithfully do different setups evaluate against it? We flag divergences that reflect configuration rather than capability — among multiply-reported pairs, scores diverge 51.9% of the time.</div></div>
+                    </div>
+
+                    <a href="https://evalcards.evalevalai.com/" target="_blank" rel="noopener" class="mt-2 inline-flex items-center gap-2 text-sm font-medium" style="color: var(--accent); font-family: var(--font-mono);">
+                        See a live card <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== ONE CANONICAL RECORD ===================== -->
+    <section class="py-24 px-4 sm:px-6 lg:px-8" style="background: var(--bg);">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 max-w-2xl mx-auto">
+                <span class="kicker">How it composes</span>
+                <h2 class="font-bold mt-3 mb-4" style="font-size: clamp(1.8rem,3.5vw,2.4rem); color: var(--fg); letter-spacing: -.01em;">One Canonical Record</h2>
+                <p class="text-lg leading-relaxed" style="color: var(--fg-muted);">
+                    Evaluation Cards composes the raw data the ecosystem already produces — at scale — into a single, interpretable evaluation record.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="feat p-8" style="border-radius: 4px;">
+                    <div class="well mb-4" style="width: 40px; height: 40px;"><i data-lucide="play" class="w-5 h-5"></i></div>
+                    <h3 class="text-lg font-bold mb-2" style="color: var(--fg);">Run Data</h3>
+                    <p style="color: var(--fg-muted); font-size: 14px; line-height: 1.65;">
+                        Who ran the eval, on what model, with what generation settings — sourced from <a href="/projects/every-eval-ever/" style="color: var(--accent);" class="underline underline-offset-2">Every Eval Ever (EEE)</a>, the Coalition's standardized schema and community repository for eval run data.
+                    </p>
+                </div>
+                <div class="feat p-8" style="border-radius: 4px;">
+                    <div class="well mb-4" style="width: 40px; height: 40px;"><i data-lucide="book-open-text" class="w-5 h-5"></i></div>
+                    <h3 class="text-lg font-bold mb-2" style="color: var(--fg);">Benchmark Metadata</h3>
+                    <p style="color: var(--fg-muted); font-size: 14px; line-height: 1.65;">
+                        The benchmark's measurement target, scoring, provenance, and known risks — drawn from <a href="https://research.ibm.com/publications/auto-benchmarkcard-automated-synthesis-of-benchmark-documentation" target="_blank" rel="noopener" style="color: var(--accent);" class="underline underline-offset-2">IBM AutoBenchmarkCards</a>, which extract documentation from papers and system cards.
+                    </p>
+                </div>
+                <div class="feat p-8" style="border-radius: 4px;">
+                    <div class="well mb-4" style="width: 40px; height: 40px;"><i data-lucide="box" class="w-5 h-5"></i></div>
+                    <h3 class="text-lg font-bold mb-2" style="color: var(--fg);">Model Metadata</h3>
+                    <p style="color: var(--fg-muted); font-size: 14px; line-height: 1.65;">
+                        Release date, parameter count, and weight accessibility — pulled automatically from community catalogs (hub-stats, models.dev) covering both open and API-hosted models.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Live Embed -->
+            <div class="mt-16 max-w-5xl mx-auto">
+                <div class="flex items-center justify-center gap-2 mb-4 text-sm" style="color: var(--fg-subtle);">
+                    <i data-lucide="mouse-pointer-click" class="w-4 h-4"></i>
+                    <span>A live Evaluation Card — toggle reader modes at the top left</span>
+                </div>
+                <div class="evalcard-embed w-full overflow-hidden" style="border-radius: 4px;">
+                    <iframe
+                        src="https://evalcards.evalevalai.com/evals/helm-capabilities/gpqa"
+                        title="GPQA Evaluation Card"
+                        loading="lazy"
+                        frameborder="0"
+                        width="100%"
+                        style="height: 760px;">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== TWO AXES (by benchmark / by model) + HISTOGRAMS ===================== -->
+    <section id="explore" class="py-24 px-4 sm:px-6 lg:px-8" style="background: var(--bg-warm);">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-14 max-w-2xl mx-auto">
+                <span class="kicker">Two ways in</span>
+                <h2 class="font-bold mt-3 mb-4" style="font-size: clamp(1.8rem,3.5vw,2.4rem); color: var(--fg); letter-spacing: -.01em;">Read it by benchmark, or by model.</h2>
+                <p class="text-lg leading-relaxed" style="color: var(--fg-muted);">
+                    Every score is one cell in a model × benchmark matrix. Read down a column — one benchmark, every model — or across a row — one model, every benchmark it has reported.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-6 lg:gap-8 mb-8">
+                <!-- by benchmark -->
+                <div class="relative">
+                    <div class="ec">
+                        <div class="ec-head">
+                            <div>
+                                <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; opacity: .7;">BY BENCHMARK</div>
+                                <div class="font-bold mt-1" style="font-size: 18px;">GPQA · OpenEval</div>
+                                <div style="font-size: 12px; opacity: .65; margin-top: 2px;">Every model that reported a score on one benchmark</div>
+                            </div>
+                            <span class="inline-flex items-center gap-1.5" style="font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; opacity: .8;">
+                                <span class="w-1.5 h-1.5 rounded-full animate-pulse" style="background: #5b9c7d;"></span>LIVE
+                            </span>
+                        </div>
+                        <div class="flex items-center gap-1 px-3 py-2" style="border-bottom: 1px solid var(--border); background: var(--bg);">
+                            <button class="embed-tab active" data-src="https://evalcards.evalevalai.com/embed/eval/leaderboard/openeval/gpqa">Leaderboard</button>
+                            <button class="embed-tab" data-src="https://evalcards.evalevalai.com/embed/eval/distribution/openeval/gpqa">Distribution</button>
+                        </div>
+                        <div style="background: var(--card-paper);">
+                            <iframe src="https://evalcards.evalevalai.com/embed/eval/leaderboard/openeval/gpqa"
+                                title="GPQA — by benchmark" loading="lazy" frameborder="0" width="100%"
+                                style="display:block; height: 460px; border: 0;"></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- by model -->
+                <div class="relative">
+                    <div class="ec">
+                        <div class="ec-head">
+                            <div>
+                                <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; opacity: .7;">BY MODEL</div>
+                                <div class="font-bold mt-1" style="font-size: 18px;">GPT-4o · OpenAI</div>
+                                <div style="font-size: 12px; opacity: .65; margin-top: 2px;">Every benchmark a single model has reported</div>
+                            </div>
+                            <span class="inline-flex items-center gap-1.5" style="font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; opacity: .8;">
+                                <span class="w-1.5 h-1.5 rounded-full animate-pulse" style="background: #5b9c7d;"></span>LIVE
+                            </span>
+                        </div>
+                        <div style="background: var(--card-paper);">
+                            <iframe src="https://evalcards.evalevalai.com/embed/model/reported-metrics/openai/gpt-4o"
+                                title="GPT-4o — reported metrics by model" loading="lazy" frameborder="0" width="100%"
+                                style="display:block; height: 506px; border: 0;"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- histogram drill-down -->
+            <div class="relative max-w-3xl mx-auto">
+                <div class="ec">
+                    <div class="ec-head">
+                        <div>
+                            <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; opacity: .7;">HISTOGRAM · ONE MODEL ON ONE BENCHMARK</div>
+                            <div class="font-bold mt-1" style="font-size: 18px;">Where GPT-4o lands</div>
+                            <div style="font-size: 12px; opacity: .65; margin-top: 2px;">A model's score against the full distribution of reported results</div>
+                        </div>
+                        <span class="inline-flex items-center gap-1.5" style="font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; opacity: .8;">
+                            <span class="w-1.5 h-1.5 rounded-full animate-pulse" style="background: #5b9c7d;"></span>LIVE
+                        </span>
+                    </div>
+                    <div class="flex items-center gap-1 px-3 py-2" style="border-bottom: 1px solid var(--border); background: var(--bg);">
+                        <button class="embed-tab active" data-src="https://evalcards.evalevalai.com/embed/eval/histogram/helm-mmlu/mmlu?model=openai/gpt-4o">MMLU</button>
+                        <button class="embed-tab" data-src="https://evalcards.evalevalai.com/embed/eval/histogram/vals-ai/math-500?model=openai/gpt-4o">MATH-500</button>
+                        <button class="embed-tab" data-src="https://evalcards.evalevalai.com/embed/eval/histogram/mmlu-pro/mmlu-pro?model=openai/gpt-4o">MMLU-Pro</button>
+                    </div>
+                    <div style="background: var(--card-paper);">
+                        <iframe src="https://evalcards.evalevalai.com/embed/eval/histogram/helm-mmlu/mmlu?model=openai/gpt-4o"
+                            title="GPT-4o histogram across benchmarks" loading="lazy" frameborder="0" width="100%"
+                            style="display:block; height: 480px; border: 0;"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-center text-sm mt-8" style="color: var(--fg-subtle);">
+                Browse the whole corpus —
+                <a href="https://evalcards.evalevalai.com/evals" target="_blank" rel="noopener" style="color: var(--accent);" class="underline underline-offset-2">by evaluation</a>
+                or
+                <a href="https://evalcards.evalevalai.com/models" target="_blank" rel="noopener" style="color: var(--accent);" class="underline underline-offset-2">by model</a>.
+            </p>
+        </div>
+    </section>
+
+    <!-- ===================== READER MODES ===================== -->
+    <section class="py-24 px-4 sm:px-6 lg:px-8" style="background: var(--bg-subtle);">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 max-w-2xl mx-auto">
+                <span class="kicker">Built for everyone</span>
+                <h2 class="font-bold mt-3 mb-4" style="font-size: clamp(1.8rem,3.5vw,2.4rem); color: var(--fg); letter-spacing: -.01em;">Two reader modes, one source of truth</h2>
+                <p class="text-lg leading-relaxed" style="color: var(--fg-muted);">
+                    Both reader modes read identical data — they differ only in how it's displayed. Toggle between them without losing your place.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="feat p-8" style="border-radius: 4px;">
+                    <div class="well mb-4" style="width: 40px; height: 40px;"><i data-lucide="microscope" class="w-5 h-5"></i></div>
+                    <h3 class="text-lg font-bold mb-2" style="color: var(--fg);">Research Mode</h3>
+                    <p style="color: var(--fg-muted); font-size: 14px; line-height: 1.65;">
+                        For evals researchers, model developers, and technical AI governance. Foregrounds methodology — missing fields, setup-driven divergence, and full metric configuration.
+                    </p>
+                </div>
+                <div class="feat p-8" style="border-radius: 4px;">
+                    <div class="well mb-4" style="width: 40px; height: 40px;"><i data-lucide="newspaper" class="w-5 h-5"></i></div>
+                    <h3 class="text-lg font-bold mb-2" style="color: var(--fg);">Summary Mode</h3>
+                    <p style="color: var(--fg-muted); font-size: 14px; line-height: 1.65;">
+                        For policy researchers, qualitative researchers, journalists, and anyone who prefers narrative. Plain-language elaborations of the measurement target, central caveats, and intended uses.
+                    </p>
+                </div>
+            </div>
+
+            <p class="text-center text-sm mt-8" style="color: var(--fg-subtle);">
+                Our roadmap is public and ideas are welcome —
+                <a href="https://changemap.co/evaleval/evalcards/" target="_blank" rel="noopener" style="color: var(--accent);" class="underline underline-offset-2">see what's next</a>.
+            </p>
+        </div>
+    </section>
+
+    <!-- ===================== EARLY FINDINGS ===================== -->
+    <section id="findings" class="py-24 px-4 sm:px-6 lg:px-8" style="background: var(--bg);">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 max-w-2xl mx-auto">
+                <span class="kicker">First results</span>
+                <h2 class="font-bold mt-3 mb-4" style="font-size: clamp(1.8rem,3.5vw,2.4rem); color: var(--fg); letter-spacing: -.01em;">A first glimpse of the whole ecosystem</h2>
+                <p class="text-lg leading-relaxed" style="color: var(--fg-muted);">
+                    Aggregating the four signals across the reporting ecosystem reveals startling early findings (5 June 2026 snapshot).
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="feat p-8" style="border-radius: 4px; border-top: 3px solid var(--r-alert);">
+                    <div class="text-4xl font-extrabold mb-2" style="color: var(--r-alert);">96.5%</div>
+                    <h3 class="text-lg font-bold mb-2" style="color: var(--fg);">Not reproducible</h3>
+                    <p style="color: var(--fg-muted); font-size: 14px; line-height: 1.65;">
+                        Of 50,000+ records, 96.5% are missing at least one field needed to re-run them. Max-tokens is absent 95.6% of the time, temperature 93.9%. Even 95% of GPT-5's documented results lack the parameters to reproduce them.
+                    </p>
+                </div>
+                <div class="feat p-8" style="border-radius: 4px; border-top: 3px solid var(--r-compa);">
+                    <div class="text-4xl font-extrabold mb-2" style="color: var(--r-compa);">10.7%</div>
+                    <h3 class="text-lg font-bold mb-2" style="color: var(--fg);">Median completeness</h3>
+                    <p style="color: var(--fg-muted); font-size: 14px; line-height: 1.65;">
+                        Across all 635 benchmarks, median documentation completeness is a paltry 10.7%. Scores are present, but construct definitions, validation, intended use, and limitations are missing far more often than not.
+                    </p>
+                </div>
+                <div class="feat p-8" style="border-radius: 4px; border-top: 3px solid var(--accent);">
+                    <div class="text-4xl font-extrabold mb-2" style="color: var(--accent);">51.9%</div>
+                    <h3 class="text-lg font-bold mb-2" style="color: var(--fg);">Scores diverge</h3>
+                    <p style="color: var(--fg-muted); font-size: 14px; line-height: 1.65;">
+                        98.2% of model–benchmark pairs are reported by only one party. Of the rest, scores from different parties diverge substantially more than half the time (51.9%).
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== CONTRIBUTORS ===================== -->
+    <section id="contributors" class="py-20 px-4 sm:px-6 lg:px-8" style="background: var(--bg);">
+        <div class="max-w-7xl mx-auto">
+            <div class="matte mx-auto" style="background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 4px; padding: 3rem 1.5rem;">
+                <div class="text-center mb-8">
+                    <p class="kicker c-dark mb-2" style="color: var(--fg);">An open, community-built initiative</p>
+                    <p class="kicker c-muted">contributors span institutions, sectors, continents, and specializations</p>
+                </div>
+                <img src="/assets/img/blogs/evalcards_contributor_logos.webp"
+                     alt="EvalCards contributor affiliation logos"
+                     class="w-full max-w-5xl h-auto mx-auto">
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== COMMUNITY / CTA ===================== -->
+    <section id="community" class="py-24 px-4 sm:px-6 lg:px-8" style="background: var(--bg-warm);">
+        <div class="max-w-6xl mx-auto">
+            <div class="relative overflow-hidden" style="background: var(--fg); color: var(--bg); border-radius: 6px; padding: 3rem;">
+                <div class="relative z-10">
+                    <div class="max-w-xl mb-10">
+                        <div class="inline-flex gap-2 mb-6">
+                            <span class="px-3 py-1 rounded-full text-xs font-semibold font-mono" style="background: color-mix(in srgb, var(--accent) 22%, transparent); color: var(--accent); border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);">BETA</span>
+                            <span class="px-3 py-1 rounded-full text-xs font-semibold font-mono" style="background: color-mix(in srgb, var(--r-prov) 22%, transparent); color: var(--r-prov); border: 1px solid color-mix(in srgb, var(--r-prov) 35%, transparent);">OPEN SOURCE</span>
+                        </div>
+                        <h2 class="font-bold mb-4" style="font-size: clamp(1.8rem,3.5vw,2.4rem); letter-spacing: -.01em;">Evaluation Cards needs you!</h2>
+                        <p style="color: rgba(240,237,232,.7); line-height: 1.7;">
+                            Fixing evaluation reporting is a community effort that benefits everyone — and the Coalition can't do it alone. Contribute your evaluation data, earn a verification badge, and help us compare results apples-to-apples.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+                        <div style="background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); border-radius: 4px; padding: 1.25rem;">
+                            <h4 class="font-bold mb-1.5 flex items-center gap-2"><i data-lucide="box" class="w-4 h-4" style="color: var(--r-repro);"></i> Model developers</h4>
+                            <p class="text-sm" style="color: rgba(240,237,232,.6);">Report your evaluations, review third-party results for discrepancies, and earn a verification badge.</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); border-radius: 4px; padding: 1.25rem;">
+                            <h4 class="font-bold mb-1.5 flex items-center gap-2"><i data-lucide="ruler" class="w-4 h-4" style="color: var(--r-comp);"></i> Evaluation developers</h4>
+                            <p class="text-sm" style="color: rgba(240,237,232,.6);">Upload your evals, setup, and config so others can find, run, and build on them.</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); border-radius: 4px; padding: 1.25rem;">
+                            <h4 class="font-bold mb-1.5 flex items-center gap-2"><i data-lucide="landmark" class="w-4 h-4" style="color: var(--r-prov);"></i> Research &amp; policy</h4>
+                            <p class="text-sm" style="color: rgba(240,237,232,.6);">Use Evaluation Cards in your analysis and cite us in papers, reports, and policy briefs.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap gap-3">
+                        <a href="https://evalcards.evalevalai.com/models" target="_blank" rel="noopener" class="px-6 py-3 font-medium inline-flex items-center gap-2" style="background: var(--bg); color: var(--fg); border-radius: 4px; font-family: var(--font-mono); font-size: 14px;">
+                            Browse by model <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                        <a href="https://evalcards.evalevalai.com/evals" target="_blank" rel="noopener" class="px-6 py-3 font-medium inline-flex items-center gap-2" style="border: 1.5px solid rgba(255,255,255,.25); color: var(--bg); border-radius: 4px; font-family: var(--font-mono); font-size: 14px;">
+                            Browse by evaluation
+                        </a>
+                        <a href="https://evalcards.evalevalai.com/help/get-verified" target="_blank" rel="noopener" class="px-6 py-3 font-medium inline-flex items-center gap-2" style="border: 1.5px solid rgba(255,255,255,.25); color: var(--bg); border-radius: 4px; font-family: var(--font-mono); font-size: 14px;">
+                            Become verified
+                        </a>
+                        <a href="https://evalcards.evalevalai.com/feedback" target="_blank" rel="noopener" class="px-6 py-3 font-medium inline-flex items-center gap-2" style="border: 1.5px solid rgba(255,255,255,.25); color: var(--bg); border-radius: 4px; font-family: var(--font-mono); font-size: 14px;">
+                            Give feedback
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+<!-- ===================== CITATION ===================== -->
+<section id="cite" class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8"
+         style="background: var(--bg-subtle, #f5f4f1); border-top: 1px solid var(--border, #e8e6e1);">
+  <div class="max-w-3xl mx-auto">
+
+    <div class="cite-kicker">Citation</div>
+    <h2 class="font-bold mt-3 mb-4"
+        style="font-size: clamp(1.5rem, 3vw, 2rem); letter-spacing: -.01em; color: var(--fg, #1a1916);">
+      Cite this work
+    </h2>
+
+    <p class="text-sm sm:text-base leading-relaxed mb-5" style="color: var(--fg-muted, #5c5a55);">
+      If Evaluation Cards informs your research, please cite the paper:
+    </p><p class="text-sm sm:text-base leading-relaxed mb-6" style="color: var(--fg-muted, #5c5a55);">
+      Avijit Ghosh, Anka Reuel, Jenny Chim, et al.
+      2026.
+      <em style="color: var(--fg, #1a1916);">Evaluation Cards: An Interpretive Layer for AI Evaluation Reporting</em>.
+      arXiv:2606.09809.
+      
+        <a href="https://arxiv.org/abs/2606.09809" target="_blank" rel="noopener"
+           class="cite-link">Read it here<span aria-hidden="true"> &rarr;</span></a>
+      
+    </p>
+
+    <div class="cite-block">
+      <button type="button" class="cite-copy" data-cite-copy aria-label="Copy BibTeX to clipboard">
+        <i data-lucide="clipboard" class="w-3.5 h-3.5"></i>
+        <span data-cite-copy-label>Copy</span>
+      </button>
+      <pre data-cite-bibtex>@misc{ghosh2026evaluationcardsinterpretivelayer,
+      title={Evaluation Cards: An Interpretive Layer for AI Evaluation Reporting},
+      author={Avijit Ghosh and Anka Reuel and Jenny Chim and Wm. Matthew Kennedy and Srishti Yadav and Jennifer Mickel and Yanan Long and Andrew Tran and Anastassia Kornilova and Damian Stachura and Kevin Klyman and Felix Friedrich and Jeba Sania and Jan Batzner and Anoop Mishra and Eliya Habba and Yixiong Hao and Nathan Heath and Shalaleh Rismani and Usman Gohar and Andrea Loehr and David Manheim and Ruchira Dhar and Sree Harsha Nelaturu and Aarush Sinha and Leshem Choshen and Drishti Sharma and Ishan Khire and Amit Saha and Subramanyam Sahoo and Michael Hardy and Michael Alexander Riegler and Kabir Manghnani and Michelle Lin and Yanan Jiang and Yilin Huang and Asaf Yehudai and Jessica Ji and Aris Hofmann and Mubashara Akhtar and Max Lamparth and Nuno Moniz and Yacine Jernite and Stella Biderman and Zeerak Talat and Sanmi Koyejo and Mykel Kochenderfer and Irene Solaiman},
+      year={2026},
+      eprint={2606.09809},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2606.09809},
+}</pre>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  #cite .cite-kicker {
+    font-family: var(--font-mono, 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace);
+    font-size: 11px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--fg-subtle, #9c9a95);
+  }
+  #cite .cite-link {
+    color: var(--accent, #5bacd1);
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    white-space: nowrap;
+  }
+  #cite .cite-block { position: relative; }
+  #cite pre {
+    margin: 0;
+    padding: 1.25rem 1.25rem 1.25rem;
+    background: var(--bg, #ffffff);
+    border: 1px solid var(--border, #e8e6e1);
+    border-radius: 8px;
+    overflow-x: auto;
+    font-family: var(--font-mono, 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace);
+    font-size: 12px;
+    line-height: 1.7;
+    color: var(--fg-muted, #5c5a55);
+    /* BibTeX is pre-wrapped by arXiv; keep long author lists scrollable, not reflowed. */
+    white-space: pre;
+    tab-size: 2;
+  }
+  #cite .cite-copy {
+    position: absolute;
+    top: .625rem;
+    right: .625rem;
+    display: inline-flex;
+    align-items: center;
+    gap: .375rem;
+    padding: .3rem .6rem;
+    background: var(--bg-subtle, #f5f4f1);
+    border: 1px solid var(--border, #e8e6e1);
+    border-radius: 5px;
+    font-family: var(--font-mono, 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace);
+    font-size: 11px;
+    color: var(--fg-muted, #5c5a55);
+    cursor: pointer;
+    transition: color .2s, border-color .2s;
+  }
+  #cite .cite-copy:hover { color: var(--fg, #1a1916); border-color: var(--border-strong, #c8c6c0); }
+  #cite .cite-copy[data-copied] { color: var(--accent, #5bacd1); border-color: var(--accent, #5bacd1); }
+  @media (max-width: 640px) {
+    /* Don't let the button sit on top of the first line of the entry. */
+    #cite pre { padding-top: 2.75rem; }
+  }
+</style>
+
+<script>
+  (function () {
+    var btn = document.querySelector('#cite [data-cite-copy]');
+    var pre = document.querySelector('#cite [data-cite-bibtex]');
+    if (!btn || !pre) return;
+
+    var label = btn.querySelector('[data-cite-copy-label]');
+    var reset;
+
+    function flash(text) {
+      if (label) label.textContent = text;
+      btn.setAttribute('data-copied', '');
+      clearTimeout(reset);
+      reset = setTimeout(function () {
+        if (label) label.textContent = 'Copy';
+        btn.removeAttribute('data-copied');
+      }, 2000);
+    }
+
+    btn.addEventListener('click', function () {
+      // textContent decodes the Liquid-escaped entities, so the clipboard gets
+      // BibTeX that compiles as-is.
+      var bibtex = pre.textContent;
+
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(bibtex).then(function () {
+          flash('Copied');
+        }).catch(function () {
+          flash('Press ⌘C');
+        });
+        return;
+      }
+
+      // Fallback for non-secure contexts (e.g. plain-http local previews).
+      try {
+        var ta = document.createElement('textarea');
+        ta.value = bibtex;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        var ok = document.execCommand('copy');
+        document.body.removeChild(ta);
+        flash(ok ? 'Copied' : 'Press ⌘C');
+      } catch (e) {
+        flash('Press ⌘C');
+      }
+    });
+  })();
+</script>
+
+
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="py-12 px-8" style="border-top: 1px solid var(--border); background: var(--bg);">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col md:grid md:grid-cols-3 items-center text-center">
+          <div class="mb-6 md:mb-0 md:text-left">
+            <a href="/" class="inline-block eee-footer-logo" style="color: var(--fg);">
+              <svg width="420" height="198" viewBox="0 0 420 198" fill="none" xmlns="http://www.w3.org/2000/svg" style="color: var(--fg);">
+<!-- Text: "Val" (top) -->
+<path d="M340.136 29.3445L322.657 81.3745H300.978L283.499 29.3445H303.146L311.546 63.7602H312.088L320.489 29.3445H340.136Z" fill="currentColor"/>
+<path d="M358.648 82.1875C355.328 82.1875 352.393 81.6455 349.841 80.5616C347.312 79.455 345.324 77.7839 343.879 75.5483C342.434 73.3126 341.711 70.4672 341.711 67.0121C341.711 64.1667 342.197 61.7391 343.168 59.7292C344.139 57.6968 345.494 56.037 347.232 54.7498C348.971 53.4626 350.992 52.4802 353.296 51.8028C355.622 51.1253 358.129 50.6849 360.816 50.4817C363.729 50.2559 366.066 49.9849 367.828 49.6687C369.612 49.33 370.899 48.867 371.689 48.2799C372.48 47.6702 372.875 46.8685 372.875 45.8749V45.7394C372.875 44.3844 372.355 43.3456 371.317 42.623C370.278 41.9003 368.946 41.539 367.32 41.539C365.536 41.539 364.079 41.9342 362.95 42.7246C361.843 43.4924 361.177 44.678 360.951 46.2814H343.743C343.969 43.1198 344.974 40.2067 346.758 37.5419C348.565 34.8546 351.196 32.7093 354.651 31.1059C358.106 29.48 362.419 28.667 367.591 28.667C371.317 28.667 374.659 29.1074 377.617 29.9881C380.576 30.8462 383.093 32.0544 385.171 33.6126C387.249 35.1482 388.829 36.9548 389.913 39.0324C391.02 41.0874 391.573 43.323 391.573 45.7394V81.3745H374.094V74.0578H373.688C372.649 75.9999 371.384 77.5694 369.894 78.7663C368.426 79.9631 366.744 80.8326 364.847 81.3745C362.972 81.9165 360.906 82.1875 358.648 82.1875ZM364.745 70.3995C366.168 70.3995 367.5 70.1059 368.742 69.5187C370.007 68.9316 371.034 68.0848 371.825 66.9782C372.615 65.8717 373.01 64.528 373.01 62.9472V58.6114C372.514 58.8146 371.983 59.0066 371.418 59.1872C370.876 59.3679 370.289 59.5373 369.657 59.6954C369.047 59.8534 368.392 60.0002 367.692 60.1357C367.015 60.2712 366.303 60.3954 365.558 60.5083C364.113 60.7341 362.927 61.1068 362.001 61.6262C361.098 62.123 360.421 62.744 359.969 63.4892C359.54 64.2119 359.325 65.0248 359.325 65.9281C359.325 67.3734 359.834 68.4799 360.85 69.2477C361.866 70.0156 363.164 70.3995 364.745 70.3995Z" fill="currentColor"/>
+<!-- "E" bracket shapes (top) -->
+<path d="M269.039 37.428L237.431 37.428V65.0011M237.431 76.8469V65.0011M237.431 65.0011H258.279" stroke="currentColor" stroke-width="16.0517" stroke-linecap="square" stroke-linejoin="round"/>
+<path d="M269.039 159.8L237.431 159.8V132.227M237.431 120.381V132.227M237.431 132.227H258.279" stroke="currentColor" stroke-width="16.0517" stroke-linecap="square" stroke-linejoin="round"/>
+<path d="M269.039 98.6139L237.431 98.6139" stroke="currentColor" stroke-width="16.0517" stroke-linecap="square" stroke-linejoin="round"/>
+<!-- Text: "Val" (bottom) -->
+<path d="M340.136 115.311L322.657 167.341H300.978L283.499 115.311H303.146L311.546 149.727H312.088L320.489 115.311H340.136Z" fill="currentColor"/>
+<path d="M358.648 168.154C355.328 168.154 352.393 167.612 349.841 166.528C347.312 165.421 345.324 163.75 343.879 161.515C342.434 159.279 341.711 156.434 341.711 152.978C341.711 150.133 342.197 147.705 343.168 145.696C344.139 143.663 345.494 142.003 347.232 140.716C348.971 139.429 350.992 138.447 353.296 137.769C355.622 137.092 358.129 136.651 360.816 136.448C363.729 136.222 366.066 135.951 367.828 135.635C369.612 135.296 370.899 134.833 371.689 134.246C372.48 133.637 372.875 132.835 372.875 131.841V131.706C372.875 130.351 372.355 129.312 371.317 128.589C370.278 127.867 368.946 127.505 367.32 127.505C365.536 127.505 364.079 127.901 362.95 128.691C361.843 129.459 361.177 130.644 360.951 132.248H343.743C343.969 129.086 344.974 126.173 346.758 123.508C348.565 120.821 351.196 118.676 354.651 117.072C358.106 115.446 362.419 114.633 367.591 114.633C371.317 114.633 374.659 115.074 377.617 115.954C380.576 116.813 383.093 118.021 385.171 119.579C387.249 121.115 388.829 122.921 389.913 124.999C391.02 127.054 391.573 129.289 391.573 131.706V167.341H374.094V160.024H373.688C372.649 161.966 371.384 163.536 369.894 164.733C368.426 165.93 366.744 166.799 364.847 167.341C362.972 167.883 360.906 168.154 358.648 168.154ZM364.745 156.366C366.168 156.366 367.5 156.072 368.742 155.485C370.007 154.898 371.034 154.051 371.825 152.945C372.615 151.838 373.01 150.494 373.01 148.914V144.578C372.514 144.781 371.983 144.973 371.418 145.154C370.876 145.334 370.289 145.504 369.657 145.662C369.047 145.82 368.392 145.967 367.692 146.102C367.015 146.238 366.303 146.362 365.558 146.475C364.113 146.701 362.927 147.073 362.001 147.593C361.098 148.089 360.421 148.71 359.969 149.456C359.54 150.178 359.325 150.991 359.325 151.895C359.325 153.34 359.834 154.446 360.85 155.214C361.866 155.982 363.164 156.366 364.745 156.366Z" fill="currentColor"/>
+<!-- Vertical bar "|" -->
+<rect x="400.519" y="29.4044" width="18.7123" height="137.937" fill="currentColor"/>
+<!-- Logo mark square (colors stay fixed — brand identity) -->
+<g clip-path="url(#clip0_2001_16)">
+  <rect width="197.228" height="197.228" fill="#92D4F3"/>
+  <path d="M47.5696 151.128L-21.7318 190.301L57.5396 225.702L87.5678 198.79C89.21 197.318 91.472 196.825 93.669 197.015C111.858 198.585 128.675 177.47 123.652 148.772C123.22 146.306 123.87 143.711 125.721 142.025C132.894 135.49 139.969 132.208 151.787 127.732C155.941 126.158 158.378 121.827 157.5 117.472C156.579 112.907 152.33 109.78 147.71 110.372C122.925 113.548 101.975 118.918 83.8911 130.969C82.4527 131.928 80.4886 131.496 79.5975 130.015C73.8703 120.496 68.2696 114.028 59.2618 108.066C56.4268 106.19 52.8446 105.95 49.6675 107.16C42.5605 109.867 40.346 118.543 43.9797 125.224C46.7325 130.285 48.8356 135.931 50.7508 143.989C51.4204 146.807 50.0908 149.703 47.5696 151.128Z" fill="#5BACD1"/>
+  <path d="M136.912 81.7587C136.912 81.7587 97.8703 73.364 74.2249 67.9949M74.2249 67.9949C77.1703 53.8327 71.9559 46.2088 71.9559 46.2088M74.2249 67.9949C71.2795 82.157 61.7455 88.8386 61.7455 88.8386" stroke="#2C2E36" stroke-width="16.0517" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+  <clipPath id="clip0_2001_16">
+    <rect width="197.228" height="197.228" rx="11.674" fill="white"/>
+  </clipPath>
+</defs>
+</svg>
+
+            </a>
+          </div>
+          <div class="mb-6 md:mb-0">
+            <div class="font-mono text-sm tracking-wider" style="color: var(--fg-muted);">© 2026 | EvalEval Coalition</div>
+          </div>
+          <div class="flex justify-center md:justify-end space-x-3">
+            <a href="https://x.com/evaluatingevals" class="social-link w-8 h-8 rounded-full flex items-center justify-center">
+                <i class="fa-brands fa-x-twitter text-xs"></i>
+            </a>
+            <a href="https://github.com/evaleval/" class="social-link w-8 h-8 rounded-full flex items-center justify-center">
+                <i class="fab fa-github text-xs"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/evaluating-evaluations/" class="social-link w-8 h-8 rounded-full flex items-center justify-center">
+                <i class="fab fa-linkedin-in text-xs"></i>
+            </a>
+            <a href="https://bsky.app/profile/eval-eval.bsky.social" class="social-link w-8 h-8 rounded-full flex items-center justify-center">
+                <i class="fa-brands fa-bluesky text-xs"></i>
+            </a>
+            <a href="https://huggingface.co/evaleval" class="social-link w-8 h-8 rounded-full flex items-center justify-center group">
+                <img src="/assets/img/icon/hf-logo-pirate.svg" alt="Hugging Face" class="w-4 h-4 group-hover:invert transition duration-300" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+        function eeeToggleTheme() {
+            var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            var next = isDark ? 'light' : 'dark';
+            if (next === 'dark') { document.documentElement.setAttribute('data-theme', 'dark'); }
+            else { document.documentElement.removeAttribute('data-theme'); }
+            localStorage.setItem('theme', next);
+        }
+
+        // Initialize Lucide icons (guarded — a failed CDN load must not
+        // abort the rest of this script and kill the tab/accordion handlers)
+        if (window.lucide) { try { lucide.createIcons(); } catch (e) {} }
+
+        // Smooth scroll for in-page anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+            anchor.addEventListener('click', function (e) {
+                var target = this.getAttribute('href');
+                if (target.length > 1) {
+                    var el = document.querySelector(target);
+                    if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth' }); }
+                }
+            });
+        });
+
+        // Anatomy: accordion (one open at a time) explaining the four signals
+        (function () {
+            var annos = Array.prototype.slice.call(document.querySelectorAll('.anno'));
+            annos.forEach(function (a) {
+                a.querySelector('.anno-head').addEventListener('click', function () {
+                    var wasActive = a.classList.contains('active');
+                    annos.forEach(function (x) { x.classList.remove('active'); });
+                    if (!wasActive) a.classList.add('active');
+                });
+            });
+        })();
+
+        // Live embeds: tab switchers. Each tab is scoped to its own row
+        // (parent) and swaps the iframe inside the same card (.ec). Works
+        // for any number of tabbed embed cards on the page.
+        (function () {
+            var tabs = Array.prototype.slice.call(document.querySelectorAll('.embed-tab'));
+            tabs.forEach(function (t) {
+                t.addEventListener('click', function () {
+                    if (t.classList.contains('active')) return;
+                    var card = t.closest('.ec');
+                    var frame = card ? card.querySelector('iframe') : null;
+                    var row = t.parentElement;
+                    Array.prototype.forEach.call(row.querySelectorAll('.embed-tab'), function (x) {
+                        x.classList.remove('active');
+                    });
+                    t.classList.add('active');
+                    if (frame) frame.src = t.dataset.src;
+                });
+            });
+        })();
+    </script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"7945c403dc4143cb86185b2c72857a25","r":1}' crossorigin="anonymous"></script>
+</body>
+</html>

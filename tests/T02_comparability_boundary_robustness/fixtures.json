@@ -1,0 +1,184 @@
+{
+  "schema_version": 1,
+  "threshold_bases": [
+    {
+      "id": "B1_proportion",
+      "metric_config": {
+        "metric_unit": "proportion"
+      },
+      "threshold": "0.05",
+      "cases": [
+        {
+          "id": "B1_boundary_0",
+          "a": "0.00",
+          "b": "0.05",
+          "relation": "boundary"
+        },
+        {
+          "id": "B1_boundary_1",
+          "a": "0.10",
+          "b": "0.15",
+          "relation": "boundary"
+        },
+        {
+          "id": "B1_boundary_2",
+          "a": "0.50",
+          "b": "0.55",
+          "relation": "boundary"
+        },
+        {
+          "id": "B1_boundary_3",
+          "a": "0.90",
+          "b": "0.95",
+          "relation": "boundary"
+        },
+        {
+          "id": "B1_below",
+          "a": "0.50",
+          "b": "0.549999",
+          "relation": "below"
+        },
+        {
+          "id": "B1_above",
+          "a": "0.50",
+          "b": "0.550001",
+          "relation": "above"
+        }
+      ]
+    },
+    {
+      "id": "B2_percent",
+      "metric_config": {
+        "metric_unit": "percent"
+      },
+      "threshold": "5.0",
+      "cases": [
+        {
+          "id": "B2_boundary_0",
+          "a": "0",
+          "b": "5",
+          "relation": "boundary"
+        },
+        {
+          "id": "B2_boundary_1",
+          "a": "3.05",
+          "b": "8.05",
+          "relation": "boundary"
+        },
+        {
+          "id": "B2_boundary_2",
+          "a": "50.10",
+          "b": "55.10",
+          "relation": "boundary"
+        },
+        {
+          "id": "B2_boundary_3",
+          "a": "94.90",
+          "b": "99.90",
+          "relation": "boundary"
+        },
+        {
+          "id": "B2_below",
+          "a": "50.00",
+          "b": "54.9999",
+          "relation": "below"
+        },
+        {
+          "id": "B2_above",
+          "a": "50.00",
+          "b": "55.0001",
+          "relation": "above"
+        }
+      ]
+    },
+    {
+      "id": "B3_range_5pct",
+      "metric_config": {
+        "min_score": -1,
+        "max_score": 1
+      },
+      "threshold": "0.10",
+      "cases": [
+        {
+          "id": "B3_boundary_0",
+          "a": "-1.00",
+          "b": "-0.90",
+          "relation": "boundary"
+        },
+        {
+          "id": "B3_boundary_1",
+          "a": "0.18",
+          "b": "0.28",
+          "relation": "boundary"
+        },
+        {
+          "id": "B3_boundary_2",
+          "a": "0.20",
+          "b": "0.30",
+          "relation": "boundary"
+        },
+        {
+          "id": "B3_boundary_3",
+          "a": "0.50",
+          "b": "0.60",
+          "relation": "boundary"
+        },
+        {
+          "id": "B3_below",
+          "a": "0.20",
+          "b": "0.299999",
+          "relation": "below"
+        },
+        {
+          "id": "B3_above",
+          "a": "0.20",
+          "b": "0.300001",
+          "relation": "above"
+        }
+      ]
+    },
+    {
+      "id": "B4_fallback",
+      "metric_config": {},
+      "threshold": "0.05",
+      "cases": [
+        {
+          "id": "B4_boundary_0",
+          "a": "0.00",
+          "b": "0.05",
+          "relation": "boundary"
+        },
+        {
+          "id": "B4_boundary_1",
+          "a": "0.10",
+          "b": "0.15",
+          "relation": "boundary"
+        },
+        {
+          "id": "B4_boundary_2",
+          "a": "0.50",
+          "b": "0.55",
+          "relation": "boundary"
+        },
+        {
+          "id": "B4_boundary_3",
+          "a": "0.90",
+          "b": "0.95",
+          "relation": "boundary"
+        },
+        {
+          "id": "B4_below",
+          "a": "0.50",
+          "b": "0.549999",
+          "relation": "below"
+        },
+        {
+          "id": "B4_above",
+          "a": "0.50",
+          "b": "0.550001",
+          "relation": "above"
+        }
+      ]
+    }
+  ]
+}

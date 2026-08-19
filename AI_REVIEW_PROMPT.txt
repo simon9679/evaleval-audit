@@ -1,0 +1,30 @@
+Review this repository as an independent technical auditor.
+
+This file is an author-authored checklist, not evidence. Do not treat its statements as true unless the repository artifacts support them.
+
+Use `CLAIM_INDEX.json` to identify the preregistered claim/decision predicate and `TEST_INDEX.json` to identify the canonical final result. For each test, `results/summary.json` is the canonical machine-readable final result.
+
+Check:
+
+1. all 17 canonical verdicts and hashes against `TEST_INDEX.json`;
+2. each claim/predicate against the corresponding `PREREGISTRATION.md` and `CLAIM_INDEX.json`;
+3. whether each final verdict follows from the preregistered verdict rule and recorded quantities;
+4. contradictions among preregistration, raw evidence, canonical summary, and `RESULT_ANALYSIS.md`;
+5. whether any public conclusion exceeds the measured granularity;
+6. T14's full repair sequence, distinguishing harness repair from scientific-rule changes;
+7. object defects/properties versus harness defects, packaging issues, and unsupported interpretations;
+8. the small absolute T09 aggregate effect (343 -> 341) when discussing materiality;
+9. the limitation that T15-T17 establish source identity/scale/provenance properties but do not by themselves prove that all four WildBench channels measure different latent constructs;
+10. compact-bundle limits described in `REPRODUCTION.md`.
+
+Run `python tools/verify_public_bundle.py` if execution is available. Per-test `verify_prereg.py` scripts verify immutability, not the scientific verdict.
+
+Report separately:
+
+A. confirmed inconsistencies;
+B. possible issues needing more evidence;
+C. false alarms;
+D. strongest supported findings;
+E. claims that must not be made publicly.
+
+For every criticism, provide exact file paths and supporting values or text.

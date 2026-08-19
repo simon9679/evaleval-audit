@@ -1,0 +1,31 @@
+{
+  "files": [
+    {
+      "bytes": 2419,
+      "path": "tests/T14_source_metric_identity_preservation/HARNESS_FIX_04.md",
+      "sha256": "4b6bb0e4f9cba6533c92456e6b48c4bc7a13a084cd7dc986e284e9a58d96861d"
+    },
+    {
+      "bytes": 2809,
+      "path": "tests/T14_source_metric_identity_preservation/RESEARCH_NOTE_2026-08-19.md",
+      "sha256": "70953b94645b49eeb5b991dba6a4ef9a3183e355c94c5e671c2327a80a0993f2"
+    },
+    {
+      "bytes": 26612,
+      "path": "tests/T14_source_metric_identity_preservation/analyze_fix4.py",
+      "sha256": "40366285bfab4b7e46c76c3bcb7c93a0429e174ae5efd7369eb07752b184d5f4"
+    },
+    {
+      "bytes": 11546,
+      "path": "tests/T14_source_metric_identity_preservation/preflight_fix4.py",
+      "sha256": "c60320f272b2961821f2496a2463a340318cf030af501d1fead9d508cab62f22"
+    },
+    {
+      "bytes": 877,
+      "path": "tests/T14_source_metric_identity_preservation/verify_fix4.py",
+      "sha256": "f69444545bc6efdb96af8ca9922e4245f9ab02d129001966d904d0363a3e82a8"
+    }
+  ],
+  "fix_id": "HARNESS_FIX_04",
+  "test_id": "T14_source_metric_identity_preservation"
+}

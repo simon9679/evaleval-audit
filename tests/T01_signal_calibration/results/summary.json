@@ -1,0 +1,42 @@
+{
+  "backend_commit": "9c16ab3f93a4ba02a5b44590858bbdf824ed09d3",
+  "by_signal": {
+    "comparability": {
+      "fail": 1,
+      "inconclusive": 0,
+      "pass": 7,
+      "total": 8
+    },
+    "completeness": {
+      "fail": 0,
+      "inconclusive": 0,
+      "pass": 5,
+      "total": 5
+    },
+    "provenance": {
+      "fail": 0,
+      "inconclusive": 0,
+      "pass": 5,
+      "total": 5
+    },
+    "reproducibility": {
+      "fail": 0,
+      "inconclusive": 0,
+      "pass": 6,
+      "total": 6
+    }
+  },
+  "case_count": 24,
+  "claim_scope": "controlled-fixture discrimination and nuisance invariance only",
+  "fail_count": 1,
+  "inconclusive_count": 0,
+  "limitations": [
+    "A positive result does not establish real-world construct validity.",
+    "Provenance is formula-calibrated in T01 and still requires an end-to-end Stage F.1 test.",
+    "No corpus-level accuracy or long-tail claim is tested here.",
+    "No public-claim scope verdict is produced here."
+  ],
+  "pass_count": 23,
+  "test_id": "T01_signal_calibration",
+  "verdict": "REFUTED"
+}

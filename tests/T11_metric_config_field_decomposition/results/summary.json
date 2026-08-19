@@ -1,0 +1,79 @@
+{
+  "affected_group_ids": 2,
+  "affected_groups_with_claim_governing_field_variation": 2,
+  "affected_groups_with_display_name_only_variation": 0,
+  "affected_groups_with_no_nonunit_field_variation": 0,
+  "competing_predictions": {
+    "P1": "affected_groups_with_claim_governing_field_variation = 0",
+    "P2": "affected_groups_with_claim_governing_field_variation >= 1"
+  },
+  "integrity_error_records": 0,
+  "limitations": [
+    "Field variation does not itself prove different semantic estimands.",
+    "Structured source metadata are not final semantic authority.",
+    "T11 does not adjudicate original-publisher provenance or correct grouping."
+  ],
+  "per_field_unit_disjoint_value_group_counts": {
+    "lower_is_better": 1,
+    "max_score": 2,
+    "metric_id": 2,
+    "metric_kind": 1,
+    "metric_name": 2,
+    "metric_parameters": 0,
+    "min_score": 0,
+    "score_type": 0
+  },
+  "per_field_varying_group_counts": {
+    "lower_is_better": 1,
+    "max_score": 2,
+    "metric_id": 2,
+    "metric_kind": 1,
+    "metric_name": 2,
+    "metric_parameters": 0,
+    "min_score": 1,
+    "score_type": 0
+  },
+  "per_group": {
+    "0dc7e803e7438c7faf39dfc4b461faef": {
+      "claim_governing_varying_fields": [
+        "metric_id",
+        "metric_kind",
+        "lower_is_better",
+        "max_score"
+      ],
+      "classification": "claim_governing_variation",
+      "units": [
+        "percent",
+        "seconds"
+      ],
+      "varying_fields": [
+        "metric_id",
+        "metric_name",
+        "metric_kind",
+        "lower_is_better",
+        "max_score"
+      ]
+    },
+    "d38d8f8e547287b6b0fc78f43f310762": {
+      "claim_governing_varying_fields": [
+        "metric_id",
+        "min_score",
+        "max_score"
+      ],
+      "classification": "claim_governing_variation",
+      "units": [
+        "points",
+        "score"
+      ],
+      "varying_fields": [
+        "metric_id",
+        "metric_name",
+        "min_score",
+        "max_score"
+      ]
+    }
+  },
+  "source_rows_scanned": 12,
+  "test_id": "T11_metric_config_field_decomposition",
+  "verdict": "CONFIRMED"
+}

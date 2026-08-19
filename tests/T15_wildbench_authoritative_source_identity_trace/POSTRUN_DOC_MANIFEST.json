@@ -1,0 +1,21 @@
+{
+  "files": [
+    {
+      "bytes": 896,
+      "path": "tests/T15_wildbench_authoritative_source_identity_trace/POSTRUN_METHOD_NOTE.md",
+      "sha256": "c0d0c42535088746a573f576a7188a64e459148fc3d67dc9a21925ea403a32c4"
+    },
+    {
+      "bytes": 684,
+      "path": "tests/T15_wildbench_authoritative_source_identity_trace/results/POSTRUN_DECISION.md",
+      "sha256": "298f6a2d89e38dd73aa33ef2f4d9ed127e7ecfdc38336590c17f201bfe389909"
+    },
+    {
+      "bytes": 6250,
+      "path": "tests/T15_wildbench_authoritative_source_identity_trace/results/RESULT_ANALYSIS.md",
+      "sha256": "30eea989b53096a11bdb1f031d91935f002f0830144ffa6271a18acbb370d24e"
+    }
+  ],
+  "test_id": "T15_wildbench_authoritative_source_identity_trace",
+  "verdict": "CONFIRMED"
+}

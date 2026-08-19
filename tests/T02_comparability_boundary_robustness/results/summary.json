@@ -1,0 +1,50 @@
+{
+  "above_fail_count": 0,
+  "backend_commit": "9c16ab3f93a4ba02a5b44590858bbdf824ed09d3",
+  "below_fail_count": 0,
+  "boundary_fail_count": 8,
+  "by_basis": {
+    "B1_proportion": {
+      "fail": 2,
+      "pass": 10,
+      "total": 12
+    },
+    "B2_percent": {
+      "fail": 2,
+      "pass": 10,
+      "total": 12
+    },
+    "B3_range_5pct": {
+      "fail": 2,
+      "pass": 10,
+      "total": 12
+    },
+    "B4_fallback": {
+      "fail": 2,
+      "pass": 10,
+      "total": 12
+    }
+  },
+  "by_path": {
+    "cross_party": {
+      "fail": 4,
+      "pass": 20,
+      "total": 24
+    },
+    "variant": {
+      "fail": 4,
+      "pass": 20,
+      "total": 24
+    }
+  },
+  "case_count": 48,
+  "fail_count": 8,
+  "limitations": [
+    "This test does not estimate real-corpus prevalence.",
+    "This test does not establish product-level severity.",
+    "This test tests exact decimal relations mapped through production float arithmetic."
+  ],
+  "pass_count": 40,
+  "test_id": "T02_comparability_boundary_robustness",
+  "verdict": "REFUTED"
+}

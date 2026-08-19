@@ -1,0 +1,50 @@
+{
+  "files": [
+    {
+      "bytes": 3244,
+      "path": "tests/T11_metric_config_field_decomposition/PREREGISTRATION.md",
+      "sha256": "5bffecd45f7d6fab0cfd835f9c1be086e05d7de047950520eb84fdeefc60d69e"
+    },
+    {
+      "bytes": 561,
+      "path": "tests/T11_metric_config_field_decomposition/README.md",
+      "sha256": "38a8bc93022b0c02e73520a1698d9c2ca98f9ea67542b73e23ad1844909720df"
+    },
+    {
+      "bytes": 2075,
+      "path": "tests/T11_metric_config_field_decomposition/SOURCE_ATTRIBUTION.md",
+      "sha256": "1695e0532f672361a403114ecf71cb3705ec49d40a20875a8341ff1cd635736a"
+    },
+    {
+      "bytes": 2829,
+      "path": "tests/T11_metric_config_field_decomposition/TEST_RATIONALE.md",
+      "sha256": "0194f4acab3ba93db5a97c7293d46dc14d60f30a6e737110b52cc8605d2b1963"
+    },
+    {
+      "bytes": 9330,
+      "path": "tests/T11_metric_config_field_decomposition/analyze.py",
+      "sha256": "1b113b4cf105a10636e057af38b98bec1edc667ce7b2500081add198f59f9571"
+    },
+    {
+      "bytes": 2378,
+      "path": "tests/T11_metric_config_field_decomposition/preflight.py",
+      "sha256": "f43d5fc40dc8f3908cfa6fd38540af1f1f64d079cdc62e8dae2c4cca15fb8d09"
+    },
+    {
+      "bytes": 154,
+      "path": "tests/T11_metric_config_field_decomposition/raw/README.md",
+      "sha256": "7c248188e2b045c79624251820db129c4d657c8ba5f04e57c84974542a8fced8"
+    },
+    {
+      "bytes": 79,
+      "path": "tests/T11_metric_config_field_decomposition/results/README.md",
+      "sha256": "04437989e61c6dac7bc41e9056f34562938260bb49754e4b54e96b9941eaf4d9"
+    },
+    {
+      "bytes": 951,
+      "path": "tests/T11_metric_config_field_decomposition/verify_prereg.py",
+      "sha256": "77852df36fef4e6e3c6cfa50c83d07065cb58737568ce06b4d55c8e872500ef7"
+    }
+  ],
+  "test_id": "T11_metric_config_field_decomposition"
+}

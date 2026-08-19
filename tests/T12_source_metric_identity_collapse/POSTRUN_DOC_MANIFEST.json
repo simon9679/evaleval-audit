@@ -1,0 +1,20 @@
+{
+  "files": [
+    {
+      "bytes": 1243,
+      "path": "tests/T12_source_metric_identity_collapse/POSTRUN_METHOD_NOTE.md",
+      "sha256": "2818ce1d6c102bf7ef93d897b8f9250f59c4c7988b46a20eb06411afb3748e0a"
+    },
+    {
+      "bytes": 962,
+      "path": "tests/T12_source_metric_identity_collapse/results/POSTRUN_DECISION.md",
+      "sha256": "e6ef5af02facce4109175bcdc715a6e24ab0fdcb90618515e8668ec8a79e682a"
+    },
+    {
+      "bytes": 6716,
+      "path": "tests/T12_source_metric_identity_collapse/results/RESULT_ANALYSIS.md",
+      "sha256": "2e7fe77368c6f91e0c0d0ea505874c41f83bb7278325c31bbd0422739671ceb0"
+    }
+  ],
+  "test_id": "T12_source_metric_identity_collapse"
+}

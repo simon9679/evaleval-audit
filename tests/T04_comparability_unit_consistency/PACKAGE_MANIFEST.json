@@ -1,0 +1,51 @@
+{
+  "files": [
+    {
+      "bytes": 5428,
+      "path": "tests/T04_comparability_unit_consistency/PREREGISTRATION.md",
+      "sha256": "744da73b6e562929be0fc7b5bf5f5972f18ce5d8e86da6ffa3d26fbe7991a902"
+    },
+    {
+      "bytes": 1113,
+      "path": "tests/T04_comparability_unit_consistency/README.md",
+      "sha256": "279542b8989d3212bf7bdde176a21b0227969e7e54f8fb9ad463fcf8e585474c"
+    },
+    {
+      "bytes": 3811,
+      "path": "tests/T04_comparability_unit_consistency/SOURCE_ATTRIBUTION.md",
+      "sha256": "9df532e28043c4010bd8cd3277b42128975355e945788a07ffe6d2a744565619"
+    },
+    {
+      "bytes": 6035,
+      "path": "tests/T04_comparability_unit_consistency/TEST_RATIONALE.md",
+      "sha256": "46d345d05f083f266a97a5089103255dba29e330a098e846f9d8314d402abed2"
+    },
+    {
+      "bytes": 21732,
+      "path": "tests/T04_comparability_unit_consistency/analyze.py",
+      "sha256": "a258aebbc5324598d7b270518a9d880f83976df0cd8a4428ee28ad5bfa3a3862"
+    },
+    {
+      "bytes": 3032,
+      "path": "tests/T04_comparability_unit_consistency/preflight.py",
+      "sha256": "5376a4ecc23f01ad8fa86251cb5b53b836d0de37cb539ca0162ba50080655739"
+    },
+    {
+      "bytes": 275,
+      "path": "tests/T04_comparability_unit_consistency/raw/README.md",
+      "sha256": "06190b5377d8593d2c2d7b44685e5aa8f024b431f5518a23da0065a54c8e4b73"
+    },
+    {
+      "bytes": 258,
+      "path": "tests/T04_comparability_unit_consistency/results/README.md",
+      "sha256": "fb4e0f9e3688199a88cc92f3e946aba3d938be3837fe3c82478ad658e99a4c99"
+    },
+    {
+      "bytes": 1071,
+      "path": "tests/T04_comparability_unit_consistency/verify_prereg.py",
+      "sha256": "5934c3eb5141def2f4295fcae0b9bdec6729c8196efb2f81832724fe5675a35a"
+    }
+  ],
+  "package": "evaleval-audit-T04-unit-consistency",
+  "test_id": "T04_comparability_unit_consistency"
+}

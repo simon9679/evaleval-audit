@@ -1,0 +1,21 @@
+{
+  "files": [
+    {
+      "bytes": 500,
+      "path": "tests/T17_wildbench_synthetic_group_metric_config/POSTRUN_METHOD_NOTE.md",
+      "sha256": "dcfe65d7999d29ab04fcfe850819e7f8096842d004315ab520f5f7ca448779ce"
+    },
+    {
+      "bytes": 765,
+      "path": "tests/T17_wildbench_synthetic_group_metric_config/results/POSTRUN_DECISION.md",
+      "sha256": "846158ba438d62f91122176d5606819c8ffb213baea6f26feb09b8a34ed5d918"
+    },
+    {
+      "bytes": 5466,
+      "path": "tests/T17_wildbench_synthetic_group_metric_config/results/RESULT_ANALYSIS.md",
+      "sha256": "dd65bdd690ad082bbcf4f40b29c9c66d2be524aeb7b041c266408c6978ba89c5"
+    }
+  ],
+  "test_id": "T17_wildbench_synthetic_group_metric_config",
+  "verdict": "CONFIRMED"
+}

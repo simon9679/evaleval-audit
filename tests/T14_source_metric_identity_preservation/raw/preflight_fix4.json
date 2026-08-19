@@ -1,0 +1,16 @@
+{
+  "actual_cocoa_additional_details_type": "MAP(VARCHAR, VARCHAR)",
+  "actual_cocoa_agentic_eval_config_json": "{\"available_tools\":null,\"additional_details\":{\"agent_label\":\"Cocoa Agent w/ GPT-5.4-high\",\"agent_name\":\"Cocoa Agent\",\"agent_framework\":\"cocoa-agent\",\"benchmark_version\":\"1.0\",\"agent_organization\":\"CocoaBench\"}}",
+  "arrow_map_to_json_probe": "{\"duck\":\"42\"}",
+  "duckdb": "1.5.2",
+  "eee_root": "C:\\Users\\Limon\\Downloads\\evaleval-audit\\freeze\\hf\\EEE_datastore",
+  "fact_sha256": "e9edc3bf8c6c07f968ff4fb556ceb75a55219ca11076a0130cde419fab5f7196",
+  "fix3_map_shape_observed": true,
+  "fix3_representation_only_mismatch": true,
+  "fix_id": "HARNESS_FIX_04",
+  "problems": [],
+  "pyarrow": "24.0.0",
+  "schema_fields": 9,
+  "test_id": "T14_source_metric_identity_preservation",
+  "threshold_factor": 1.0
+}

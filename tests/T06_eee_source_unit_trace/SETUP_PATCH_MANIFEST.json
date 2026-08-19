@@ -1,0 +1,16 @@
+{
+  "files": [
+    {
+      "bytes": 2162,
+      "path": "tests/T06_eee_source_unit_trace/SETUP_AMENDMENT_01.md",
+      "sha256": "058be18a16d8c789cb155f59ce3d645bf2c9774bf0f687bcda3f38c9e363b0b5"
+    },
+    {
+      "bytes": 7827,
+      "path": "tests/T06_eee_source_unit_trace/preflight_fix1.py",
+      "sha256": "6b767879fc784668d74226b6bf120ed651170e2f64c7e6e05a5c1e3977a4dafd"
+    }
+  ],
+  "package": "evaleval-audit-T06-root-fix1",
+  "purpose": "setup-only root discovery amendment; preregistration and analyzer unchanged"
+}

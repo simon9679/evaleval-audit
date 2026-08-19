@@ -1,0 +1,40 @@
+{
+  "files": [
+    {
+      "bytes": 2681,
+      "path": "tests/T17_wildbench_synthetic_group_metric_config/PREREGISTRATION.md",
+      "sha256": "9f8353933e0c0aceafd51aabfff1e11faa1f6eb5ae3d049fa0f33643f9fe2541"
+    },
+    {
+      "bytes": 1424,
+      "path": "tests/T17_wildbench_synthetic_group_metric_config/README.md",
+      "sha256": "d5c94e84b79cad0422dad919a164a8fd39d94860d8f233d8c3025b3f09572b3b"
+    },
+    {
+      "bytes": 1039,
+      "path": "tests/T17_wildbench_synthetic_group_metric_config/SOURCE_ATTRIBUTION.md",
+      "sha256": "dc7cb24a4bec531e6efd60e0492f4a9bf652329190fb95a981d9f8f4d455c048"
+    },
+    {
+      "bytes": 2552,
+      "path": "tests/T17_wildbench_synthetic_group_metric_config/TEST_RATIONALE.md",
+      "sha256": "a6d18a8652e44b2ee1f2fa14abdaef1e8d9bd1e6c5f96749a19b705c428604f4"
+    },
+    {
+      "bytes": 10941,
+      "path": "tests/T17_wildbench_synthetic_group_metric_config/analyze.py",
+      "sha256": "d43a4dbd3dae81c44138e2a3d87ccb9e5f4894d6cefdabc4cbe35f660aeaef5d"
+    },
+    {
+      "bytes": 3137,
+      "path": "tests/T17_wildbench_synthetic_group_metric_config/preflight.py",
+      "sha256": "ae102588bb4e2590cec9a5d41ea81d5a02c02374265aad63c4212c080d3ed8a6"
+    },
+    {
+      "bytes": 988,
+      "path": "tests/T17_wildbench_synthetic_group_metric_config/verify_prereg.py",
+      "sha256": "96118161c0eb57afdc1a50ce03eefcfc24c4d804a6e74b78ded97d32c0c648d0"
+    }
+  ],
+  "test_id": "T17_wildbench_synthetic_group_metric_config"
+}

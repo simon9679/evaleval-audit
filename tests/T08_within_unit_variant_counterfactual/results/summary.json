@@ -1,0 +1,47 @@
+{
+  "applicable_mixed_variant_paths": 7,
+  "comparability_groups_scanned": 93495,
+  "competing_predictions": {
+    "P1": "positive_to_negative_paths = 0",
+    "P2": "positive_to_negative_paths >= 1"
+  },
+  "counterfactual_false_paths": 4,
+  "counterfactual_true_paths": 3,
+  "divergence_reconstruction_errors": 0,
+  "evidence": {
+    "input_fact_sha256": "e9edc3bf8c6c07f968ff4fb556ceb75a55219ca11076a0130cde419fab5f7196",
+    "integrity_errors_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "path_counterfactuals_sha256": "4abe0024f605474511bfde81e13566f3a62e301af2993fb3a578d8925bdac2ee",
+    "positive_to_negative_paths_sha256": "21ff406d12e6e8fae874b3309f176819678e122c513cfea11779f7577eaae304"
+  },
+  "fact_rows_scanned": 209382,
+  "group_consistency_errors": 0,
+  "integrity_error_records": 0,
+  "invariant_errors": 0,
+  "limitations": [
+    "Exact unit-label partitioning is an operational counterfactual, not a semantic equivalence judgement.",
+    "The frozen production threshold is held fixed to isolate row-eligibility effects.",
+    "T08 does not establish which unit label is correct.",
+    "T08 does not establish public-product impact."
+  ],
+  "mixed_unit_groups": 1234,
+  "negative_to_negative_paths": 2,
+  "negative_to_positive_paths": 0,
+  "positive_to_negative_paths": 2,
+  "positive_to_positive_paths": 3,
+  "production_divergence_eq_max_within_unit_paths": 3,
+  "production_divergence_gt_max_within_unit_paths": 4,
+  "production_divergence_lt_max_within_unit_paths": 0,
+  "production_false_paths": 2,
+  "production_true_paths": 5,
+  "test_id": "T08_within_unit_variant_counterfactual",
+  "unit_pattern_transitions": {
+    "percent | seconds :: positive_to_negative": 1,
+    "percent | seconds :: positive_to_positive": 1,
+    "points | proportion | score :: positive_to_positive": 1,
+    "points | score :: positive_to_negative": 1,
+    "proportion | score :: negative_to_negative": 2,
+    "proportion | score :: positive_to_positive": 1
+  },
+  "verdict": "CONFIRMED"
+}

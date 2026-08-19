@@ -1,0 +1,206 @@
+{
+  "affected_ids_with_multiple_source_configs": 0,
+  "catch_all_metric_ids_count": 3,
+  "competing_predictions": {
+    "P1": "rejected_conflicting_specific_ids >= 1",
+    "P2": "rejected_conflicting_specific_ids = 0 and rejected_zero_specific_ids = 6"
+  },
+  "evidence": {
+    "integrity_errors_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "rejection_classes_sha256": "0d4c4c7b197de5f6b2ca1e1dd42c7a6d416c155a80f449c91afa1fe7a341cf84",
+    "stage_f_sha256": "e9edc3bf8c6c07f968ff4fb556ceb75a55219ca11076a0130cde419fab5f7196",
+    "structured_id_replay_sha256": "adfa1fb048daaacd8726e2cebbdbc3b5b953d085b0e5ebba3f6c885b1ba11feb",
+    "t12_row_trace_sha256": "4256cb66facb58916929570526ab52155d02122d1b8e82c5de9999300d0ed609"
+  },
+  "inconsistent_replay_ids": 0,
+  "integrity_error_records": 0,
+  "limitations": [
+    "Registry vocabulary rejection is not semantic non-equivalence.",
+    "T13 does not determine which aliases should be added.",
+    "T13 does not adjudicate whether fallback canonical score is semantically valid."
+  ],
+  "rejected_catch_all_only": 2,
+  "rejected_conflicting_specific_ids": 0,
+  "rejected_no_hits": 4,
+  "rejected_zero_specific_ids": 6,
+  "rejection_class_by_source_metric_id": {
+    "cocoabench.overall.accuracy_percent": [
+      {
+        "classification": "rejected_catch_all_only",
+        "direct_result": null,
+        "source_config": "cocoabench"
+      }
+    ],
+    "cocoabench.overall.avg_time_seconds": [
+      {
+        "classification": "rejected_catch_all_only",
+        "direct_result": null,
+        "source_config": "cocoabench"
+      }
+    ],
+    "openeval.wildbench.claude-score": [
+      {
+        "classification": "rejected_no_hits",
+        "direct_result": null,
+        "source_config": "openeval"
+      }
+    ],
+    "openeval.wildbench.gpt-score": [
+      {
+        "classification": "rejected_no_hits",
+        "direct_result": null,
+        "source_config": "openeval"
+      }
+    ],
+    "openeval.wildbench.llama-score": [
+      {
+        "classification": "rejected_no_hits",
+        "direct_result": null,
+        "source_config": "openeval"
+      }
+    ],
+    "openeval.wildbench.wildbench-score-rescaled": [
+      {
+        "classification": "rejected_no_hits",
+        "direct_result": null,
+        "source_config": "openeval"
+      }
+    ]
+  },
+  "row_source_config_errors": 0,
+  "segment_hits_by_source_metric_id": {
+    "cocoabench.overall.accuracy_percent": [
+      {
+        "segment_results": [
+          {
+            "canonical_id": "overall",
+            "confidence": 1.0,
+            "is_catch_all": true,
+            "segment": "overall",
+            "strategy": "exact"
+          },
+          {
+            "canonical_id": null,
+            "confidence": 0.0,
+            "is_catch_all": false,
+            "segment": "accuracy_percent",
+            "strategy": "no_match"
+          }
+        ],
+        "source_config": "cocoabench"
+      }
+    ],
+    "cocoabench.overall.avg_time_seconds": [
+      {
+        "segment_results": [
+          {
+            "canonical_id": "overall",
+            "confidence": 1.0,
+            "is_catch_all": true,
+            "segment": "overall",
+            "strategy": "exact"
+          },
+          {
+            "canonical_id": null,
+            "confidence": 0.0,
+            "is_catch_all": false,
+            "segment": "avg_time_seconds",
+            "strategy": "no_match"
+          }
+        ],
+        "source_config": "cocoabench"
+      }
+    ],
+    "openeval.wildbench.claude-score": [
+      {
+        "segment_results": [
+          {
+            "canonical_id": null,
+            "confidence": 0.0,
+            "is_catch_all": false,
+            "segment": "wildbench",
+            "strategy": "no_match"
+          },
+          {
+            "canonical_id": null,
+            "confidence": 0.0,
+            "is_catch_all": false,
+            "segment": "claude-score",
+            "strategy": "no_match"
+          }
+        ],
+        "source_config": "openeval"
+      }
+    ],
+    "openeval.wildbench.gpt-score": [
+      {
+        "segment_results": [
+          {
+            "canonical_id": null,
+            "confidence": 0.0,
+            "is_catch_all": false,
+            "segment": "wildbench",
+            "strategy": "no_match"
+          },
+          {
+            "canonical_id": null,
+            "confidence": 0.0,
+            "is_catch_all": false,
+            "segment": "gpt-score",
+            "strategy": "no_match"
+          }
+        ],
+        "source_config": "openeval"
+      }
+    ],
+    "openeval.wildbench.llama-score": [
+      {
+        "segment_results": [
+          {
+            "canonical_id": null,
+            "confidence": 0.0,
+            "is_catch_all": false,
+            "segment": "wildbench",
+            "strategy": "no_match"
+          },
+          {
+            "canonical_id": null,
+            "confidence": 0.0,
+            "is_catch_all": false,
+            "segment": "llama-score",
+            "strategy": "no_match"
+          }
+        ],
+        "source_config": "openeval"
+      }
+    ],
+    "openeval.wildbench.wildbench-score-rescaled": [
+      {
+        "segment_results": [
+          {
+            "canonical_id": null,
+            "confidence": 0.0,
+            "is_catch_all": false,
+            "segment": "wildbench",
+            "strategy": "no_match"
+          },
+          {
+            "canonical_id": null,
+            "confidence": 0.0,
+            "is_catch_all": false,
+            "segment": "wildbench-score-rescaled",
+            "strategy": "no_match"
+          }
+        ],
+        "source_config": "openeval"
+      }
+    ]
+  },
+  "source_rows_scanned": 12,
+  "structured_accept_ids": 0,
+  "structured_reject_ids": 6,
+  "test_id": "T13_structured_metric_id_rejection",
+  "unique_source_metric_id_config_pairs": 6,
+  "unique_source_metric_ids": 6,
+  "verdict": "CONFIRMED"
+}

@@ -1,0 +1,30 @@
+{
+  "files": {
+    "PREREGISTRATION.md": {
+      "bytes": 4352,
+      "sha256": "aec026e7dd7e4d6a8272319ce9a555d83fbcccaf45af7240095af1a008169470"
+    },
+    "README.md": {
+      "bytes": 1223,
+      "sha256": "e9c53d7a22226fe1ba5cb7fc30915c660ea11a97b0fd0c5ba45b560f820d76de"
+    },
+    "TEST_RATIONALE.md": {
+      "bytes": 6034,
+      "sha256": "62db1986e65310adac6d6e5aa3390014afad5783592d3e9e709339a4c8731b06"
+    },
+    "analyze.py": {
+      "bytes": 16344,
+      "sha256": "1b1b1b43c7cae75afcd81e84f7bae6832d9794e719df35d69788e125adc790e9"
+    },
+    "preflight.py": {
+      "bytes": 8162,
+      "sha256": "23b8bb02d3d33057ba7f289857976d8859c65ff971cc6e317752329d4ad103dd"
+    },
+    "run_pipeline.py": {
+      "bytes": 6944,
+      "sha256": "f61bcbdaab1c3f83991c1c4aa12790767f37e778b8cf683304be7d43cee046ac"
+    }
+  },
+  "schema_version": 1,
+  "test_id": "T03_corpus_boundary_impact"
+}

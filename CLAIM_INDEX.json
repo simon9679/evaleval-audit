@@ -1,0 +1,178 @@
+{
+  "schema_version": "1.0",
+  "purpose": "Trace each canonical final verdict to the preregistered claim or primary decision predicate without modifying any frozen test artifact.",
+  "note": "Where a preregistration uses a named primary claim, claim_text reproduces that claim. Where it defines the verdict through a primary hypothesis/prediction rather than a standalone claim sentence, claim_text reproduces that hypothesis/prediction and is labelled accordingly.",
+  "test_count": 17,
+  "tests": [
+    {
+      "test_id": "T01_signal_calibration",
+      "final_verdict": "REFUTED",
+      "claim_source_type": "verbatim_primary_hypothesis",
+      "claim_text": "The tested signal primitives will satisfy all mandatory controlled discrimination and nuisance-invariance cases.",
+      "preregistration": "tests/T01_signal_calibration/PREREGISTRATION.md",
+      "preregistration_sha256": "77f1289c75c81bdedd4a5a1a56994d08036dbcf06e19d4c4a67350d95b008dbf",
+      "canonical_summary": "tests/T01_signal_calibration/results/summary.json",
+      "canonical_summary_sha256": "deabdd5c8a1712e177d78f3d3c468fb9c0b48ced3492a6f9b742180cf385957a"
+    },
+    {
+      "test_id": "T02_comparability_boundary_robustness",
+      "final_verdict": "REFUTED",
+      "claim_source_type": "verbatim_primary_hypothesis",
+      "claim_text": "For each frozen threshold basis, all decimal score pairs whose exact decimal difference equals the exact declared threshold are classified as non-divergent by both comparability paths. Below-threshold controls are non-divergent. Above-threshold controls are divergent.",
+      "preregistration": "tests/T02_comparability_boundary_robustness/PREREGISTRATION.md",
+      "preregistration_sha256": "8add27d64149cae0dec1aebcdda9a1aac6b58b124f8aa5c4163c9d0faaa9296f",
+      "canonical_summary": "tests/T02_comparability_boundary_robustness/results/summary.json",
+      "canonical_summary_sha256": "c8e94213e6ca5280b8aa69ea85c25862efe2656ff019b44704afe8867e7f308d"
+    },
+    {
+      "test_id": "T03_corpus_boundary_impact",
+      "final_verdict": "REFUTED",
+      "claim_source_type": "verbatim_primary_claim",
+      "claim_text": "At least one production-applicable comparability group in the full frozen corpus has a different boolean classification under: A. the frozen production binary-float comparison; versus B. exact-decimal recomputation of the same stored scores and declared threshold rule. The primary targeted subset is exact-boundary groups where exact-decimal divergence equals the exact-decimal threshold.",
+      "preregistration": "tests/T03_corpus_boundary_impact/PREREGISTRATION.md",
+      "preregistration_sha256": "aec026e7dd7e4d6a8272319ce9a555d83fbcccaf45af7240095af1a008169470",
+      "canonical_summary": "tests/T03_corpus_boundary_impact/results/summary.json",
+      "canonical_summary_sha256": "6d46a511962724e192ee4bd9aa50383462d232bd4b3426dea56716a55b08d537"
+    },
+    {
+      "test_id": "T04_comparability_unit_consistency",
+      "final_verdict": "REFUTED",
+      "claim_source_type": "verbatim_primary_claim",
+      "claim_text": "At least one production-applicable Stage F comparability path in the frozen corpus changes its boolean divergence classification when the threshold is recomputed across distinct non-null `metric_unit` values actually present in that same actual comparability group.",
+      "preregistration": "tests/T04_comparability_unit_consistency/PREREGISTRATION.md",
+      "preregistration_sha256": "744da73b6e562929be0fc7b5bf5f5972f18ce5d8e86da6ffa3d26fbe7991a902",
+      "canonical_summary": "tests/T04_comparability_unit_consistency/results/summary.json",
+      "canonical_summary_sha256": "76fb9832269d2a52bc5213495236f150fdcd7630dfa7d26a9ce6cb9cad65d948"
+    },
+    {
+      "test_id": "T05_metric_unit_provenance_decomposition",
+      "final_verdict": "REFUTED",
+      "claim_source_type": "verbatim_primary_claim",
+      "claim_text": "At least one actual mixed-unit group is a full resolved canonical-convergence group.",
+      "preregistration": "tests/T05_metric_unit_provenance_decomposition/PREREGISTRATION.md",
+      "preregistration_sha256": "dd953944daf2450f1ee3f967088ccb587395461bbd354ad5fdadfbb0f1de66d7",
+      "canonical_summary": "tests/T05_metric_unit_provenance_decomposition/results/summary.json",
+      "canonical_summary_sha256": "7f363c474ed99bbb0dd026fdc695167c6772f8f7cde2e7101a9932d4f552b3f2"
+    },
+    {
+      "test_id": "T06_eee_source_unit_trace",
+      "final_verdict": "CONFIRMED",
+      "claim_source_type": "verbatim_primary_prediction",
+      "claim_text": "P1: `row_unit_mismatches = 0`; `group_unit_set_mismatches = 0`; `pointer_or_index_errors = 0`. The preregistration states that the verdict applies only to the source-faithfulness claim C-T06.",
+      "preregistration": "tests/T06_eee_source_unit_trace/PREREGISTRATION.md",
+      "preregistration_sha256": "e996b1756e0fd3cde6b5f087a0797e83bff82248ac7ffe83426d694e1e5e78cf",
+      "canonical_summary": "tests/T06_eee_source_unit_trace/results/summary.json",
+      "canonical_summary_sha256": "e0060686a05e9882384bbbafe9f6d6eae4474eeaa07c301184a0bd54a793d8e5"
+    },
+    {
+      "test_id": "T07_variant_divergence_unit_homogeneity",
+      "final_verdict": "CONFIRMED",
+      "claim_source_type": "verbatim_primary_claim",
+      "claim_text": "At least one applicable mixed-unit variant path has at least two distinct non-null declared unit labels among the arithmetic score rows.",
+      "preregistration": "tests/T07_variant_divergence_unit_homogeneity/PREREGISTRATION.md",
+      "preregistration_sha256": "eeaeaf4346cee7115843f95ce98e951f08e369cd6748040f2796e5f9dfb29219",
+      "canonical_summary": "tests/T07_variant_divergence_unit_homogeneity/results/summary.json",
+      "canonical_summary_sha256": "f9583531a3dbfb870432fd6173c0f2cb59d0a06c5d9d753b8823d2faf4aad359"
+    },
+    {
+      "test_id": "T08_within_unit_variant_counterfactual",
+      "final_verdict": "CONFIRMED",
+      "claim_source_type": "verbatim_primary_claim",
+      "claim_text": "At least one production-positive path becomes negative under the exact-label partition counterfactual.",
+      "preregistration": "tests/T08_within_unit_variant_counterfactual/PREREGISTRATION.md",
+      "preregistration_sha256": "6580c8cb690b16f283e2dd587b721a801a9ecd3ac8bf547589f4783377047866",
+      "canonical_summary": "tests/T08_within_unit_variant_counterfactual/results/summary.json",
+      "canonical_summary_sha256": "c1247fc8783ca2581ef003e358cc0249d80262d21dd7761b1c8327b5b4be3f96"
+    },
+    {
+      "test_id": "T09_headline_comparability_impact",
+      "final_verdict": "CONFIRMED",
+      "claim_source_type": "verbatim_primary_prediction",
+      "claim_text": "Primary quantity: `headline_variant_divergent_count_delta = counterfactual_variant_divergent_count - production_variant_divergent_count`. P2: `headline_variant_divergent_count_delta < 0`.",
+      "preregistration": "tests/T09_headline_comparability_impact/PREREGISTRATION.md",
+      "preregistration_sha256": "d770edfa9835d187bd5d24149788779fa84fb63d0a144e67e879ec1f2a4d9133",
+      "canonical_summary": "tests/T09_headline_comparability_impact/results/summary.json",
+      "canonical_summary_sha256": "ff3067e2b34ff28440c6ee134a7e898613341ae6310286b8356a27c89adb3900"
+    },
+    {
+      "test_id": "T10_source_metric_config_heterogeneity",
+      "final_verdict": "CONFIRMED",
+      "claim_source_type": "verbatim_primary_claim",
+      "claim_text": "At least one affected group has two or more distinct primary non-unit MetricConfig signatures.",
+      "preregistration": "tests/T10_source_metric_config_heterogeneity/PREREGISTRATION.md",
+      "preregistration_sha256": "e49488568671cd3d3ef1abc4dc28348de4b00d9911800e82275a69a4cba0f1c0",
+      "canonical_summary": "tests/T10_source_metric_config_heterogeneity/results/summary.json",
+      "canonical_summary_sha256": "fbd181e6dd8d370ec9193749aa09ce16338e5fd82301f46e05784977f8069453"
+    },
+    {
+      "test_id": "T11_metric_config_field_decomposition",
+      "final_verdict": "CONFIRMED",
+      "claim_source_type": "verbatim_primary_claim",
+      "claim_text": "At least one affected group varies in one or more claim-governing fields.",
+      "preregistration": "tests/T11_metric_config_field_decomposition/PREREGISTRATION.md",
+      "preregistration_sha256": "5bffecd45f7d6fab0cfd835f9c1be086e05d7de047950520eb84fdeefc60d69e",
+      "canonical_summary": "tests/T11_metric_config_field_decomposition/results/summary.json",
+      "canonical_summary_sha256": "bfb51f76bfbc38b4eda909d482d1af62e6d8543aa0a2a100f80cf6bddacd2467"
+    },
+    {
+      "test_id": "T12_source_metric_identity_collapse",
+      "final_verdict": "CONFIRMED",
+      "claim_source_type": "verbatim_primary_claim",
+      "claim_text": "At least one affected group satisfies the full fallback source-id collapse predicate.",
+      "preregistration": "tests/T12_source_metric_identity_collapse/PREREGISTRATION.md",
+      "preregistration_sha256": "b520b5b67f571e02190318c18960a36d9363b52b608ab47a7822c4d01c08f1ce",
+      "canonical_summary": "tests/T12_source_metric_identity_collapse/results/summary.json",
+      "canonical_summary_sha256": "91f7e0b25b0024b1a754abe7ea7ab38232917a5b27d191a8bcd2e0c6ee9dcdf7"
+    },
+    {
+      "test_id": "T13_structured_metric_id_rejection",
+      "final_verdict": "CONFIRMED",
+      "claim_source_type": "verbatim_primary_claim",
+      "claim_text": "All six source metric ids have zero distinct non-catch-all specific metric hits and direct structured result null.",
+      "preregistration": "tests/T13_structured_metric_id_rejection/PREREGISTRATION.md",
+      "preregistration_sha256": "c81f8772a3540101c9cc783db2b9d2a20cec9551f5f9d5d6c54584f86acfc5a7",
+      "canonical_summary": "tests/T13_structured_metric_id_rejection/results/summary.json",
+      "canonical_summary_sha256": "6cca53068d605d4b700756d2661bc733b0e5854171b8dba1fa92fc203ea38280"
+    },
+    {
+      "test_id": "T14_source_metric_identity_preservation",
+      "final_verdict": "CONFIRMED",
+      "claim_source_type": "verbatim_primary_prediction",
+      "claim_text": "Primary quantity: `production_positive_groups_losing_all_positive_source_id_subgroups`. P2: `production_positive_groups_losing_all_positive_source_id_subgroups >= 1`.",
+      "preregistration": "tests/T14_source_metric_identity_preservation/PREREGISTRATION.md",
+      "preregistration_sha256": "c780a0342fcd93bf49888ca1a776e97585a3fce121e2fe897ace6af92963b2fe",
+      "canonical_summary": "tests/T14_source_metric_identity_preservation/results/summary.json",
+      "canonical_summary_sha256": "2a2d19808a129f8766071595485d5e2aa4e226ca8dedebc13001fbb6b0f376b6"
+    },
+    {
+      "test_id": "T15_wildbench_authoritative_source_identity_trace",
+      "final_verdict": "CONFIRMED",
+      "claim_source_type": "verbatim_primary_claim",
+      "claim_text": "For the four exact source metric ids in the T14 claim-governing WildBench/OpenEval group: (1) all four are exactly derivable from four distinct preserved raw OpenEval metric names under the frozen adapter's naming rule; and (2) at least two distinct structured source signatures remain after excluding both `metric_id` and `raw_metric_name`.",
+      "preregistration": "tests/T15_wildbench_authoritative_source_identity_trace/PREREGISTRATION.md",
+      "preregistration_sha256": "e4decc973542b71b31ede0ff20956c5762dad8397d60544f9c9d9cfe5de350db",
+      "canonical_summary": "tests/T15_wildbench_authoritative_source_identity_trace/results/summary.json",
+      "canonical_summary_sha256": "3217c31e728ea4d78428cbe6c63c1acd11796616327c53d7f82e5f5dc8b20ef1"
+    },
+    {
+      "test_id": "T16_wildbench_common_scale_eligibility",
+      "final_verdict": "CONFIRMED",
+      "claim_source_type": "verbatim_primary_claim",
+      "claim_text": "The four T15 claim-governing WildBench/OpenEval source channels are not source-represented as one common raw numeric scale for direct range arithmetic.",
+      "preregistration": "tests/T16_wildbench_common_scale_eligibility/PREREGISTRATION.md",
+      "preregistration_sha256": "0904b225c14aab5c212d245aec1afd76342f2c19a669025406c3b104d98fa69a",
+      "canonical_summary": "tests/T16_wildbench_common_scale_eligibility/results/summary.json",
+      "canonical_summary_sha256": "7f7e08e6396d24d24a5b243f2b11305048443693ff2d6365281a88ff2fbf1a9e"
+    },
+    {
+      "test_id": "T17_wildbench_synthetic_group_metric_config",
+      "final_verdict": "CONFIRMED",
+      "claim_source_type": "verbatim_primary_claim",
+      "claim_text": "For group `d38d8f8e547287b6b0fc78f43f310762`, the frozen Stage-F field-wise aggregation produces a group metric configuration that: (1) matches zero exact source configurations on the fixed signature fields; and (2) exactly reproduces the frozen production threshold magnitude and basis.",
+      "preregistration": "tests/T17_wildbench_synthetic_group_metric_config/PREREGISTRATION.md",
+      "preregistration_sha256": "9f8353933e0c0aceafd51aabfff1e11faa1f6eb5ae3d049fa0f33643f9fe2541",
+      "canonical_summary": "tests/T17_wildbench_synthetic_group_metric_config/results/summary.json",
+      "canonical_summary_sha256": "558f25429701b36bad8e853ef27900d009bd0ac748d893f363a287151df7b7cd"
+    }
+  ]
+}

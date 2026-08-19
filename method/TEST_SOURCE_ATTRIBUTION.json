@@ -1,0 +1,79 @@
+{
+  "completed_tests": [
+    {
+      "cases": 24,
+      "fail": 1,
+      "inconclusive": 0,
+      "note": "T01 was not copied verbatim from the additional TXT; the TXT strengthened prioritisation and scope.",
+      "pass": 23,
+      "primary_origin": [
+        "S2:P8"
+      ],
+      "supporting_origins": [
+        "S1:Rule 5 style validity logic",
+        "S1:Rule 7",
+        "S1:Rule 8",
+        "S3:Test 17",
+        "S3:Test 1",
+        "S3:Test 5"
+      ],
+      "test_id": "T01_signal_calibration",
+      "verdict": "REFUTED"
+    },
+    {
+      "above_fail": 0,
+      "below_fail": 0,
+      "boundary_fail": 8,
+      "cases": 48,
+      "fail": 8,
+      "note": "No source document directly specified T02. It was derived from the audit DAG after T01.",
+      "pass": 40,
+      "primary_origin": [
+        "empirical T01 V2 failure",
+        "S2:P8"
+      ],
+      "supporting_origins": [
+        "S1:Rule 7",
+        "S1:Rule 8",
+        "S2:U4",
+        "S2:U8",
+        "S2:U9",
+        "S2:U11",
+        "S2:U15",
+        "S2:U17",
+        "S3:Test 17",
+        "S3:Test 18"
+      ],
+      "test_id": "T02_comparability_boundary_robustness",
+      "verdict": "REFUTED"
+    }
+  ],
+  "not_completed": [
+    {
+      "reason_next": "tests real-corpus consequence of the T01/T02 boundary defect",
+      "status": "preregistered/planned, not yet executed",
+      "test_id": "T03_corpus_boundary_impact"
+    }
+  ],
+  "schema_version": 1,
+  "sources": {
+    "S1": {
+      "name": "FALSIFICATION_PROTOCOL.md",
+      "role": "minimal decision procedure, preregistration, cheap-to-expensive ordering, product consequence"
+    },
+    "S2": {
+      "name": "VALIDATION_HANDBOOK.md",
+      "role": "claim-indexed admissibility, P8 signal calibration, controls, granularity, DAG, error attribution, finite-power reporting"
+    },
+    "S3": {
+      "name": "AI_SYSTEM_VALIDATION_ADDITIONAL_TESTS_2026-08-19(1).txt",
+      "role": "additional applicability catalogue, especially claim-estimand boundary, environment gate, local discriminability, aggregation robustness"
+    },
+    "S4": {
+      "backend_commit": "9c16ab3f93a4ba02a5b44590858bbdf824ed09d3",
+      "name": "frozen EvalEval object",
+      "role": "defines the concrete four signal families and production rules"
+    }
+  },
+  "status": "retrospective method record after T01/T02 and before T03 execution"
+}

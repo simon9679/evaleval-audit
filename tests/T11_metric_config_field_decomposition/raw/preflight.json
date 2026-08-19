@@ -1,0 +1,30 @@
+{
+  "primary_signature_fields": [
+    "metric_id",
+    "metric_name",
+    "metric_kind",
+    "metric_parameters",
+    "lower_is_better",
+    "score_type",
+    "min_score",
+    "max_score"
+  ],
+  "problems": [],
+  "source_row_count": 12,
+  "t10_checks": {
+    "affected_arithmetic_rows": 12,
+    "affected_group_ids": 2,
+    "affected_groups_present": 2,
+    "affected_groups_with_nonunit_metric_config_heterogeneity": 2,
+    "affected_groups_with_single_nonunit_signature": 0,
+    "arithmetic_row_identity_errors": 0,
+    "evaluation_id_mismatches": 0,
+    "integrity_error_records": 0,
+    "pointer_or_index_errors": 0,
+    "source_rows_complete": 12,
+    "source_unit_matches": 12,
+    "source_unit_mismatches": 0,
+    "verdict": "CONFIRMED"
+  },
+  "test_id": "T11_metric_config_field_decomposition"
+}

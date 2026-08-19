@@ -1,0 +1,26 @@
+{
+  "backend_commit": "9c16ab3f93a4ba02a5b44590858bbdf824ed09d3",
+  "duckdb": "1.5.2",
+  "fact_sha256": "e9edc3bf8c6c07f968ff4fb556ceb75a55219ca11076a0130cde419fab5f7196",
+  "problems": [],
+  "t04_checks": {
+    "actual_mixed_unit_groups": 1234,
+    "classification_sensitive_paths": 0,
+    "cross_party_eligible_paths": 0,
+    "integrity_error_records": 0,
+    "variant_eligible_paths": 7
+  },
+  "t06_checks": {
+    "group_unit_set_matches": 1234,
+    "group_unit_set_mismatches": 0,
+    "integrity_error_records": 0,
+    "mixed_unit_groups": 1234,
+    "mixed_unit_rows": 28196,
+    "pointer_or_index_errors": 0,
+    "row_traces_complete": 28196,
+    "row_unit_matches": 28196,
+    "row_unit_mismatches": 0,
+    "verdict": "CONFIRMED"
+  },
+  "test_id": "T07_variant_divergence_unit_homogeneity"
+}

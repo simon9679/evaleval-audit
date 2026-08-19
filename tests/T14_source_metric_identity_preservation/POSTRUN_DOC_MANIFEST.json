@@ -1,0 +1,21 @@
+{
+  "accepted_fix": "HARNESS_FIX_04",
+  "files": [
+    {
+      "bytes": 1533,
+      "path": "tests/T14_source_metric_identity_preservation/POSTRUN_METHOD_NOTE.md",
+      "sha256": "38624baab9897155978b61c7af1d5150f5e7128040f1075cdb03c92ac5c2257c"
+    },
+    {
+      "bytes": 993,
+      "path": "tests/T14_source_metric_identity_preservation/results/POSTRUN_DECISION.md",
+      "sha256": "fb143746c345095855a1932cf3dd805106c4546932257cdc7cc65972edf286c9"
+    },
+    {
+      "bytes": 9368,
+      "path": "tests/T14_source_metric_identity_preservation/results/RESULT_ANALYSIS.md",
+      "sha256": "e29d1e65c6d2e746bcb9fbfc1c5ce58aee8f2234ac4216bca62bc9b26fce9ef8"
+    }
+  ],
+  "test_id": "T14_source_metric_identity_preservation"
+}

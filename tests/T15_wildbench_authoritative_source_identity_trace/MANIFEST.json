@@ -1,0 +1,45 @@
+{
+  "files": [
+    {
+      "bytes": 2883,
+      "path": "tests/T15_wildbench_authoritative_source_identity_trace/PREREGISTRATION.md",
+      "sha256": "e4decc973542b71b31ede0ff20956c5762dad8397d60544f9c9d9cfe5de350db"
+    },
+    {
+      "bytes": 1671,
+      "path": "tests/T15_wildbench_authoritative_source_identity_trace/README.md",
+      "sha256": "6521bea9a2d58937b3497361b0dbe35bb20062d39e4da6f2e2a350fc6e045429"
+    },
+    {
+      "bytes": 1367,
+      "path": "tests/T15_wildbench_authoritative_source_identity_trace/SOURCE_ATTRIBUTION.md",
+      "sha256": "0b18ce0315b3ac196ba0ea1b6b41d2cb1dd127f44de84d513f876a0dcea0c514"
+    },
+    {
+      "bytes": 1129,
+      "path": "tests/T15_wildbench_authoritative_source_identity_trace/TEST_RATIONALE.md",
+      "sha256": "399f3b0eb8746ec167d02ecf217b65b2c79049e19e540e6153c623e5fe0e008e"
+    },
+    {
+      "bytes": 9155,
+      "path": "tests/T15_wildbench_authoritative_source_identity_trace/analyze.py",
+      "sha256": "efb9564726d870f21b90e51e0e892004db8c22b36957931293a9f32664913c18"
+    },
+    {
+      "bytes": 3273,
+      "path": "tests/T15_wildbench_authoritative_source_identity_trace/preflight.py",
+      "sha256": "7875935475dfa3e39dcff06b417a5912f35c1bc8d8a1ffc35fc29921c0719d06"
+    },
+    {
+      "bytes": 661,
+      "path": "tests/T15_wildbench_authoritative_source_identity_trace/references/REFERENCE_AUTHORITY.json",
+      "sha256": "481e22e1e2cd66d934f140c583ee9035ff0428fe1528b82868966ee6d1166d25"
+    },
+    {
+      "bytes": 1095,
+      "path": "tests/T15_wildbench_authoritative_source_identity_trace/verify_prereg.py",
+      "sha256": "c50d12e094db4bdee9d35ef84ed0f49dc9a3fc5cc137ac24a507b9dd5823aa18"
+    }
+  ],
+  "test_id": "T15_wildbench_authoritative_source_identity_trace"
+}

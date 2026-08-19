@@ -1,0 +1,73 @@
+{
+  "affected_group_id": "d38d8f8e547287b6b0fc78f43f310762",
+  "affected_rows": 8,
+  "exact_source_metric_ids": 4,
+  "field_provenance": {
+    "max_score": [
+      "openeval.wildbench.claude-score",
+      "openeval.wildbench.gpt-score",
+      "openeval.wildbench.llama-score"
+    ],
+    "metric_kind": [
+      "openeval.wildbench.claude-score",
+      "openeval.wildbench.gpt-score",
+      "openeval.wildbench.llama-score",
+      "openeval.wildbench.wildbench-score-rescaled"
+    ],
+    "metric_unit": [
+      "openeval.wildbench.wildbench-score-rescaled"
+    ],
+    "min_score": [
+      "openeval.wildbench.gpt-score",
+      "openeval.wildbench.llama-score",
+      "openeval.wildbench.wildbench-score-rescaled"
+    ]
+  },
+  "frozen_threshold": 0.5,
+  "frozen_threshold_basis": "range_5pct",
+  "integrity_error_records": 0,
+  "limitations": [
+    "A synthetic group config is not automatically invalid in every application.",
+    "T17 does not establish semantic non-equivalence of all source channels.",
+    "T17 does not prescribe a repair."
+  ],
+  "production_group_config": {
+    "max_score": 10.0,
+    "metric_kind": "benchmark_score",
+    "metric_unit": "score",
+    "min_score": 0.0
+  },
+  "production_signature_source_match_count": 0,
+  "production_signature_source_matches": [],
+  "replay_threshold": 0.5,
+  "replay_threshold_basis": "range_5pct",
+  "source_configs": {
+    "openeval.wildbench.claude-score": {
+      "max_score": 10.0,
+      "metric_kind": "benchmark_score",
+      "metric_unit": "points",
+      "min_score": -1.0
+    },
+    "openeval.wildbench.gpt-score": {
+      "max_score": 10.0,
+      "metric_kind": "benchmark_score",
+      "metric_unit": "points",
+      "min_score": 0.0
+    },
+    "openeval.wildbench.llama-score": {
+      "max_score": 10.0,
+      "metric_kind": "benchmark_score",
+      "metric_unit": "points",
+      "min_score": 0.0
+    },
+    "openeval.wildbench.wildbench-score-rescaled": {
+      "max_score": 1.0,
+      "metric_kind": "benchmark_score",
+      "metric_unit": "score",
+      "min_score": 0.0
+    }
+  },
+  "test_id": "T17_wildbench_synthetic_group_metric_config",
+  "threshold_replay_exact": true,
+  "verdict": "CONFIRMED"
+}

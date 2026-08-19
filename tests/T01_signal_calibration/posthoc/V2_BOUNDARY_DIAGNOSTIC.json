@@ -1,0 +1,23 @@
+[
+  {
+    "score_a_repr": "0.5",
+    "score_b_repr": "0.55",
+    "divergence_repr": "0.050000000000000044",
+    "threshold_repr": "0.05",
+    "flag": true
+  },
+  {
+    "score_a_repr": "0.5",
+    "score_b_repr": "0.5499999999999999",
+    "divergence_repr": "0.04999999999999993",
+    "threshold_repr": "0.05",
+    "flag": false
+  },
+  {
+    "score_a_repr": "0.5",
+    "score_b_repr": "0.5500000000000002",
+    "divergence_repr": "0.050000000000000155",
+    "threshold_repr": "0.05",
+    "flag": true
+  }
+]

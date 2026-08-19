@@ -1,0 +1,67 @@
+{
+  "affected_arithmetic_rows": 12,
+  "affected_group_ids": 2,
+  "affected_groups_present": 2,
+  "affected_groups_with_nonunit_metric_config_heterogeneity": 2,
+  "affected_groups_with_single_nonunit_signature": 0,
+  "affected_units_with_multiple_signatures": 1,
+  "arithmetic_row_identity_errors": 0,
+  "competing_predictions": {
+    "P1": "affected_groups_with_nonunit_metric_config_heterogeneity = 0",
+    "P2": "affected_groups_with_nonunit_metric_config_heterogeneity >= 1"
+  },
+  "evaluation_id_mismatches": 0,
+  "evidence": {
+    "group_signature_summary_sha256": "581651b800810a2f063f42085daf12069f3b9c17ab43529d47a2a2024480ce29",
+    "heterogeneous_groups_sha256": "581651b800810a2f063f42085daf12069f3b9c17ab43529d47a2a2024480ce29",
+    "input_fact_sha256": "e9edc3bf8c6c07f968ff4fb556ceb75a55219ca11076a0130cde419fab5f7196",
+    "integrity_errors_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_metric_configs_sha256": "2b99317e9a50f15c9afce0b705a2a3a60c72edc1f4010199d2450eb426423dd5",
+    "t08_positive_to_negative_sha256": "21ff406d12e6e8fae874b3309f176819678e122c513cfea11779f7577eaae304"
+  },
+  "fact_rows_scanned": 209382,
+  "integrity_error_records": 0,
+  "limitations": [
+    "Structured source MetricConfig heterogeneity is not semantic ground truth.",
+    "Free-text evaluation_description and additional_details are descriptive only.",
+    "T10 does not decide whether differing unit labels are semantically compatible.",
+    "T10 remains bounded to the frozen EEE datastore and two product-consequential groups."
+  ],
+  "per_group": {
+    "0dc7e803e7438c7faf39dfc4b461faef": {
+      "heterogeneous_nonunit_metric_config": true,
+      "nonunit_signature_count": 2,
+      "unit_count": 2,
+      "units": [
+        "percent",
+        "seconds"
+      ]
+    },
+    "d38d8f8e547287b6b0fc78f43f310762": {
+      "heterogeneous_nonunit_metric_config": true,
+      "nonunit_signature_count": 4,
+      "unit_count": 2,
+      "units": [
+        "points",
+        "score"
+      ]
+    }
+  },
+  "pointer_or_index_errors": 0,
+  "primary_signature_fields": [
+    "metric_id",
+    "metric_name",
+    "metric_kind",
+    "metric_parameters",
+    "lower_is_better",
+    "score_type",
+    "min_score",
+    "max_score"
+  ],
+  "signatures_shared_across_multiple_units": 0,
+  "source_rows_complete": 12,
+  "source_unit_matches": 12,
+  "source_unit_mismatches": 0,
+  "test_id": "T10_source_metric_config_heterogeneity",
+  "verdict": "CONFIRMED"
+}

@@ -1,0 +1,50 @@
+{
+  "files": [
+    {
+      "bytes": 4609,
+      "path": "tests/T08_within_unit_variant_counterfactual/PREREGISTRATION.md",
+      "sha256": "6580c8cb690b16f283e2dd587b721a801a9ecd3ac8bf547589f4783377047866"
+    },
+    {
+      "bytes": 967,
+      "path": "tests/T08_within_unit_variant_counterfactual/README.md",
+      "sha256": "49a294e9acb50c9a9880654b25c530615ba2d0b6c07b3d319653ca79a5892682"
+    },
+    {
+      "bytes": 2841,
+      "path": "tests/T08_within_unit_variant_counterfactual/SOURCE_ATTRIBUTION.md",
+      "sha256": "eff103e0b4007060e9e3c0b082659ddf88c28eb8407bb1675c26a44707507e74"
+    },
+    {
+      "bytes": 4691,
+      "path": "tests/T08_within_unit_variant_counterfactual/TEST_RATIONALE.md",
+      "sha256": "1089ec515fb0fd163503d68bd1f62e7260d9ade934732be4b3d04859075af4d8"
+    },
+    {
+      "bytes": 15295,
+      "path": "tests/T08_within_unit_variant_counterfactual/analyze.py",
+      "sha256": "a01f5e9744f7fc0feca091a607ee9ac841b0a751e545b46b6a0a082c144c3df0"
+    },
+    {
+      "bytes": 2733,
+      "path": "tests/T08_within_unit_variant_counterfactual/preflight.py",
+      "sha256": "9aa67fca6f1737558c386ffacc90a428b0c088e25ca02c090a34cba1885d018f"
+    },
+    {
+      "bytes": 149,
+      "path": "tests/T08_within_unit_variant_counterfactual/raw/README.md",
+      "sha256": "dc6afb49c9ab9b1fd0a1c36e867559ad07867b0c5bb72f6ba84ce8e710174935"
+    },
+    {
+      "bytes": 79,
+      "path": "tests/T08_within_unit_variant_counterfactual/results/README.md",
+      "sha256": "04437989e61c6dac7bc41e9056f34562938260bb49754e4b54e96b9941eaf4d9"
+    },
+    {
+      "bytes": 951,
+      "path": "tests/T08_within_unit_variant_counterfactual/verify_prereg.py",
+      "sha256": "4a83319e728e4dd28eab1e6686f167125a73381ed081270e8aae4b7e404ef443"
+    }
+  ],
+  "test_id": "T08_within_unit_variant_counterfactual"
+}

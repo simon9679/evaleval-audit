@@ -1,0 +1,18 @@
+{
+  "backend_commit": "9c16ab3f93a4ba02a5b44590858bbdf824ed09d3",
+  "cards_local_dir": "C:\\Users\\Limon\\Downloads\\evaleval-audit\\freeze\\hf\\auto-benchmarkcards",
+  "comparability_groups": 93495,
+  "eee_local_dir": "C:\\Users\\Limon\\Downloads\\evaleval-audit\\freeze\\hf\\EEE_datastore",
+  "fact_results_bytes": 20789981,
+  "fact_results_sha256": "e9edc3bf8c6c07f968ff4fb556ceb75a55219ca11076a0130cde419fab5f7196",
+  "fact_rows": 209382,
+  "network_allowed": false,
+  "phase": "pipeline",
+  "refresh_enabled": false,
+  "registry_local_dir": "C:\\Users\\Limon\\Downloads\\evaleval-audit\\freeze\\hf\\entity-registry-data",
+  "snapshot_id": "2026-08-19T02:46:43Z",
+  "stage_f_unit_inconsistent_groups": 1425,
+  "status": "COMPLETE",
+  "taxonomy_seed_dir": "C:\\Users\\Limon\\Downloads\\evaleval-audit\\freeze\\repos\\eval-card-registry\\seed",
+  "test_id": "T03_corpus_boundary_impact"
+}

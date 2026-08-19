@@ -1,0 +1,20 @@
+{
+  "files": [
+    {
+      "bytes": 1637,
+      "path": "tests/T07_variant_divergence_unit_homogeneity/POSTRUN_METHOD_NOTE.md",
+      "sha256": "cf9f42809ae08bfecd0dbfb8568f1d5adfc0bb082e098880df04e6ae8e559e2f"
+    },
+    {
+      "bytes": 1670,
+      "path": "tests/T07_variant_divergence_unit_homogeneity/results/POSTRUN_DECISION.md",
+      "sha256": "a9f0867c57bf353fac3a7f3c17eeba46acc625b3b0185641097bea4bf9746eb7"
+    },
+    {
+      "bytes": 10724,
+      "path": "tests/T07_variant_divergence_unit_homogeneity/results/RESULT_ANALYSIS.md",
+      "sha256": "512a8bdbde91cbea20321c2d3f83802a592f65b797d1bf55da421a710b95eb38"
+    }
+  ],
+  "test_id": "T07_variant_divergence_unit_homogeneity"
+}

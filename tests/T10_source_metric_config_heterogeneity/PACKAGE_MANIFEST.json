@@ -1,0 +1,50 @@
+{
+  "files": [
+    {
+      "bytes": 4548,
+      "path": "tests/T10_source_metric_config_heterogeneity/PREREGISTRATION.md",
+      "sha256": "e49488568671cd3d3ef1abc4dc28348de4b00d9911800e82275a69a4cba0f1c0"
+    },
+    {
+      "bytes": 733,
+      "path": "tests/T10_source_metric_config_heterogeneity/README.md",
+      "sha256": "4ffd60527f57881d7132cefd6a5ced65682908ae7ea254042ded1f173675742b"
+    },
+    {
+      "bytes": 3181,
+      "path": "tests/T10_source_metric_config_heterogeneity/SOURCE_ATTRIBUTION.md",
+      "sha256": "7e6fb8d5c5418da96ec6520513003668637e895d6a02c6a9dc03153929cfad12"
+    },
+    {
+      "bytes": 3503,
+      "path": "tests/T10_source_metric_config_heterogeneity/TEST_RATIONALE.md",
+      "sha256": "96fa1a6ba77183929be982407f986c8fd846eb772121f91bd05a9b40df7902bc"
+    },
+    {
+      "bytes": 17233,
+      "path": "tests/T10_source_metric_config_heterogeneity/analyze.py",
+      "sha256": "d8602b7072fa18a71f2a2ca260701de8752ecc8099eedfc0f8aa3df970c14352"
+    },
+    {
+      "bytes": 4018,
+      "path": "tests/T10_source_metric_config_heterogeneity/preflight.py",
+      "sha256": "9abef69ab6a84729937fe27069d5bd0e7772688de89366dd12097f415450dae0"
+    },
+    {
+      "bytes": 178,
+      "path": "tests/T10_source_metric_config_heterogeneity/raw/README.md",
+      "sha256": "3511d19881f49a0ee810a1f51c9b6e2f490097930d515cc981f522dc9aac8674"
+    },
+    {
+      "bytes": 79,
+      "path": "tests/T10_source_metric_config_heterogeneity/results/README.md",
+      "sha256": "04437989e61c6dac7bc41e9056f34562938260bb49754e4b54e96b9941eaf4d9"
+    },
+    {
+      "bytes": 951,
+      "path": "tests/T10_source_metric_config_heterogeneity/verify_prereg.py",
+      "sha256": "bd192c10da439319fd720f674c59fbd2dfa0ccbf3bcfb7a051eaaffcec4d6e09"
+    }
+  ],
+  "test_id": "T10_source_metric_config_heterogeneity"
+}

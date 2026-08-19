@@ -1,0 +1,51 @@
+{
+  "actual_mixed_unit_groups": 1234,
+  "backend_commit": "9c16ab3f93a4ba02a5b44590858bbdf824ed09d3",
+  "claim": "At least one production-applicable Stage F comparability path changes boolean classification across metric_unit values actually observed inside that same comparability group.",
+  "classification_sensitive_groups": 0,
+  "classification_sensitive_paths": 0,
+  "comparability_groups_scanned": 93495,
+  "competing_predictions": {
+    "P1": "classification_sensitive_paths = 0",
+    "P2": "classification_sensitive_paths >= 1"
+  },
+  "cross_party_classification_sensitive_paths": 0,
+  "cross_party_eligible_paths": 0,
+  "evidence": {
+    "classification_sensitive_paths_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "input_fact_sha256": "e9edc3bf8c6c07f968ff4fb556ceb75a55219ca11076a0130cde419fab5f7196",
+    "integrity_errors_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "mixed_unit_groups_sha256": "d1196c43c9bcb63e3b50f3f181ab5b092007d7676d9f31d81ee2af18fbf0f988",
+    "warning_root_groups_sha256": "dcb9ab93dbb2913dc2b109935e2889567ce57a2776665cfd3ea95bc4b5e3398f"
+  },
+  "fact_rows_scanned": 209382,
+  "group_consistency_errors": 0,
+  "integrity_error_records": 0,
+  "limitations": [
+    "T04 tests sensitivity to observed unit choices; it does not decide which unit is semantically correct.",
+    "T04 reuses frozen production divergence magnitudes to isolate threshold-unit choice.",
+    "The verdict is snapshot-bound to the frozen T03 Stage F artifact.",
+    "A CONFIRMED verdict requires later source tracing before any root-cause or public-product claim."
+  ],
+  "production_reconstruction_errors": 0,
+  "stop_rule": "Stop unit-choice consequence branch on REFUTED; source-trace classification-sensitive groups on CONFIRMED.",
+  "test_id": "T04_comparability_unit_consistency",
+  "threshold_sensitive_groups": 668,
+  "unit_patterns": {
+    "percent | points": 7,
+    "percent | seconds": 8,
+    "percent | words": 315,
+    "points | proportion": 183,
+    "points | proportion | score": 78,
+    "points | score": 88,
+    "points | usd": 4,
+    "proportion | score": 77,
+    "seconds | tokens_per_second | usd_per_1m_tokens": 474
+  },
+  "variant_classification_sensitive_paths": 0,
+  "variant_eligible_paths": 7,
+  "verdict": "REFUTED",
+  "warning_root_groups": 1425,
+  "warning_roots_cross_slice_only": 191,
+  "warning_roots_with_actual_mixed_group": 1234
+}

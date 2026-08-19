@@ -1,0 +1,21 @@
+{
+  "files": [
+    {
+      "bytes": 522,
+      "path": "tests/T16_wildbench_common_scale_eligibility/POSTRUN_METHOD_NOTE.md",
+      "sha256": "80daf1c51fc8670757d1b50f8d59e5d223f9250b3b6de073824569cb6ffd3c8c"
+    },
+    {
+      "bytes": 832,
+      "path": "tests/T16_wildbench_common_scale_eligibility/results/POSTRUN_DECISION.md",
+      "sha256": "35ade0dba46fa17f56d75cbfe6dac966cec3b10f66e38a33b97cfbb332a11ce5"
+    },
+    {
+      "bytes": 4858,
+      "path": "tests/T16_wildbench_common_scale_eligibility/results/RESULT_ANALYSIS.md",
+      "sha256": "7bb54a5a1ebd67e34e8fadf8f2460a52d14c642c191c756bdb2b758c802f84f1"
+    }
+  ],
+  "test_id": "T16_wildbench_common_scale_eligibility",
+  "verdict": "CONFIRMED"
+}

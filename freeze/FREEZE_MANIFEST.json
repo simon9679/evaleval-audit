@@ -1,0 +1,32 @@
+﻿{
+    "schema_version":  1,
+    "frozen_at_utc":  "2026-08-19T01:46:34.0562590Z",
+    "audit_root":  "C:\\Users\\Limon\\Downloads\\evaleval-audit",
+    "repos":  {
+                  "eval_cards_backend_pipeline":  {
+                                                      "url":  "https://github.com/evaleval/eval_cards_backend_pipeline.git",
+                                                      "commit":  "9c16ab3f93a4ba02a5b44590858bbdf824ed09d3"
+                                                  },
+                  "eval_card_registry":  {
+                                             "url":  "https://github.com/evaleval/eval-card-registry.git",
+                                             "commit":  "6fb026d7483467f063da465c15a76733b3d25f4c"
+                                         },
+                  "every_eval_ever":  {
+                                          "url":  "https://github.com/evaleval/every_eval_ever.git",
+                                          "commit":  "9bce4136e789ec006c62582f5f9d107d20f8b398"
+                                      }
+              },
+    "production_inputs":  {
+                              "EEE_REVISION":  "7e54eea02b85eb116c132b3efc444f9e0ed14ff6",
+                              "ENTITY_REGISTRY_REVISION":  "0588632449039a9f61f7983d7f2065b918a9e584",
+                              "BENCHMARK_METADATA_REVISION":  "0a86cea5b55d6070bd7f1f020f01281e1631adba",
+                              "RESOLVER_REF_DECLARED":  "main",
+                              "RESOLVER_REF_RESOLVED_SHA":  "6fb026d7483467f063da465c15a76733b3d25f4c"
+                          },
+    "environment":  {
+                        "powershell":  "5.1.26100.9168",
+                        "python":  "Python 3.12.10",
+                        "git":  "git version 2.53.0.windows.2",
+                        "os":  "Microsoft Windows NT 10.0.26200.0"
+                    }
+}

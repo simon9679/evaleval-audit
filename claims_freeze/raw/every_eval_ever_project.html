@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Every Eval Ever | EvalEval Coalition</title>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://evalevalai.com/projects/every-eval-ever/">
+    <meta property="og:title" content="Every Eval Ever | EvalEval Coalition">
+    <meta property="og:description" content="A unified, open data format and public dataset for AI evaluation results. We are collecting all evaluation results in a standardized schema to enable rigorous research and broader impact.">
+    <meta property="og:image" content="https://evalevalai.com/assets/img/blogs/EEEstacked_launch-post.webp">
+    <meta property="og:image:alt" content="Every Eval Ever Launch Post Image">
+    <meta property="og:site_name" content="EvalEval Coalition">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://evalevalai.com/projects/every-eval-ever/">
+    <meta name="twitter:title" content="Every Eval Ever | EvalEval Coalition">
+    <meta name="twitter:description" content="A unified, open data format and public dataset for AI evaluation results. We are collecting all evaluation results in a standardized schema to enable rigorous research and broader impact.">
+    <meta name="twitter:image" content="https://evalevalai.com/assets/img/blogs/EEEstacked_launch-post.webp">
+    
+    <!-- Pinterest -->
+    <meta name="pinterest-rich-pin" content="true">
+
+    <link rel="icon" type="image/png" href="/assets/img/favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            black: '#0a0a0a',
+                            dark: '#1a1a1a',
+                            gray: '#2a2a2a',
+                            light: '#f5f5f5',
+                            accent: '#3b82f6', 
+                        }
+                    },
+                    fontFamily: {
+                        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', "Liberation Mono", "Courier New", 'monospace'],
+                        sans: ['ui-sans-serif', 'system-ui', '-apple-system', "Segoe UI", 'Roboto', "Helvetica Neue", 'Arial', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;600;700&display=swap');
+        .mono {
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
+        /* Custom scrollbar for code blocks */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #444;
+        }
+        .custom-scrollbar::-webkit-scrollbar-corner {
+            background: #1a1a1a;
+        }
+
+        /* ===== DESIGN TOKENS ===== */
+        :root {
+            --bg: #ffffff;
+            --bg-subtle: #f5f4f1;
+            --bg-surface: #eeece8;
+            --fg: #1a1916;
+            --fg-muted: #5c5a55;
+            --fg-subtle: #9c9a95;
+            --border: #e8e6e1;
+            --border-strong: #c8c6c0;
+            --accent: #3b82f6;
+            --nav-bg: rgba(255, 255, 255, 0.85);
+        }
+        [data-theme="dark"] {
+            --bg: #111110;
+            --bg-subtle: #1a1916;
+            --bg-surface: #252420;
+            --fg: #f0ede8;
+            --fg-muted: #a09d97;
+            --fg-subtle: #5c5a55;
+            --border: #2e2c28;
+            --border-strong: #484540;
+            --accent: #60a5fa;
+            --nav-bg: rgba(17, 17, 16, 0.92);
+        }
+
+        /* ===== DARK MODE OVERRIDES ===== */
+        [data-theme="dark"] body { background-color: var(--bg); color: var(--fg); }
+
+        /* Nav */
+        [data-theme="dark"] nav {
+            background-color: var(--nav-bg) !important;
+            border-color: var(--border) !important;
+        }
+        [data-theme="dark"] nav a { color: var(--fg); }
+        [data-theme="dark"] nav a.bg-black {
+            background-color: var(--bg-surface) !important;
+            color: var(--fg) !important;
+            border: 1px solid var(--border);
+        }
+        [data-theme="dark"] a.bg-gray-100,
+        [data-theme="dark"] span.bg-gray-100 {
+            background-color: var(--bg-surface) !important;
+            color: var(--fg-muted) !important;
+        }
+
+        /* Hero */
+        [data-theme="dark"] .bg-gray-50.border.border-gray-200 {
+            background-color: var(--bg-surface) !important;
+            border-color: var(--border) !important;
+        }
+        [data-theme="dark"] .text-gray-600 { color: var(--fg-muted) !important; }
+        [data-theme="dark"] .text-gray-500 { color: var(--fg-muted) !important; }
+        [data-theme="dark"] .text-gray-700 { color: var(--fg-muted) !important; }
+        [data-theme="dark"] .text-gray-800 { color: var(--fg) !important; }
+        [data-theme="dark"] .text-gray-900 { color: var(--fg) !important; }
+        [data-theme="dark"] h1, [data-theme="dark"] h2,
+        [data-theme="dark"] h3, [data-theme="dark"] h4 { color: var(--fg); }
+        [data-theme="dark"] .bg-clip-text { background-image: linear-gradient(to right, var(--fg), var(--fg-muted), var(--fg)) !important; }
+
+        /* Light sections */
+        [data-theme="dark"] section.bg-white { background-color: var(--bg) !important; }
+        [data-theme="dark"] section.bg-gray-50 { background-color: var(--bg-subtle) !important; }
+        [data-theme="dark"] .border-gray-100 { border-color: var(--border) !important; }
+        [data-theme="dark"] .border-gray-200 { border-color: var(--border) !important; }
+
+        /* Design decision cards */
+        [data-theme="dark"] .bg-white.p-8.rounded-xl,
+        [data-theme="dark"] .bg-white.p-6.rounded-xl,
+        [data-theme="dark"] .bg-white.p-4.rounded-xl {
+            background-color: var(--bg-surface) !important;
+            border-color: var(--border) !important;
+        }
+        /* Icon bg circles in design decisions */
+        [data-theme="dark"] .bg-blue-100   { background-color: rgba(59, 130, 246, 0.15) !important; }
+        [data-theme="dark"] .bg-green-100  { background-color: rgba(34, 197, 94, 0.15) !important; }
+        [data-theme="dark"] .bg-purple-100 { background-color: rgba(168, 85, 247, 0.15) !important; }
+        [data-theme="dark"] .bg-yellow-100 { background-color: rgba(234, 179, 8, 0.15) !important; }
+        [data-theme="dark"] .bg-red-100    { background-color: rgba(239, 68, 68, 0.15) !important; }
+        [data-theme="dark"] .bg-teal-100   { background-color: rgba(20, 184, 166, 0.15) !important; }
+
+        /* Contributor guide */
+        [data-theme="dark"] .bg-yellow-50 {
+            background-color: rgba(234, 179, 8, 0.08) !important;
+            border-color: rgba(234, 179, 8, 0.2) !important;
+        }
+        [data-theme="dark"] .text-yellow-800 { color: #fbbf24 !important; }
+        [data-theme="dark"] .bg-blue-50 {
+            background-color: rgba(59, 130, 246, 0.08) !important;
+            border-color: rgba(59, 130, 246, 0.2) !important;
+        }
+        [data-theme="dark"] .text-blue-900,
+        [data-theme="dark"] .text-blue-800 { color: #93c5fd !important; }
+        [data-theme="dark"] code.bg-gray-100 {
+            background-color: var(--bg-surface) !important;
+            color: var(--fg-muted) !important;
+        }
+        [data-theme="dark"] span.bg-gray-100.font-mono {
+            background-color: var(--bg-surface) !important;
+            color: var(--fg-muted) !important;
+            border-color: var(--border) !important;
+        }
+        [data-theme="dark"] .bg-white.p-6.rounded-xl.border.border-gray-200.font-mono {
+            background-color: var(--bg-surface) !important;
+            border-color: var(--border) !important;
+            color: var(--fg-muted) !important;
+        }
+        [data-theme="dark"] .text-blue-700 { color: #93c5fd !important; }
+        [data-theme="dark"] .text-blue-600 { color: #60a5fa !important; }
+
+        /* Public dataset iframe container */
+        [data-theme="dark"] .w-full.h-\[600px\].bg-white.rounded-xl {
+            background-color: var(--bg-surface) !important;
+            border-color: var(--border) !important;
+        }
+
+        /* Footer */
+        [data-theme="dark"] footer.bg-white {
+            background-color: var(--bg) !important;
+            border-color: var(--border) !important;
+        }
+        [data-theme="dark"] footer a {
+            border-color: var(--border) !important;
+            color: var(--fg-muted) !important;
+        }
+        [data-theme="dark"] footer a:hover {
+            background-color: var(--fg) !important;
+            color: var(--bg) !important;
+            border-color: var(--fg) !important;
+        }
+        [data-theme="dark"] img[alt="Hugging Face Logo"] {
+            filter: grayscale(1) invert(1) opacity(0.7);
+        }
+
+        /* Footer logo sizing */
+        .eee-footer-logo svg { height: 44px; width: auto; display: block; }
+
+        /* Partner logos section — light panel in dark mode so logos stay readable */
+        [data-theme="dark"] #partners {
+            background-color: #fafaf9 !important;
+            border-color: #e8e6e1 !important;
+        }
+        /* Keep text dark inside the light panel */
+        [data-theme="dark"] #partners .text-gray-900 { color: #1a1916 !important; }
+        [data-theme="dark"] #partners .text-gray-500 { color: #5c5a55 !important; }
+
+
+        /* Hero buttons — remove white shadow glow in dark mode */
+        [data-theme="dark"] .shadow-gray-200,
+        [data-theme="dark"] .shadow-gray-100,
+        [data-theme="dark"] a.shadow-lg { box-shadow: none !important; }
+
+        /* Explore Schema button — add white border so it's visible on dark bg */
+        [data-theme="dark"] a[href="#schema"] {
+            border: 1px solid rgba(255, 255, 255, 0.35) !important;
+        }
+
+        /* Theme toggle button */
+        .eee-theme-toggle {
+            width: 32px; height: 32px;
+            border: 1px solid currentColor;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; opacity: 0.6;
+            transition: opacity 0.2s;
+            background: none;
+        }
+        .eee-theme-toggle:hover { opacity: 1; }
+        .eee-theme-toggle .icon-sun { display: none; }
+        .eee-theme-toggle .icon-moon { display: block; }
+        [data-theme="dark"] .eee-theme-toggle .icon-sun { display: block; }
+        [data-theme="dark"] .eee-theme-toggle .icon-moon { display: none; }
+    </style>
+    <script>
+        (function() {
+            var saved = localStorage.getItem('theme');
+            var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (saved === 'dark' || (!saved && prefersDark)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+</head>
+<body class="bg-white text-brand-black antialiased font-sans selection:bg-black selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Left side -->
+                <div class="flex items-center gap-2">
+                    <a href="/" class="hover:opacity-80 transition-opacity">
+                        <img src="/assets/img/logo-square.png" alt="EvalEval Logo" class="w-8 h-8 rounded-lg">
+                    </a>
+                    <a href="#" class="font-bold text-sm sm:text-xl tracking-tight whitespace-nowrap hover:opacity-80 transition-opacity">Every Eval Ever</a>
+                    <a href="https://github.com/evaleval/every_eval_ever/releases" target="_blank" class="hidden sm:inline-block px-2 py-0.5 rounded-full bg-gray-100 text-xs font-mono text-gray-600 hover:bg-gray-200 transition-colors">v0.2.2</a>
+                </div>
+
+                <!-- Right side -->
+                <div class="flex items-center gap-3 sm:gap-6">
+                    
+                    <a href="https://arxiv.org/abs/2606.14516" target="_blank" rel="noopener" class="flex items-center gap-2 text-sm font-medium hover:text-gray-600 transition-colors">
+                        <i class="fas fa-file-lines"></i>
+                        <span class="hidden sm:inline">Paper</span>
+                    </a>
+                    
+
+                    <a href="https://huggingface.co/datasets/evaleval/EEE_datastore" target="_blank" class="flex items-center gap-2 text-sm font-medium hover:text-gray-600 transition-colors group">
+                        <img src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo-pirate.svg" alt="Hugging Face Logo" class="w-6 h-6 opacity-80 group-hover:opacity-100">
+                        <span class="hidden sm:inline">Dataset</span>
+                    </a>
+
+                    <a href="https://github.com/evaleval/every_eval_ever" target="_blank" class="flex items-center gap-2 text-sm font-medium bg-black text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg hover:bg-gray-800 transition-colors">
+                        <i class="fab fa-github"></i>
+                        <span class="hidden sm:inline">GitHub</span>
+                    </a>
+
+                    <button onclick="eeeToggleTheme()" class="eee-theme-toggle" aria-label="Toggle theme">
+                        <svg class="icon-moon w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/></svg>
+                        <svg class="icon-sun w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path stroke-linecap="round" d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 sm:pt-32 sm:pb-20 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-50 border border-gray-200 mb-6">
+                <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                <span class="text-xs font-medium text-gray-600 uppercase tracking-wide">Infrastructure @EvalEval</span>
+            </div>
+            
+            <h1 class="text-5xl sm:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
+                One schema for <br class="hidden sm:block" />
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900">Every Eval Ever.</span>
+            </h1>
+            
+            <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
+                A <strong>unified, open data format</strong> and <strong>public dataset</strong> for AI evaluation results. 
+                We are collecting all evaluation results in a standardized schema to enable rigorous research and broader impact.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="#schema" class="w-full sm:w-auto px-8 py-3.5 bg-black text-white rounded-lg font-medium hover:bg-gray-800 transition-all flex items-center justify-center gap-2 shadow-lg shadow-gray-200">
+                    Explore Schema
+                    <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                </a>
+
+                <a href="https://evalevalai.com/infrastructure/2026/02/17/everyevalever-launch/" target="_blank" class="w-full sm:w-auto px-8 py-3.5 bg-white text-black border border-gray-200 rounded-lg font-medium hover:bg-gray-50 transition-all flex items-center justify-center gap-2 shadow-lg shadow-gray-100">
+                    Launch Announcement
+                    <i data-lucide="external-link" class="w-4 h-4"></i>
+                </a>
+            </div>
+
+            
+            <div class="mt-6">
+                <a href="https://arxiv.org/abs/2606.14516" target="_blank" rel="noopener" class="text-sm font-medium inline-flex items-center gap-1.5" style="color: var(--accent);">
+                    <i data-lucide="file-text" class="w-4 h-4"></i>
+                    Read the full paper (arXiv:2606.14516)
+                </a>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Partners & Feedback Section -->
+    <section id="partners" class="py-10 bg-white border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="mb-8">
+                <p class="text-sm font-bold text-gray-900 uppercase tracking-widest mb-2">Developed by the EvalEval Coalition</p>
+                <p class="text-xs font-medium text-gray-500 uppercase tracking-widest">with feedback from researchers at</p>
+            </div>
+            
+            <div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-8 opacity-80 max-w-7xl mx-auto">
+                <!-- NIST CAISI -->
+                <a href="https://www.nist.gov/caisi" target="_blank" class="hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
+                    <img src="https://www.nist.gov/sites/default/files/images/2025/09/25/F_NIST_Lockup_AISafetyInstitute-2c.png" alt="US CAISI" class="h-13 w-auto object-contain" style="height: 3.25rem;">
+                </a>
+
+                <!-- Hugging Face -->
+                <a href="https://huggingface.co" target="_blank" class="hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
+                    <img src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo-with-title.svg?download=true" alt="Hugging Face" class="h-10 w-auto object-contain">
+                </a>
+                
+                <!-- EleutherAI -->
+                <a href="https://www.eleuther.ai/" target="_blank" class="hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
+                    <img src="https://i0.wp.com/opensource.org/wp-content/uploads/2023/06/eleutherai.png?quality=80&ssl=1" alt="EleutherAI" class="h-10 w-auto object-contain">
+                </a>
+
+                <!-- Inspect (Text Representation) -->
+                <a href="https://inspect.aisi.org.uk/" target="_blank" class="hover:opacity-100 transition-opacity group">
+                     <span class="font-bold text-[1.7rem] leading-none text-gray-700 group-hover:text-black tracking-tighter font-sans">Inspect</span>
+                </a>
+
+                <!-- HELM -->
+                <a href="https://crfm.stanford.edu/helm/" target="_blank" class="hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
+                    <img src="https://crfm.stanford.edu/helm/assets/helm-logo-simple-DzOhNN41.png" alt="HELM" class="h-8 w-auto object-contain">
+                </a>
+
+                <!-- TUM -->
+                <a href="https://www.tum.de/en/" target="_blank" class="hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
+                    <img src="https://avatars.githubusercontent.com/u/169093022?s=280&v=4" alt="TUM" class="h-12 w-auto object-contain mix-blend-multiply"> 
+                </a>
+
+                <!-- MIT -->
+                <a href="https://www.mit.edu/" target="_blank" class="hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/MIT_2023_red_logo.svg/3840px-MIT_2023_red_logo.svg.png" alt="MIT" class="h-8 w-auto object-contain">
+                </a>
+
+                <!-- Northeastern -->
+                <a href="https://www.northeastern.edu/" target="_blank" class="hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
+                    <img src="https://brand.northeastern.edu/wp-content/uploads/2022/05/ba-8-3.svg" alt="Northeastern University" class="h-12 w-auto object-contain">
+                </a>
+
+                <!-- University of Copenhagen -->
+                <a href="https://www.ku.dk/en" target="_blank" class="hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Ku-ucph-logo-svg.svg" alt="University of Copenhagen" class="h-10 w-auto object-contain">
+                </a>
+
+                <!-- Zuse Institute -->
+                <a href="https://iol.zib.de/" target="_blank" class="hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
+                    <img src="/assets/img/blogs/iol.svg" alt="Zuse Institute" class="h-8 w-auto object-contain">
+                </a>
+
+                <!-- IBM -->
+                <a href="https://research.ibm.com/" target="_blank" class="hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
+                    <img src="https://cdn.freebiesupply.com/images/large/2x/ibm-logo-black-transparent.png" alt="IBM" class="h-6 w-auto object-contain">
+                </a>
+
+                <!-- Noma -->
+                <a href="https://noma.security/" target="_blank" class="hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
+                    <img src="https://noma.security/wp-content/uploads/Frame-2085668489.svg" alt="Noma Security" class="h-5 w-auto object-contain">
+                </a>
+
+                <!-- Trustible -->
+                <a href="https://trustible.ai/" target="_blank" class="hover:opacity-100 transition-opacity">
+                    <img src="/assets/img/Trustible-White.svg" alt="Trustible" class="h-5 w-auto object-contain invert">
+                </a>
+
+                <!-- Meridian -->
+                <a href="https://meridianlabs.ai/" target="_blank" class="hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
+                    <img src="https://meridianlabs.ai/images/meridian-logo-black.svg" alt="Meridian" class="h-9 w-auto object-contain">
+                </a>
+
+                <!-- AVERI -->
+                <a href="https://www.averi.org/" target="_blank" class="hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
+                    <img src="https://images.squarespace-cdn.com/content/v1/685262a5f3a19135202ed5b6/4fd39741-3604-4cca-a7d1-e54416921953/AV_L-ezgif.com-optimize+%281%29.gif?format=1500w" alt="AVERI" class="h-10 w-auto object-contain">
+                </a>
+
+                <!-- CIP -->
+                <a href="https://www.cip.org/" target="_blank" class="hover:opacity-100 transition-opacity">
+                     <img src="https://images.squarespace-cdn.com/content/v1/631d02b2dfa9482a32db47ec/6590d845-8b5d-46f0-bc87-25416e6b40c4/HS409+%E2%80%93%C2%A0CIP+Logo_AW_White.png?format=1500w" alt="CIP" class="h-14 w-auto object-contain invert">
+                </a>
+
+                <!-- Weizenbaum -->
+                <a href="https://www.weizenbaum-institut.de/en/" target="_blank" class="hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
+                    <img src="https://www.weizenbaum-institut.de/typo3conf/ext/nn_wzb_base/Resources/Public/Icons/wzb_logo.svg" alt="Weizenbaum" class="h-8 w-auto object-contain">
+                </a>
+
+                <!-- Evidence Prime -->
+                <a href="https://www.evidenceprime.com/" target="_blank" class="hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
+                    <img src="https://cdn.prod.website-files.com/5fda83f8102b8fcbf966defc/5fda83f8102b8f3cb066dfd6_logo3.svg" alt="Evidence Prime" class="h-7 w-auto object-contain">
+                </a>                
+
+                
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Why This Schema Section -->
+    <section class="py-24 bg-gray-50 border-b border-gray-100">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Why this Schema?</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Addressing the fragmentation in AI evaluation to enable trust and comparability.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <!-- Point 1 -->
+                <div class="flex flex-col items-center text-center group hover:-translate-y-1 transition-transform duration-300">
+                    <div class="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:shadow-md transition-all">
+                        <i data-lucide="network" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Unifying the Ecosystem</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Evaluation results are currently siloed by framework. This schema creates a common interchange format, allowing results from HELM, EleutherAI, Inspect, and custom scripts to co-exist and be compared directly without complex mapping.
+                    </p>
+                </div>
+                
+                <!-- Point 2 -->
+                <div class="flex flex-col items-center text-center group hover:-translate-y-1 transition-transform duration-300">
+                    <div class="w-16 h-16 bg-purple-50 text-purple-600 rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:shadow-md transition-all">
+                        <i data-lucide="scroll-text" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Trust through Provenance</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        A score without configuration is just noise. We go beyond the metric to capture the full experimental context—prompt templates, inference parameters, and system states—making every result traceable, transparent, and reproducible.
+                    </p>
+                </div>
+
+                <!-- Point 3 -->
+                <div class="flex flex-col items-center text-center group hover:-translate-y-1 transition-transform duration-300">
+                    <div class="w-16 h-16 bg-green-50 text-green-600 rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:shadow-md transition-all">
+                        <i data-lucide="flask-conical" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Actionable Meta-Science</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Liberating evaluation results from static PDFs and closed leaderboards. We transform scattered metrics into a structured, queryable global dataset, powering the next generation of meta-analysis and automated leaderboard construction.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- The Schema Section -->
+        <section id="schema" class="py-20 bg-brand-black text-white overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold mb-4">The Schema</h2>
+                    <p class="text-gray-400 max-w-2xl mx-auto">
+                        A granular, line-by-line breakdown of the standardized format.
+                    </p>
+                </div>
+
+                <div class="flex justify-center mb-8">
+                    <div class="inline-flex bg-[#1e1e1e] rounded-lg p-1 border border-gray-800">
+                        <button id="tab-btn-aggregate" class="px-6 py-2 rounded-md text-sm font-medium transition-all bg-white text-black shadow-sm" onclick="switchSchemaTab('aggregate')">Aggregate Schema</button>
+                        <button id="tab-btn-instance" class="px-6 py-2 rounded-md text-sm font-medium transition-all text-gray-400 hover:text-white" onclick="switchSchemaTab('instance')">Instance Schema</button>
+                    </div>
+                </div>
+
+                <div class="border border-gray-800 rounded-xl overflow-hidden bg-[#1e1e1e] shadow-2xl">
+                    <!-- Mac Window Header -->
+                    <div class="flex items-center justify-between px-4 py-3 bg-[#252525] border-b border-gray-800">
+                        <div class="flex gap-2">
+                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        </div>
+                        <span class="text-xs text-gray-500 font-mono" id="filename-display">59ee0934-f60d-4d4b-b986-844fc51e89a3.json</span>
+                    </div>
+
+                    <!-- Aggregate View -->
+                    <div id="view-aggregate" class="grid grid-cols-1 lg:grid-cols-5 gap-0">
+                        <!-- Code Side -->
+                        <div class="lg:col-span-3 p-6 md:p-8 overflow-auto custom-scrollbar border-b lg:border-b-0 lg:border-r border-gray-800 bg-[#1e1e1e] h-[600px]">
+                            <pre class="font-mono text-sm leading-relaxed text-gray-300"><code><span class="text-gray-500">{</span>
+<span id="agg-code-metadata" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"schema_version"</span>: <span class="text-green-400">"0.2.2"</span>,
+  <span class="text-purple-400">"evaluation_id"</span>: <span class="text-green-400">"lm-eval/moonshotai.../17642..."</span>,
+  <span class="text-purple-400">"retrieved_timestamp"</span>: <span class="text-green-400">"1764204739.50717"</span>,</span>
+  
+<span id="agg-code-source" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"source_metadata"</span>: <span class="text-gray-500">{</span>
+    <span class="text-purple-400">"source_name"</span>: <span class="text-green-400">"lm-eval"</span>,
+    <span class="text-purple-400">"source_type"</span>: <span class="text-green-400">"evaluation_run"</span>,
+    <span class="text-purple-400">"source_organization_name"</span>: <span class="text-green-400">"EleutherAI"</span>,
+    <span class="text-purple-400">"source_organization_url"</span>: <span class="text-green-400">"https://www.eleuther.ai"</span>,
+    <span class="text-purple-400">"evaluator_relationship"</span>: <span class="text-green-400">"third_party"</span>
+  <span class="text-gray-500">}</span>,</span>
+
+<span id="agg-code-model" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"model_info"</span>: <span class="text-gray-500">{</span>
+    <span class="text-purple-400">"name"</span>: <span class="text-green-400">"Kimi K2 Instruct"</span>,
+    <span class="text-purple-400">"id"</span>: <span class="text-green-400">"moonshotai/kimi-k2-instruct"</span>,
+    <span class="text-purple-400">"developer"</span>: <span class="text-green-400">"moonshotai"</span>,
+    <span class="text-purple-400">"inference_platform"</span>: <span class="text-green-400">"Together AI"</span>,
+    <span class="text-purple-400">"inference_engine"</span>: <span class="text-gray-500">{</span>
+        <span class="text-purple-400">"name"</span>: <span class="text-green-400">"vLLM"</span>,
+        <span class="text-purple-400">"version"</span>: <span class="text-green-400">"0.6.3"</span>
+    <span class="text-gray-500">}</span>
+  <span class="text-gray-500">}</span>,</span>
+
+<span id="agg-eval-lib" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"eval_library"</span>: <span class="text-gray-500">{</span>
+    <span class="text-purple-400">"name"</span>: <span class="text-green-400">"lm-eval"</span>,
+    <span class="text-purple-400">"version"</span>: <span class="text-green-400">"0.4.11"</span>
+  <span class="text-gray-500">}</span>,</span>
+
+<span id="agg-code-metrics" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"evaluation_results"</span>: <span class="text-gray-500">[</span>
+    <span class="text-gray-500">{</span>
+      <span class="text-purple-400">"evaluation_result_id"</span>: <span class="text-green-400">"mmlu_pro_cot_correct"</span>,
+      <span class="text-purple-400">"evaluation_name"</span>: <span class="text-green-400">"MMLU-Pro - COT correct"</span>,
+      <span class="text-purple-400">"evaluation_timestamp"</span>: <span class="text-green-400">"1764204739.50717"</span>,
+      <span class="text-purple-400">"source_data"</span>: <span class="text-gray-500">{</span>
+        <span class="text-purple-400">"source_type"</span>: <span class="text-green-400">"hf_dataset"</span>,
+        <span class="text-purple-400">"dataset_name"</span>: <span class="text-green-400">"MMLU-Pro"</span>,
+        <span class="text-purple-400">"hf_repo"</span>: <span class="text-green-400">"TIGER-Lab/MMLU-Pro"</span>,
+        <span class="text-purple-400">"hf_split"</span>: <span class="text-green-400">"test"</span>,
+        <span class="text-purple-400">"samples_number"</span>: <span class="text-blue-400">12032</span>
+      <span class="text-gray-500">}</span>,
+      <span class="text-purple-400">"metric_config"</span>: <span class="text-gray-500">{</span>
+        <span class="text-purple-400">"evaluation_description"</span>: <span class="text-green-400">"Fraction of correct answers after chain of thought"</span>,
+        <span class="text-purple-400">"lower_is_better"</span>: <span class="text-blue-400">false</span>,
+        <span class="text-purple-400">"score_type"</span>: <span class="text-green-400">"continuous"</span>,
+        <span class="text-purple-400">"min_score"</span>: <span class="text-blue-400">0.0</span>,
+        <span class="text-purple-400">"max_score"</span>: <span class="text-blue-400">1.0</span>
+      <span class="text-gray-500">}</span>,
+      <span class="text-purple-400">"score_details"</span>: <span class="text-gray-500">{</span>
+        <span class="text-purple-400">"score"</span>: <span class="text-blue-400">0.819</span>,
+        <span class="text-purple-400">"details"</span>: <span class="text-gray-500">{</span>
+          <span class="text-purple-400">"tab"</span>: <span class="text-green-400">"Accuracy"</span>
+        <span class="text-gray-500">}</span>
+      <span class="text-gray-500">}</span>,</span>
+<span id="agg-code-generation" class="code-section transition-opacity duration-300 block">      <span class="text-purple-400">"generation_config"</span>: <span class="text-gray-500">{</span>
+        <span class="text-purple-400">"generation_args"</span>: <span class="text-gray-500">{</span>
+          <span class="text-purple-400">"temperature"</span>: <span class="text-blue-400">0.0</span>,
+          <span class="text-purple-400">"top_p"</span>: <span class="text-blue-400">1.0</span>,
+          <span class="text-purple-400">"top_k"</span>: <span class="text-blue-400">-1</span>,
+          <span class="text-purple-400">"max_tokens"</span>: <span class="text-blue-400">2048</span>,
+          <span class="text-purple-400">"reasoning"</span>: <span class="text-blue-400">true</span>
+        <span class="text-gray-500">}</span>,
+        <span class="text-purple-400">"additional_details"</span>: <span class="text-gray-500">{</span>
+            <span class="text-purple-400">"description"</span>: <span class="text-green-400">"Chain of thought prompting used."</span>
+        <span class="text-gray-500">}</span>
+      <span class="text-gray-500">}</span>
+    <span class="text-gray-500">}</span>
+  <span class="text-gray-500">]</span>,</span>
+
+<span id="agg-code-detailed" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"detailed_evaluation_results"</span>: <span class="text-gray-500">{</span>
+    <span class="text-purple-400">"file_path"</span>: <span class="text-green-400">"detailed_results/e70acf51....jsonl"</span>,
+    <span class="text-purple-400">"format"</span>: <span class="text-green-400">"jsonl"</span>,
+    <span class="text-purple-400">"checksum"</span>: <span class="text-green-400">"a1b2c3d4..."</span>
+  <span class="text-gray-500">}</span></span>
+<span class="text-gray-500">}</span></code></pre>
+                        </div>
+                        
+                        <!-- Annotations Side -->
+                        <div class="lg:col-span-2 bg-[#252525] p-6 md:p-8 space-y-4 text-sm h-[600px] overflow-y-auto custom-scrollbar">
+                           <!-- Annotations for Aggregate (IDs agg-...) -->
+                           <div class="annotation-item group cursor-pointer border-l-2 border-blue-500 pl-4 py-1 hover:bg-white/5 transition-colors rounded-r" data-target="agg-code-metadata">
+                               <div class="flex items-center justify-between">
+                                   <h4 class="text-white font-semibold group-hover:text-blue-400 transition-colors">Metadata & ID</h4>
+                                   <div class="icon-wrapper transition-transform duration-300">
+                                       <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500"></i>
+                                   </div>
+                               </div>
+                               <div class="details hidden mt-3 text-gray-400 space-y-3">
+                                   <p>Every file starts with versioning and a unique identifier.</p>
+                                   <ul class="space-y-2 text-xs text-gray-500 font-mono bg-black/20 p-3 rounded">
+                                       <li><span class="text-purple-400">schema_version</span>: Now v0.2.2.</li>
+                                       <li><span class="text-purple-400">evaluation_id</span>: Unique ID.</li>
+                                       <li><span class="text-purple-400">retrieved_timestamp</span>: Unix Time.</li>
+                                   </ul>
+                               </div>
+                           </div>
+                           <div class="annotation-item group cursor-pointer border-l-2 border-green-500 pl-4 py-1 hover:bg-white/5 transition-colors rounded-r" data-target="agg-code-source">
+                               <div class="flex items-center justify-between">
+                                   <h4 class="text-white font-semibold group-hover:text-green-400 transition-colors">Source Provenance</h4>
+                                   <div class="icon-wrapper transition-transform duration-300">
+                                       <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500"></i>
+                                   </div>
+                               </div>
+                               <div class="details hidden mt-3 text-gray-400 space-y-3">
+                                   <p>Links to original data and distinguishes source types.</p>
+                               </div>
+                           </div>
+                           <div class="annotation-item group cursor-pointer border-l-2 border-purple-500 pl-4 py-1 hover:bg-white/5 transition-colors rounded-r" data-target="agg-code-model">
+                               <div class="flex items-center justify-between">
+                                   <h4 class="text-white font-semibold group-hover:text-purple-400 transition-colors">Model Specification</h4>
+                                   <div class="icon-wrapper transition-transform duration-300">
+                                       <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500"></i>
+                                   </div>
+                               </div>
+                               <div class="details hidden mt-3 text-gray-400 space-y-3">
+                                   <p>Complete model specification using Hugging Face format.</p>
+                                   <ul class="space-y-2 text-xs text-gray-500 font-mono bg-black/20 p-3 rounded">
+                                       <li><span class="text-purple-400">name</span>: Human-readable model name.</li>
+                                       <li><span class="text-purple-400">id</span>: HuggingFace model ID.</li>
+                                       <li><span class="text-purple-400">inference_platform</span>: API provider.</li>
+                                       <li><span class="text-purple-400">inference_engine</span>: Local runner.</li>
+                                   </ul>
+                               </div>
+                           </div>
+                           <div class="annotation-item group cursor-pointer border-l-2 border-red-500 pl-4 py-1 hover:bg-white/5 transition-colors rounded-r" data-target="agg-eval-lib">
+                               <div class="flex items-center justify-between">
+                                   <h4 class="text-white font-semibold group-hover:text-red-400 transition-colors">Evaluation Library</h4>
+                                   <div class="icon-wrapper transition-transform duration-300">
+                                       <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500"></i>
+                                   </div>
+                               </div>
+                               <div class="details hidden mt-3 text-gray-400 space-y-3">
+                                   <p>Mandatory field specifying the framework used, like HELM, lm-eval, or custom code.</p>
+                               </div>
+                           </div>
+                           <div class="annotation-item group cursor-pointer border-l-2 border-yellow-500 pl-4 py-1 hover:bg-white/5 transition-colors rounded-r" data-target="agg-code-metrics">
+                               <div class="flex items-center justify-between">
+                                   <h4 class="text-white font-semibold group-hover:text-yellow-400 transition-colors">Flexible Metrics</h4>
+                                   <div class="icon-wrapper transition-transform duration-300">
+                                       <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500"></i>
+                                   </div>
+                               </div>
+                               <div class="details hidden mt-3 text-gray-400 space-y-3">
+                                   <p>Supports continuous scores and level-based ratings.</p>
+                                   <ul class="space-y-2 text-xs text-gray-500 font-mono bg-black/20 p-3 rounded">
+                                       <li><span class="text-purple-400">evaluation_result_id</span>: Stable key linking to instance records.</li>
+                                       <li><span class="text-purple-400">metric_config</span>: Configuration for the metric.</li>
+                                       <li><span class="text-purple-400">score_details</span>: The actual score value.</li>
+                                   </ul>
+                               </div>
+                           </div>
+                           <div class="annotation-item group cursor-pointer border-l-2 border-pink-500 pl-4 py-1 hover:bg-white/5 transition-colors rounded-r" data-target="agg-code-generation">
+                               <div class="flex items-center justify-between">
+                                   <h4 class="text-white font-semibold group-hover:text-pink-400 transition-colors">Generation Config</h4>
+                                   <div class="icon-wrapper transition-transform duration-300">
+                                       <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500"></i>
+                                   </div>
+                               </div>
+                               <div class="details hidden mt-3 text-gray-400 space-y-3">
+                                   <p>Reproducibility parameters for the generation.</p>
+                               </div>
+                           </div>
+                           <div class="annotation-item group cursor-pointer border-l-2 border-cyan-500 pl-4 py-1 hover:bg-white/5 transition-colors rounded-r" data-target="agg-code-detailed">
+                               <div class="flex items-center justify-between">
+                                   <h4 class="text-white font-semibold group-hover:text-cyan-400 transition-colors">Detailed Results</h4>
+                                   <div class="icon-wrapper transition-transform duration-300">
+                                       <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500"></i>
+                                   </div>
+                               </div>
+                               <div class="details hidden mt-3 text-gray-400 space-y-3">
+                                   <p>This links to the separate Instance Level file.</p>
+                                   <ul class="space-y-2 text-xs text-gray-500 font-mono bg-black/20 p-3 rounded">
+                                       <li><span class="text-purple-400">detailed_evaluation_results</span>: Object with file path.</li>
+                                       <li><span class="text-purple-400">checksum</span>: Verification hash.</li>
+                                   </ul>
+                               </div>
+                           </div>
+                        </div>
+                    </div>
+
+                    <!-- Instance View (Hidden by default) -->
+                    <div id="view-instance" class="grid grid-cols-1 lg:grid-cols-5 gap-0 hidden">
+                        <!-- Code Side -->
+                        <div class="lg:col-span-3 p-6 md:p-8 overflow-auto custom-scrollbar border-b lg:border-b-0 lg:border-r border-gray-800 bg-[#1e1e1e] h-[600px]">
+                            <pre class="font-mono text-sm leading-relaxed text-gray-300"><code><span class="text-gray-500">{</span>
+<span id="inst-code-meta" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"schema_version"</span>: <span class="text-green-400">"instance_level_eval_0.2.2"</span>,
+  <span class="text-purple-400">"evaluation_id"</span>: <span class="text-green-400">"lm-eval/moonshotai..."</span>,
+  <span class="text-purple-400">"model_id"</span>: <span class="text-green-400">"moonshotai/kimi-k2-instruct"</span>,
+  <span class="text-purple-400">"evaluation_name"</span>: <span class="text-green-400">"mmlu_pro"</span>,
+  <span class="text-purple-400">"sample_id"</span>: <span class="text-green-400">"test_1042"</span>,
+  <span class="text-purple-400">"interaction_type"</span>: <span class="text-green-400">"single_turn"</span>,</span>
+
+<span id="inst-code-input" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"input"</span>: <span class="text-gray-500">{</span>
+    <span class="text-purple-400">"raw"</span>: <span class="text-green-400">"Question: Which is a scalar?..."</span>,
+    <span class="text-purple-400">"reference"</span>: <span class="text-gray-500">[</span><span class="text-green-400">"C"</span><span class="text-gray-500">]</span>,
+    <span class="text-purple-400">"choices"</span>: <span class="text-gray-500">[</span><span class="text-green-400">"Velocity"</span>, <span class="text-green-400">"Force"</span>, <span class="text-green-400">"Speed"</span><span class="text-gray-500">]</span>
+  <span class="text-gray-500">}</span>,</span>
+
+<span id="inst-code-output" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"output"</span>: <span class="text-gray-500">{</span>
+    <span class="text-purple-400">"raw"</span>: <span class="text-gray-500">[</span><span class="text-green-400">"Speed is a scalar. The answer is C."</span><span class="text-gray-500">]</span>,
+    <span class="text-purple-400">"reasoning_trace"</span>: <span class="text-gray-500">[</span><span class="text-green-400">"Velocity has direction..."</span><span class="text-gray-500">]</span>
+  <span class="text-gray-500">}</span>,</span>
+
+  <span class="text-purple-400">"answer_attribution"</span>: <span class="text-gray-500">[</span>
+    <span class="text-gray-500">{</span>
+      <span class="text-purple-400">"turn_idx"</span>: <span class="text-blue-400">0</span>,
+      <span class="text-purple-400">"source"</span>: <span class="text-green-400">"output.raw"</span>,
+      <span class="text-purple-400">"extracted_value"</span>: <span class="text-green-400">"C"</span>,
+      <span class="text-purple-400">"extraction_method"</span>: <span class="text-green-400">"regex"</span>,
+      <span class="text-purple-400">"is_terminal"</span>: <span class="text-blue-400">true</span>
+    <span class="text-gray-500">}</span>
+  <span class="text-gray-500">]</span>,
+
+<span id="inst-code-eval" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"evaluation"</span>: <span class="text-gray-500">{</span>
+    <span class="text-purple-400">"score"</span>: <span class="text-blue-400">1.0</span>,
+    <span class="text-purple-400">"is_correct"</span>: <span class="text-blue-400">true</span>
+  <span class="text-gray-500">}</span>,
+  <span class="text-purple-400">"token_usage"</span>: <span class="text-gray-500">{</span>
+    <span class="text-purple-400">"input_tokens"</span>: <span class="text-blue-400">365</span>,
+    <span class="text-purple-400">"output_tokens"</span>: <span class="text-blue-400">42</span>,
+    <span class="text-purple-400">"total_tokens"</span>: <span class="text-blue-400">407</span>
+  <span class="text-gray-500">}</span></span>
+<span class="text-gray-500">}</span></code></pre>
+                        </div>
+                        
+                        <!-- Annotations Side -->
+                        <div class="lg:col-span-2 bg-[#252525] p-6 md:p-8 space-y-4 text-sm h-[600px] overflow-y-auto custom-scrollbar">
+                           <div class="annotation-item group cursor-pointer border-l-2 border-red-500 pl-4 py-1 hover:bg-white/5 transition-colors rounded-r" data-target="inst-code-meta">
+                               <div class="flex items-center justify-between">
+                                   <h4 class="text-white font-semibold group-hover:text-red-400 transition-colors">Instance Meta</h4>
+                                   <div class="icon-wrapper transition-transform duration-300">
+                                       <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500"></i>
+                                   </div>
+                               </div>
+                               <div class="details hidden mt-3 text-gray-400 space-y-3">
+                                   <p>Identifier for this specific sample and interaction type.</p>
+                                   <ul class="space-y-2 text-xs text-gray-500 font-mono bg-black/20 p-3 rounded">
+                                       <li><span class="text-purple-400">interaction_type</span>: single_turn, multi_turn, or agentic.</li>
+                                   </ul>
+                               </div>
+                           </div>
+                           <div class="annotation-item group cursor-pointer border-l-2 border-orange-500 pl-4 py-1 hover:bg-white/5 transition-colors rounded-r" data-target="inst-code-input">
+                               <div class="flex items-center justify-between">
+                                   <h4 class="text-white font-semibold group-hover:text-orange-400 transition-colors">Input Data</h4>
+                                   <div class="icon-wrapper transition-transform duration-300">
+                                       <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500"></i>
+                                   </div>
+                               </div>
+                               <div class="details hidden mt-3 text-gray-400 space-y-3">
+                                   <p>The prompt and ground truth info.</p>
+                               </div>
+                           </div>
+                           <div class="annotation-item group cursor-pointer border-l-2 border-lime-500 pl-4 py-1 hover:bg-white/5 transition-colors rounded-r" data-target="inst-code-output">
+                               <div class="flex items-center justify-between">
+                                   <h4 class="text-white font-semibold group-hover:text-lime-400 transition-colors">Output</h4>
+                                   <div class="icon-wrapper transition-transform duration-300">
+                                       <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500"></i>
+                                   </div>
+                               </div>
+                               <div class="details hidden mt-3 text-gray-400 space-y-3">
+                                   <p>The models raw response and optional reasoning trace.</p>
+                               </div>
+                           </div>
+                           <div class="annotation-item group cursor-pointer border-l-2 border-indigo-500 pl-4 py-1 hover:bg-white/5 transition-colors rounded-r" data-target="inst-code-eval">
+                               <div class="flex items-center justify-between">
+                                   <h4 class="text-white font-semibold group-hover:text-indigo-400 transition-colors">Evaluation & Usage</h4>
+                                   <div class="icon-wrapper transition-transform duration-300">
+                                       <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500"></i>
+                                   </div>
+                               </div>
+                               <div class="details hidden mt-3 text-gray-400 space-y-3">
+                                   <p>Instance level score, correctness and token stats.</p>
+                               </div>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Design Decisions Section -->
+        <section class="py-20 bg-gray-50 border-b border-gray-100">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold mb-4">Design Decisions</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">
+                        Built for scale, reproducibility, and scientific rigor.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm transition-shadow hover:shadow-md">
+                        <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center mb-4">
+                            <i data-lucide="fingerprint" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2 text-gray-900">Conflict-Free Identity</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            We assign every evaluation a unique UUID. This prevents filename collisions and allows multiple runs of the same model—from different dates or configurations—to coexist safely.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm transition-shadow hover:shadow-md">
+                        <div class="w-10 h-10 bg-green-100 text-green-600 rounded-lg flex items-center justify-center mb-4">
+                            <i data-lucide="clock" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2 text-gray-900">Temporal Versioning</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Models change silently. We mandate <code class="bg-gray-100 px-1 py-0.5 rounded text-xs">retrieved_timestamp</code> to capture the exact moment of inference, enabling precise studies on API drift and model versioning.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm transition-shadow hover:shadow-md">
+                        <div class="w-10 h-10 bg-purple-100 text-purple-600 rounded-lg flex items-center justify-center mb-4">
+                            <i data-lucide="server" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2 text-gray-900">Full Stack Provenance</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Performance depends on the runner. We explicitly separate <code class="bg-gray-100 px-1 py-0.5 rounded text-xs">platform</code> (provider) from <code class="bg-gray-100 px-1 py-0.5 rounded text-xs">engine</code> (inference system), isolating hardware and software variables in your analysis.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm transition-shadow hover:shadow-md">
+                        <div class="w-10 h-10 bg-yellow-100 text-yellow-600 rounded-lg flex items-center justify-center mb-4">
+                            <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2 text-gray-900">Unified Metrics</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            From simple accuracy to complex LLM-as-a-Judge scores, our schema standardizes all outputs. Compare results across different evaluation libraries without writing custom parsers.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm transition-shadow hover:shadow-md">
+                        <div class="w-10 h-10 bg-red-100 text-red-600 rounded-lg flex items-center justify-center mb-4">
+                            <i data-lucide="database" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2 text-gray-900">Analysis-First Design</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Built for data science. Flat, structured JSON files mean you can ingest millions of results into Pandas or SQL in seconds, slicing by architecture, date, or task immediately.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm transition-shadow hover:shadow-md">
+                        <div class="w-10 h-10 bg-teal-100 text-teal-600 rounded-lg flex items-center justify-center mb-4">
+                            <i data-lucide="microscope" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2 text-gray-900">Reproducibility Standard</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Science requires receipts. By linking every score to its exact prompt template and generation parameters, we ensure that every result in the dataset is fully reproducible.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Public Dataset Section -->
+        <section class="py-20 bg-white border-b border-gray-100">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12">
+                <h2 class="text-3xl font-bold mb-6">The Public Dataset</h2>
+                <p class="text-gray-600 mb-8 leading-relaxed">
+                    We are collecting all evaluation results in our schema in a public dataset. 
+                    This repository serves as a standardized metadata store for results from various leaderboards, research papers, and local evaluations. 
+                    
+                    
+                    If you are an eval provider or leaderboard maintainer, we are looking for your generous data contibutions via pull requests!
+                </p>
+
+                <!-- Live Stats -->
+                <div class="grid grid-cols-3 gap-4 max-w-2xl mx-auto mb-8 hidden">
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-100">
+                        <div class="text-3xl font-bold text-blue-600 mb-1" id="benchmark-count">-</div>
+                        <div class="text-sm text-gray-500">Benchmarks</div>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-100">
+                        <div class="text-3xl font-bold text-purple-600 mb-1" id="model-count">-</div>
+                        <div class="text-sm text-gray-500">Models Processed</div>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-100">
+                        <div class="text-3xl font-bold text-green-600 mb-1" id="eval-count">-</div>
+                        <div class="text-sm text-gray-500">Total Evals</div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="https://huggingface.co/datasets/evaleval/EEE_datastore" target="_blank" class="px-6 py-3 bg-black text-white rounded-lg font-medium hover:bg-gray-800 transition-colors flex items-center justify-center gap-2">
+                        <img src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo-pirate.svg" alt="Hugging Face" class="w-5 h-5 invert">
+                        Browse Hugging Face Dataset
+                    </a>
+                </div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="w-full h-[600px] bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
+                    <iframe
+                      src="https://huggingface.co/datasets/evaleval/EEE_datastore/embed/viewer/global-mmlu-lite/train"
+                      frameborder="0"
+                      width="100%"
+                      height="100%"
+                    ></iframe>
+                </div>
+            </div>
+        </section>
+
+    <!-- Contributor Guide Section -->
+    <section class="py-20 bg-gray-50 border-b border-gray-100">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Contributor Guide</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    How we organize and validate the data.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Structure -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <i data-lucide="folder-tree" class="w-5 h-5"></i>
+                        Repository Structure
+                    </h3>
+                    <div class="bg-white p-6 rounded-xl border border-gray-200 font-mono text-sm text-gray-600 mb-6">
+                        data/<br>
+                        └── <span class="font-bold text-blue-700">{benchmark_name}</span>/<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;└── <span class="font-bold text-blue-700">{developer_name}</span>/<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── <span class="font-bold text-blue-700">{model_name}</span>/<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── {uuid}.json<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── {uuid}.jsonl
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        Data is split by individual model. Each evaluation consists of an <strong>aggregate result</strong> (JSON) and a <strong>detailed results file</strong> (JSONL). Both share the same <strong>UUID</strong> to ensure clean organization.
+                    </p>
+                    
+                    <div class="bg-yellow-50 border border-yellow-100 rounded-lg p-4 text-sm text-yellow-800 flex gap-3 mb-4">
+                         <i data-lucide="hard-drive" class="w-5 h-5 flex-shrink-0 mt-0.5"></i>
+                         <div>
+                             <strong>Cold Storage Option:</strong> For massive datasets, the detailed JSONL file can be stored externally (e.g., S3, Hugging Face Dataset) and referenced via URL in the aggregate JSON. This keeps the repository lightweight while preserving data access.
+                         </div>
+                    </div>
+                </div>
+
+                <!-- Validation -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+                        Data Validation & Converters
+                    </h3>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        We provide tools to easily adapt your existing workflows.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
+                            <h4 class="font-bold text-sm mb-2 text-gray-800">🚀 Automatic Converters</h4>
+                            <p class="text-sm text-gray-600 mb-3">
+                                We have ready-made <a href="https://github.com/evaleval/every_eval_ever/tree/main/eval_converters" target="_blank" class="text-blue-600 hover:text-blue-800 underline decoration-blue-300 underline-offset-2">converters</a> for popular frameworks:
+                            </p>
+                            <div class="flex gap-2 flex-wrap mb-3">
+                                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-md font-mono border border-gray-200">Inspect AI</span>
+                                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-md font-mono border border-gray-200">HELM</span>
+                                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-md font-mono border border-gray-200">lm-eval-harness</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-brand-black text-gray-300 p-6 rounded-xl font-mono text-sm">
+                            <p class="text-gray-500"># Run validation locally</p>
+                            <p><span class="text-purple-400">uv</span> run pre-commit run --all-files</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 bg-blue-50 border border-blue-100 rounded-xl p-8">
+                <h3 class="text-lg font-bold text-blue-900 mb-4">How to add data for a new eval?</h3>
+                <ol class="list-decimal list-inside space-y-4 text-blue-800">
+                    <li>Add a new folder under <code>/data</code> with the name of the benchmark.</li>
+                    <li>Create a 2-tier folder structure: <code>developer_name/model_name</code>.</li>
+                    <li>Add your results: one aggregate JSON file and one detailed JSONL file. (For large files, host the JSONL externally and provide the URL).</li>
+                    <li>Run the validation script to check against the schema.</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Community Section -->
+    <section id="community" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-black text-white rounded-2xl p-8 sm:p-12 relative overflow-hidden">
+                <!-- Background decorative elements -->
+                <div class="absolute top-0 right-0 w-64 h-64 bg-gray-800 rounded-full mix-blend-multiply filter blur-3xl opacity-20 -mr-16 -mt-16"></div>
+                
+                <div class="relative z-10 flex flex-col md:flex-row justify-between items-center gap-8">
+                    <div class="max-w-xl">
+                        <div class="inline-flex gap-2 mb-6">
+                            <span class="px-3 py-1 bg-blue-600/20 text-blue-400 rounded-full text-xs font-semibold border border-blue-600/30">SHARED TASK</span>
+                            <span class="px-3 py-1 bg-purple-600/20 text-purple-400 rounded-full text-xs font-semibold border border-purple-600/30">ACL 2026 WORKSHOP</span>
+                        </div>
+                        <h2 class="text-3xl font-bold mb-4">Join the Evaluation Revolution</h2>
+                        <p class="text-gray-400 mb-6 leading-relaxed">
+                            We are launching a <strong>Shared Task</strong> for practitioners to contribute public and proprietary eval data. 
+                            Participate for co-authorship and join us at the <strong>ACL 2026 Workshop</strong> in San Diego.
+                        </p>
+                        <div class="flex flex-wrap gap-4">
+                             <a href="https://evalevalai.com/events/shared-task-every-eval-ever/" target="_blank" class="px-6 py-3 bg-white text-black rounded-lg font-medium hover:bg-gray-100 transition-colors inline-flex items-center gap-2">
+                                Shared Task Details
+                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </a>
+                            <a href="https://evalevalai.com/events/2026-acl-workshop/" target="_blank" class="px-6 py-3 border border-gray-700 text-white rounded-lg font-medium hover:bg-gray-900 transition-colors">
+                                Workshop Info
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Contributors Grid Visual -->
+                    <div class="hidden md:grid grid-cols-3 gap-3 opacity-80">
+                         <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center border border-gray-700 text-xs text-gray-500">JD</div>
+                         <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center border border-gray-700 text-xs text-gray-500">SA</div>
+                         <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center border border-gray-700 text-xs text-gray-500">JB</div>
+                         <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center border border-gray-700 text-xs text-gray-500">YM</div>
+                         <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center border border-gray-700 text-xs text-gray-500">AK</div>
+                         <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center border border-gray-700 text-xs text-gray-500">EG</div>
+                         <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white border border-blue-500 shadow-lg shadow-blue-900/50">
+                             <i data-lucide="plus" class="w-5 h-5"></i>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+<!-- ===================== CITATION ===================== -->
+<section id="cite" class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8"
+         style="background: var(--bg-subtle, #f5f4f1); border-top: 1px solid var(--border, #e8e6e1);">
+  <div class="max-w-3xl mx-auto">
+
+    <div class="cite-kicker">Citation</div>
+    <h2 class="font-bold mt-3 mb-4"
+        style="font-size: clamp(1.5rem, 3vw, 2rem); letter-spacing: -.01em; color: var(--fg, #1a1916);">
+      Cite this work
+    </h2>
+
+    <p class="text-sm sm:text-base leading-relaxed mb-5" style="color: var(--fg-muted, #5c5a55);">
+      If Every Eval Ever informs your research, please cite the paper:
+    </p><p class="text-sm sm:text-base leading-relaxed mb-6" style="color: var(--fg-muted, #5c5a55);">
+      Jan Batzner, Sree Harsha Nelaturu, Damian Stachura, et al.
+      2026.
+      <em style="color: var(--fg, #1a1916);">Every Eval Ever: A Unifying Schema and Community Repository for AI Evaluation Results</em>.
+      arXiv:2606.14516.
+      
+        <a href="https://arxiv.org/abs/2606.14516" target="_blank" rel="noopener"
+           class="cite-link">Read it here<span aria-hidden="true"> &rarr;</span></a>
+      
+    </p>
+
+    <div class="cite-block">
+      <button type="button" class="cite-copy" data-cite-copy aria-label="Copy BibTeX to clipboard">
+        <i data-lucide="clipboard" class="w-3.5 h-3.5"></i>
+        <span data-cite-copy-label>Copy</span>
+      </button>
+      <pre data-cite-bibtex>@misc{batzner2026evaleverunifyingschema,
+      title={Every Eval Ever: A Unifying Schema and Community Repository for AI Evaluation Results},
+      author={Jan Batzner and Sree Harsha Nelaturu and Damian Stachura and Anastassia Kornilova and Jon Crall and Tommaso Cerruti and Yanan Long and Yifan Mai and Sanchit Ahuja and Asaf Yehudai and Marek Šuppa and John P. Lalor and Oluwagbemike Olowe and Jatin Ganhotra and Brian H. Hu and Eliya Habba and Andrew M. Bean and Chang Liu and Sander Land and Steven Dillmann and Aniketh Garikaparthi and Elron Bandel and Saki Imai and James Edgell and Wm. Matthew Kennedy and Jenny Chim and Patrick Meusling and Asteria Kaeberlein and Venkata Ramachandra Karthik Chundi and Manasi Patwardhan and Martin Ku and Austin Meek and Leon Knauer and Brian Wingenroth and Srishti Yadav and Usman Gohar and Felix Friedrich and Michelle Lin and Jennifer Mickel and Arman Cohan and Stella Biderman and Irene Solaiman and Zeerak Talat and Anka Reuel and Mubashara Akhtar and Gjergji Kasneci and Avijit Ghosh and Leshem Choshen},
+      year={2026},
+      eprint={2606.14516},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2606.14516},
+}</pre>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  #cite .cite-kicker {
+    font-family: var(--font-mono, 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace);
+    font-size: 11px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--fg-subtle, #9c9a95);
+  }
+  #cite .cite-link {
+    color: var(--accent, #5bacd1);
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    white-space: nowrap;
+  }
+  #cite .cite-block { position: relative; }
+  #cite pre {
+    margin: 0;
+    padding: 1.25rem 1.25rem 1.25rem;
+    background: var(--bg, #ffffff);
+    border: 1px solid var(--border, #e8e6e1);
+    border-radius: 8px;
+    overflow-x: auto;
+    font-family: var(--font-mono, 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace);
+    font-size: 12px;
+    line-height: 1.7;
+    color: var(--fg-muted, #5c5a55);
+    /* BibTeX is pre-wrapped by arXiv; keep long author lists scrollable, not reflowed. */
+    white-space: pre;
+    tab-size: 2;
+  }
+  #cite .cite-copy {
+    position: absolute;
+    top: .625rem;
+    right: .625rem;
+    display: inline-flex;
+    align-items: center;
+    gap: .375rem;
+    padding: .3rem .6rem;
+    background: var(--bg-subtle, #f5f4f1);
+    border: 1px solid var(--border, #e8e6e1);
+    border-radius: 5px;
+    font-family: var(--font-mono, 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace);
+    font-size: 11px;
+    color: var(--fg-muted, #5c5a55);
+    cursor: pointer;
+    transition: color .2s, border-color .2s;
+  }
+  #cite .cite-copy:hover { color: var(--fg, #1a1916); border-color: var(--border-strong, #c8c6c0); }
+  #cite .cite-copy[data-copied] { color: var(--accent, #5bacd1); border-color: var(--accent, #5bacd1); }
+  @media (max-width: 640px) {
+    /* Don't let the button sit on top of the first line of the entry. */
+    #cite pre { padding-top: 2.75rem; }
+  }
+</style>
+
+<script>
+  (function () {
+    var btn = document.querySelector('#cite [data-cite-copy]');
+    var pre = document.querySelector('#cite [data-cite-bibtex]');
+    if (!btn || !pre) return;
+
+    var label = btn.querySelector('[data-cite-copy-label]');
+    var reset;
+
+    function flash(text) {
+      if (label) label.textContent = text;
+      btn.setAttribute('data-copied', '');
+      clearTimeout(reset);
+      reset = setTimeout(function () {
+        if (label) label.textContent = 'Copy';
+        btn.removeAttribute('data-copied');
+      }, 2000);
+    }
+
+    btn.addEventListener('click', function () {
+      // textContent decodes the Liquid-escaped entities, so the clipboard gets
+      // BibTeX that compiles as-is.
+      var bibtex = pre.textContent;
+
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(bibtex).then(function () {
+          flash('Copied');
+        }).catch(function () {
+          flash('Press ⌘C');
+        });
+        return;
+      }
+
+      // Fallback for non-secure contexts (e.g. plain-http local previews).
+      try {
+        var ta = document.createElement('textarea');
+        ta.value = bibtex;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        var ok = document.execCommand('copy');
+        document.body.removeChild(ta);
+        flash(ok ? 'Copied' : 'Press ⌘C');
+      } catch (e) {
+        flash('Press ⌘C');
+      }
+    });
+  })();
+</script>
+
+
+
+    <!-- Footer -->
+    <footer class="py-12 px-8 border-t border-gray-200 bg-white">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col md:grid md:grid-cols-3 items-center text-center">
+          <div class="mb-6 md:mb-0 md:text-left">
+            <a href="/" class="inline-block eee-footer-logo" style="color: var(--fg);">
+              <svg width="420" height="198" viewBox="0 0 420 198" fill="none" xmlns="http://www.w3.org/2000/svg" style="color: var(--fg);">
+<!-- Text: "Val" (top) -->
+<path d="M340.136 29.3445L322.657 81.3745H300.978L283.499 29.3445H303.146L311.546 63.7602H312.088L320.489 29.3445H340.136Z" fill="currentColor"/>
+<path d="M358.648 82.1875C355.328 82.1875 352.393 81.6455 349.841 80.5616C347.312 79.455 345.324 77.7839 343.879 75.5483C342.434 73.3126 341.711 70.4672 341.711 67.0121C341.711 64.1667 342.197 61.7391 343.168 59.7292C344.139 57.6968 345.494 56.037 347.232 54.7498C348.971 53.4626 350.992 52.4802 353.296 51.8028C355.622 51.1253 358.129 50.6849 360.816 50.4817C363.729 50.2559 366.066 49.9849 367.828 49.6687C369.612 49.33 370.899 48.867 371.689 48.2799C372.48 47.6702 372.875 46.8685 372.875 45.8749V45.7394C372.875 44.3844 372.355 43.3456 371.317 42.623C370.278 41.9003 368.946 41.539 367.32 41.539C365.536 41.539 364.079 41.9342 362.95 42.7246C361.843 43.4924 361.177 44.678 360.951 46.2814H343.743C343.969 43.1198 344.974 40.2067 346.758 37.5419C348.565 34.8546 351.196 32.7093 354.651 31.1059C358.106 29.48 362.419 28.667 367.591 28.667C371.317 28.667 374.659 29.1074 377.617 29.9881C380.576 30.8462 383.093 32.0544 385.171 33.6126C387.249 35.1482 388.829 36.9548 389.913 39.0324C391.02 41.0874 391.573 43.323 391.573 45.7394V81.3745H374.094V74.0578H373.688C372.649 75.9999 371.384 77.5694 369.894 78.7663C368.426 79.9631 366.744 80.8326 364.847 81.3745C362.972 81.9165 360.906 82.1875 358.648 82.1875ZM364.745 70.3995C366.168 70.3995 367.5 70.1059 368.742 69.5187C370.007 68.9316 371.034 68.0848 371.825 66.9782C372.615 65.8717 373.01 64.528 373.01 62.9472V58.6114C372.514 58.8146 371.983 59.0066 371.418 59.1872C370.876 59.3679 370.289 59.5373 369.657 59.6954C369.047 59.8534 368.392 60.0002 367.692 60.1357C367.015 60.2712 366.303 60.3954 365.558 60.5083C364.113 60.7341 362.927 61.1068 362.001 61.6262C361.098 62.123 360.421 62.744 359.969 63.4892C359.54 64.2119 359.325 65.0248 359.325 65.9281C359.325 67.3734 359.834 68.4799 360.85 69.2477C361.866 70.0156 363.164 70.3995 364.745 70.3995Z" fill="currentColor"/>
+<!-- "E" bracket shapes (top) -->
+<path d="M269.039 37.428L237.431 37.428V65.0011M237.431 76.8469V65.0011M237.431 65.0011H258.279" stroke="currentColor" stroke-width="16.0517" stroke-linecap="square" stroke-linejoin="round"/>
+<path d="M269.039 159.8L237.431 159.8V132.227M237.431 120.381V132.227M237.431 132.227H258.279" stroke="currentColor" stroke-width="16.0517" stroke-linecap="square" stroke-linejoin="round"/>
+<path d="M269.039 98.6139L237.431 98.6139" stroke="currentColor" stroke-width="16.0517" stroke-linecap="square" stroke-linejoin="round"/>
+<!-- Text: "Val" (bottom) -->
+<path d="M340.136 115.311L322.657 167.341H300.978L283.499 115.311H303.146L311.546 149.727H312.088L320.489 115.311H340.136Z" fill="currentColor"/>
+<path d="M358.648 168.154C355.328 168.154 352.393 167.612 349.841 166.528C347.312 165.421 345.324 163.75 343.879 161.515C342.434 159.279 341.711 156.434 341.711 152.978C341.711 150.133 342.197 147.705 343.168 145.696C344.139 143.663 345.494 142.003 347.232 140.716C348.971 139.429 350.992 138.447 353.296 137.769C355.622 137.092 358.129 136.651 360.816 136.448C363.729 136.222 366.066 135.951 367.828 135.635C369.612 135.296 370.899 134.833 371.689 134.246C372.48 133.637 372.875 132.835 372.875 131.841V131.706C372.875 130.351 372.355 129.312 371.317 128.589C370.278 127.867 368.946 127.505 367.32 127.505C365.536 127.505 364.079 127.901 362.95 128.691C361.843 129.459 361.177 130.644 360.951 132.248H343.743C343.969 129.086 344.974 126.173 346.758 123.508C348.565 120.821 351.196 118.676 354.651 117.072C358.106 115.446 362.419 114.633 367.591 114.633C371.317 114.633 374.659 115.074 377.617 115.954C380.576 116.813 383.093 118.021 385.171 119.579C387.249 121.115 388.829 122.921 389.913 124.999C391.02 127.054 391.573 129.289 391.573 131.706V167.341H374.094V160.024H373.688C372.649 161.966 371.384 163.536 369.894 164.733C368.426 165.93 366.744 166.799 364.847 167.341C362.972 167.883 360.906 168.154 358.648 168.154ZM364.745 156.366C366.168 156.366 367.5 156.072 368.742 155.485C370.007 154.898 371.034 154.051 371.825 152.945C372.615 151.838 373.01 150.494 373.01 148.914V144.578C372.514 144.781 371.983 144.973 371.418 145.154C370.876 145.334 370.289 145.504 369.657 145.662C369.047 145.82 368.392 145.967 367.692 146.102C367.015 146.238 366.303 146.362 365.558 146.475C364.113 146.701 362.927 147.073 362.001 147.593C361.098 148.089 360.421 148.71 359.969 149.456C359.54 150.178 359.325 150.991 359.325 151.895C359.325 153.34 359.834 154.446 360.85 155.214C361.866 155.982 363.164 156.366 364.745 156.366Z" fill="currentColor"/>
+<!-- Vertical bar "|" -->
+<rect x="400.519" y="29.4044" width="18.7123" height="137.937" fill="currentColor"/>
+<!-- Logo mark square (colors stay fixed — brand identity) -->
+<g clip-path="url(#clip0_2001_16)">
+  <rect width="197.228" height="197.228" fill="#92D4F3"/>
+  <path d="M47.5696 151.128L-21.7318 190.301L57.5396 225.702L87.5678 198.79C89.21 197.318 91.472 196.825 93.669 197.015C111.858 198.585 128.675 177.47 123.652 148.772C123.22 146.306 123.87 143.711 125.721 142.025C132.894 135.49 139.969 132.208 151.787 127.732C155.941 126.158 158.378 121.827 157.5 117.472C156.579 112.907 152.33 109.78 147.71 110.372C122.925 113.548 101.975 118.918 83.8911 130.969C82.4527 131.928 80.4886 131.496 79.5975 130.015C73.8703 120.496 68.2696 114.028 59.2618 108.066C56.4268 106.19 52.8446 105.95 49.6675 107.16C42.5605 109.867 40.346 118.543 43.9797 125.224C46.7325 130.285 48.8356 135.931 50.7508 143.989C51.4204 146.807 50.0908 149.703 47.5696 151.128Z" fill="#5BACD1"/>
+  <path d="M136.912 81.7587C136.912 81.7587 97.8703 73.364 74.2249 67.9949M74.2249 67.9949C77.1703 53.8327 71.9559 46.2088 71.9559 46.2088M74.2249 67.9949C71.2795 82.157 61.7455 88.8386 61.7455 88.8386" stroke="#2C2E36" stroke-width="16.0517" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+  <clipPath id="clip0_2001_16">
+    <rect width="197.228" height="197.228" rx="11.674" fill="white"/>
+  </clipPath>
+</defs>
+</svg>
+
+            </a>
+          </div>
+          <div class="mb-6 md:mb-0">
+            <div class="mono text-sm tracking-wider text-gray-600">© 2026 | EvalEval Coalition</div>
+          </div>
+          <div class="flex justify-center md:justify-end space-x-4">
+            <a href="https://x.com/evaluatingevals" class="w-8 h-8 border border-gray-300 rounded-full flex items-center justify-center hover:bg-black hover:text-white hover:border-black transition-all duration-300">
+                <i class="fa-brands fa-x-twitter text-xs"></i>
+            </a>
+            <a href="https://github.com/evaleval/" class="w-8 h-8 border border-gray-300 rounded-full flex items-center justify-center hover:bg-black hover:text-white hover:border-black transition-all duration-300">
+                <i class="fab fa-github text-xs"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/evaluating-evaluations/" class="w-8 h-8 border border-gray-300 rounded-full flex items-center justify-center hover:bg-black hover:text-white hover:border-black transition-all duration-300">
+                <i class="fab fa-linkedin-in text-xs"></i>
+            </a>
+            <a href="https://bsky.app/profile/eval-eval.bsky.social" class="w-8 h-8 border border-gray-300 rounded-full flex items-center justify-center hover:bg-black hover:text-white hover:border-black transition-all duration-300">
+                <i class="fa-brands fa-bluesky text-xs"></i>
+            </a>
+            <a href="https://huggingface.co/evaleval" 
+                class="w-8 h-8 border border-gray-300 rounded-full flex items-center justify-center hover:bg-black hover:border-black transition-all duration-300 group">
+                <img src="/assets/img/icon/hf-logo-pirate.svg" alt="Hugging Face" class="w-4 h-4 group-hover:invert transition duration-300" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+        function eeeToggleTheme() {
+            var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            var next = isDark ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+        }
+    </script>
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const items = document.querySelectorAll('.annotation-item');
+            const codeSections = document.querySelectorAll('.code-section');
+
+            items.forEach(item => {
+                item.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    const targetId = item.dataset.target;
+
+                    // Reset all
+                    items.forEach(i => {
+                        i.classList.remove('active');
+                        i.querySelector('.details').classList.add('hidden');
+                        i.querySelector('.icon-wrapper').classList.remove('rotate-180');
+                    });
+                    codeSections.forEach(s => {
+                        s.classList.remove('bg-white/10', '-mx-4', 'px-4', 'rounded');
+                        s.classList.add('opacity-30');
+                    });
+
+                    if (!isActive) {
+                        // Activate clicked
+                        item.classList.add('active');
+                        item.querySelector('.details').classList.remove('hidden');
+                        item.querySelector('.icon-wrapper').classList.add('rotate-180');
+                        
+                        // Highlight code
+                        const targetCode = document.getElementById(targetId);
+                        if (targetCode) {
+                            targetCode.classList.remove('opacity-30');
+                            targetCode.classList.add('bg-white/10', '-mx-4', 'px-4', 'rounded');
+                            targetCode.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }
+                    } else {
+                        // If deactivating, show all code
+                        codeSections.forEach(s => s.classList.remove('opacity-30'));
+                    }
+                });
+            });
+        });
+    </script>
+    <script>
+        function switchSchemaTab(tab) {
+            const aggBtn = document.getElementById('tab-btn-aggregate');
+            const instBtn = document.getElementById('tab-btn-instance');
+            const aggView = document.getElementById('view-aggregate');
+            const instView = document.getElementById('view-instance');
+            const filename = document.getElementById('filename-display');
+
+            const activeClasses = ['bg-white', 'text-black', 'shadow-sm'];
+            const inactiveClasses = ['text-gray-400', 'hover:text-white'];
+
+            const removeActive = (btn) => {
+                activeClasses.forEach(c => btn.classList.remove(c));
+                inactiveClasses.forEach(c => btn.classList.add(c));
+            };
+            const addActive = (btn) => {
+                inactiveClasses.forEach(c => btn.classList.remove(c));
+                activeClasses.forEach(c => btn.classList.add(c));
+            };
+
+            if (tab === 'aggregate') {
+                addActive(aggBtn);
+                removeActive(instBtn);
+                aggView.classList.remove('hidden');
+                instView.classList.add('hidden');
+                filename.textContent = '59ee0934-f60d-4d4b-b986-844fc51e89a3.json';
+            } else {
+                addActive(instBtn);
+                removeActive(aggBtn);
+                instView.classList.remove('hidden');
+                aggView.classList.add('hidden');
+                filename.textContent = 'detailed_results/e70acf51...jsonl';
+            }
+        }
+    </script>
+    <script>
+        // Fetch Repo Stats
+        async function fetchRepoStats() {
+            const benchmarkCount = document.getElementById('benchmark-count');
+            const modelCount = document.getElementById('model-count');
+            const evalCount = document.getElementById('eval-count');
+
+            try {
+                let url = 'https://huggingface.co/api/datasets/evaleval/EEE_datastore/tree/main?recursive=true';
+                
+                const benchmarks = new Set();
+                const models = new Set();
+                let totalEvals = 0;
+                let pageCount = 0;
+                
+                // Set loading state if needed, or keep original numbers until first update
+                
+                while (url && pageCount < 100) { 
+                    const response = await fetch(url);
+                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                    
+                    const data = await response.json();
+                    
+                    data.forEach(item => {
+                        if (item.path && item.path.startsWith('data/')) {
+                            const parts = item.path.split('/');
+                            // data/{benchmark}/{developer}/{model}/{file}
+                            
+                            // Count Benchmarks (index 1)
+                            if (parts.length >= 2 && parts[1]) {
+                                benchmarks.add(parts[1]);
+                            }
+                            
+                            // Count Models (index 2 & 3 -> developer/model)
+                            if (parts.length >= 4 && parts[2] && parts[3]) {
+                                models.add(`${parts[2]}/${parts[3]}`);
+                            }
+                            
+                            // Count actual JSON files deep in the structure
+                            if (item.type === 'file' && item.path.endsWith('.json')) {
+                                totalEvals++;
+                            }
+                        }
+                    });
+                    
+                    // Update UI incrementally (every page)
+                    if (benchmarkCount) benchmarkCount.textContent = benchmarks.size;
+                    if (modelCount) modelCount.textContent = models.size;
+                    if (evalCount) evalCount.textContent = totalEvals;
+
+                    // Handle pagination
+                    const linkHeader = response.headers.get('Link');
+                    url = null; 
+                    if (linkHeader) {
+                        const links = linkHeader.split(',');
+                        for (const link of links) {
+                            if (link.includes('rel="next"')) {
+                                const match = link.match(/<([^>]+)>/);
+                                if (match) url = match[1];
+                                break;
+                            }
+                        }
+                    }
+                    pageCount++;
+                }
+                
+            } catch (error) {
+                console.error('Error fetching stats:', error);
+                // Fallback values if API fails completely
+                if (benchmarkCount && benchmarkCount.textContent === '0') benchmarkCount.textContent = '7+';
+                if (modelCount && modelCount.textContent === '0') modelCount.textContent = '50+';
+                if (evalCount && evalCount.textContent === '0') evalCount.textContent = '100+';
+            }
+        }
+
+        
+        // Run immediately
+        // fetchRepoStats();
+    </script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"7945c403dc4143cb86185b2c72857a25","r":1}' crossorigin="anonymous"></script>
+</body>
+</html>

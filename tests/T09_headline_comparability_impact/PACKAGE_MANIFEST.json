@@ -1,0 +1,50 @@
+{
+  "files": [
+    {
+      "bytes": 4559,
+      "path": "tests/T09_headline_comparability_impact/PREREGISTRATION.md",
+      "sha256": "d770edfa9835d187bd5d24149788779fa84fb63d0a144e67e879ec1f2a4d9133"
+    },
+    {
+      "bytes": 805,
+      "path": "tests/T09_headline_comparability_impact/README.md",
+      "sha256": "8e39cd8c73fdd8ed6b90ffac7a10cef8385615c76c98a1701dfdb369c74a988d"
+    },
+    {
+      "bytes": 2735,
+      "path": "tests/T09_headline_comparability_impact/SOURCE_ATTRIBUTION.md",
+      "sha256": "3087eaea931cf8aef273446fc35202f97e8dc3efac9abcb1d6945344248678d9"
+    },
+    {
+      "bytes": 3625,
+      "path": "tests/T09_headline_comparability_impact/TEST_RATIONALE.md",
+      "sha256": "3aa841312779b9c02d16af0b04b76e4c10e20b274dbcd8db21e7fc8dcd403a3e"
+    },
+    {
+      "bytes": 13597,
+      "path": "tests/T09_headline_comparability_impact/analyze.py",
+      "sha256": "ef3ea1088e2570f1b0925690cacac022b6459fe18a2d63cbad50a52b4d20435e"
+    },
+    {
+      "bytes": 3696,
+      "path": "tests/T09_headline_comparability_impact/preflight.py",
+      "sha256": "6eec599a09593a271dc5133390438957ef4a7f6e69b97f29bddb6c439c43f7e5"
+    },
+    {
+      "bytes": 197,
+      "path": "tests/T09_headline_comparability_impact/raw/README.md",
+      "sha256": "ce6f2b11c6c346536181982d88fa27913a6b3644469f69e148869d96b26b90bf"
+    },
+    {
+      "bytes": 79,
+      "path": "tests/T09_headline_comparability_impact/results/README.md",
+      "sha256": "04437989e61c6dac7bc41e9056f34562938260bb49754e4b54e96b9941eaf4d9"
+    },
+    {
+      "bytes": 951,
+      "path": "tests/T09_headline_comparability_impact/verify_prereg.py",
+      "sha256": "66b950b21d4e30d132cdcdedb30e59d8ac1074ecebcdb8b3bc2e61027cd747a9"
+    }
+  ],
+  "test_id": "T09_headline_comparability_impact"
+}

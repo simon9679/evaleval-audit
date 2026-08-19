@@ -1,0 +1,40 @@
+{
+  "applicable_mixed_variant_paths": 7,
+  "applicable_paths_with_null_unit_score_rows": 0,
+  "arithmetic_score_unit_patterns": {
+    "percent | seconds": 2,
+    "points | proportion | score": 1,
+    "points | score": 1,
+    "proportion | score": 3
+  },
+  "comparability_groups_scanned": 93495,
+  "competing_predictions": {
+    "P1": "unit_heterogeneous_applicable_variant_paths = 0",
+    "P2": "unit_heterogeneous_applicable_variant_paths >= 1"
+  },
+  "divergence_reconstruction_errors": 0,
+  "evidence": {
+    "applicable_variant_paths_sha256": "15f3e870713161737cc94021e8dd837f19a95e19722c3cb1c6476778a038b2d0",
+    "input_fact_sha256": "e9edc3bf8c6c07f968ff4fb556ceb75a55219ca11076a0130cde419fab5f7196",
+    "integrity_errors_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "unit_heterogeneous_paths_sha256": "15f3e870713161737cc94021e8dd837f19a95e19722c3cb1c6476778a038b2d0"
+  },
+  "extrema_disjoint_unit_paths": 4,
+  "extrema_overlapping_unit_paths": 3,
+  "fact_rows_scanned": 209382,
+  "group_consistency_errors": 0,
+  "integrity_error_records": 0,
+  "limitations": [
+    "Different declared unit labels are not automatically semantically incompatible.",
+    "T07 introduces no conversion or equivalence map.",
+    "T07 tests arithmetic input eligibility, not public product impact.",
+    "T07 does not retest T04 threshold-unit boolean sensitivity."
+  ],
+  "mixed_unit_groups": 1234,
+  "production_false_paths": 2,
+  "production_true_paths": 5,
+  "test_id": "T07_variant_divergence_unit_homogeneity",
+  "unit_heterogeneous_applicable_variant_paths": 7,
+  "unit_homogeneous_applicable_variant_paths": 0,
+  "verdict": "CONFIRMED"
+}

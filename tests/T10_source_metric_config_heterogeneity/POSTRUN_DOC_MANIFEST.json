@@ -1,0 +1,20 @@
+{
+  "files": [
+    {
+      "bytes": 1182,
+      "path": "tests/T10_source_metric_config_heterogeneity/POSTRUN_METHOD_NOTE.md",
+      "sha256": "d65daa35a3304834a7b6f38045a170ccdf8f77497af79c359e37255880c4f9d5"
+    },
+    {
+      "bytes": 1083,
+      "path": "tests/T10_source_metric_config_heterogeneity/results/POSTRUN_DECISION.md",
+      "sha256": "eba2f1af1457d15bc7c2bdbae2275d476cc7494bf1369bf23c52c8f34abd300a"
+    },
+    {
+      "bytes": 7287,
+      "path": "tests/T10_source_metric_config_heterogeneity/results/RESULT_ANALYSIS.md",
+      "sha256": "197dcbf4a1732245b5786206fcdcd0eb1c2baca4f3f2422a1b02995474f2348f"
+    }
+  ],
+  "test_id": "T10_source_metric_config_heterogeneity"
+}

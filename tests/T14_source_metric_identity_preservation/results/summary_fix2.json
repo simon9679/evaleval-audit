@@ -1,0 +1,42 @@
+{
+  "affected_production_groups": 2,
+  "affected_rows": 12,
+  "competing_predictions": {
+    "P1": "production_positive_groups_losing_all_positive_source_id_subgroups = 0",
+    "P2": "production_positive_groups_losing_all_positive_source_id_subgroups >= 1"
+  },
+  "evidence": {
+    "generation_args_source_trace_sha256": "d9525db97c95caacb57ec476a867d70377d39d80e43a3ca7151c9ce077037716",
+    "integrity_errors_sha256": "16a2cc8b4c5f0238a2f5b961b15297b32e479bb174b8bc409c283505521bba90",
+    "production_group_counterfactuals_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_id_subgroup_results_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage_f_sha256": "e9edc3bf8c6c07f968ff4fb556ceb75a55219ca11076a0130cde419fab5f7196",
+    "t08_positive_to_negative_sha256": "21ff406d12e6e8fae874b3309f176819678e122c513cfea11779f7577eaae304",
+    "t10_source_rows_sha256": "2b99317e9a50f15c9afce0b705a2a3a60c72edc1f4010199d2450eb426423dd5"
+  },
+  "fix_id": "HARNESS_FIX_02",
+  "generation_args_source_errors": 0,
+  "generation_args_source_rows_complete": 12,
+  "integrity_error_records": 1,
+  "limitations": [
+    "Fix 2 repairs production group metric_config reconstruction after Fix 1 INCONCLUSIVE.",
+    "Exact source-id preservation is an operational counterfactual, not a normative canonicalization rule.",
+    "T14 does not establish semantic non-equivalence of distinct source ids."
+  ],
+  "per_group": {},
+  "per_source_metric_id": {},
+  "production_groups_replayed_exact": 1,
+  "production_groups_retaining_positive_source_id_subgroup": 0,
+  "production_positive_groups_losing_all_positive_source_id_subgroups": 0,
+  "production_replay_errors": 1,
+  "row_identity_errors": 0,
+  "source_id_subgroups_applicable": 0,
+  "source_id_subgroups_inapplicable": 0,
+  "source_id_subgroups_negative": 0,
+  "source_id_subgroups_positive": 0,
+  "source_id_subgroups_total": 0,
+  "source_metric_config_consistency_errors": 0,
+  "test_id": "T14_source_metric_identity_preservation",
+  "unique_source_metric_ids": 6,
+  "verdict": "INCONCLUSIVE"
+}

@@ -1,0 +1,96 @@
+{
+  "affected_group_id": "d38d8f8e547287b6b0fc78f43f310762",
+  "affected_rows": 8,
+  "bound_signatures": [
+    {
+      "max_score": 1.0,
+      "min_score": 0.0
+    },
+    {
+      "max_score": 10.0,
+      "min_score": -1.0
+    },
+    {
+      "max_score": 10.0,
+      "min_score": 0.0
+    }
+  ],
+  "common_scale_eligible": false,
+  "declared_units": [
+    "points",
+    "score"
+  ],
+  "distinct_bound_signatures": 3,
+  "distinct_declared_units": 2,
+  "distinct_scale_signatures": 3,
+  "eligibility_case_explicit_transform": false,
+  "eligibility_case_identical_scale": false,
+  "integrity_error_records": 0,
+  "limitations": [
+    "This verdict concerns the frozen structured source representation, not undocumented upstream transformations.",
+    "Different declared scales do not by themselves prove different latent constructs.",
+    "The test does not prescribe the canonical repair."
+  ],
+  "modal_scale_signature": {
+    "max_score": 10.0,
+    "metric_unit": "points",
+    "min_score": 0.0
+  },
+  "nonempty_metric_parameters_ids": 0,
+  "nonempty_metric_parameters_source_ids": [],
+  "per_source_metric_id": {
+    "openeval.wildbench.claude-score": {
+      "additional_details_transform_keys": [],
+      "metric_parameters": null,
+      "metric_parameters_nonempty_all": false,
+      "row_count": 2,
+      "scale_signature": {
+        "max_score": 10.0,
+        "metric_unit": "points",
+        "min_score": -1.0
+      }
+    },
+    "openeval.wildbench.gpt-score": {
+      "additional_details_transform_keys": [],
+      "metric_parameters": null,
+      "metric_parameters_nonempty_all": false,
+      "row_count": 2,
+      "scale_signature": {
+        "max_score": 10.0,
+        "metric_unit": "points",
+        "min_score": 0.0
+      }
+    },
+    "openeval.wildbench.llama-score": {
+      "additional_details_transform_keys": [],
+      "metric_parameters": null,
+      "metric_parameters_nonempty_all": false,
+      "row_count": 2,
+      "scale_signature": {
+        "max_score": 10.0,
+        "metric_unit": "points",
+        "min_score": 0.0
+      }
+    },
+    "openeval.wildbench.wildbench-score-rescaled": {
+      "additional_details_transform_keys": [],
+      "metric_parameters": null,
+      "metric_parameters_nonempty_all": false,
+      "row_count": 2,
+      "scale_signature": {
+        "max_score": 1.0,
+        "metric_unit": "score",
+        "min_score": 0.0
+      }
+    }
+  },
+  "source_ids_different_from_modal_scale": [
+    "openeval.wildbench.claude-score",
+    "openeval.wildbench.wildbench-score-rescaled"
+  ],
+  "structured_transform_key_ids": 0,
+  "structured_transform_key_source_ids": [],
+  "test_id": "T16_wildbench_common_scale_eligibility",
+  "unique_source_metric_ids": 4,
+  "verdict": "CONFIRMED"
+}

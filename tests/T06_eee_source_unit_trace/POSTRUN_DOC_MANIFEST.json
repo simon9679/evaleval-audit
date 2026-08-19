@@ -1,0 +1,20 @@
+{
+  "files": [
+    {
+      "bytes": 2004,
+      "path": "tests/T06_eee_source_unit_trace/POSTRUN_METHOD_NOTE.md",
+      "sha256": "56e4723cbc87ca6bcf4fe69d80c5b12c3ea68cf4aa442a1912799312bce75512"
+    },
+    {
+      "bytes": 1558,
+      "path": "tests/T06_eee_source_unit_trace/results/POSTRUN_DECISION.md",
+      "sha256": "f50b40036c915da1a9e130247e8b1fd6973cc008425728a718b163e4edff680c"
+    },
+    {
+      "bytes": 11218,
+      "path": "tests/T06_eee_source_unit_trace/results/RESULT_ANALYSIS.md",
+      "sha256": "963f8b254b8322a92c88d83bfc66505d2fcea2b95fcfb63fafba68a439c65dca"
+    }
+  ],
+  "test_id": "T06_eee_source_unit_trace"
+}

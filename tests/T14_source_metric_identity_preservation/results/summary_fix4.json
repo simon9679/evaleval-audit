@@ -1,0 +1,234 @@
+{
+  "affected_production_groups": 2,
+  "affected_rows": 12,
+  "competing_predictions": {
+    "P1": "production_positive_groups_losing_all_positive_source_id_subgroups = 0",
+    "P2": "production_positive_groups_losing_all_positive_source_id_subgroups >= 1"
+  },
+  "duckdb_generation_args_errors": 0,
+  "duckdb_generation_args_rows_complete": 12,
+  "evidence": {
+    "generation_args_duckdb_trace_sha256": "5d40e41e9c7a7218452a54d8649189b6bce018cda1728935a20198fce3a5fb3c",
+    "integrity_errors_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "production_group_counterfactuals_sha256": "62b335c827310309251c9cee437d38c2fd5cf38db95c13c28d8349a414d1104f",
+    "source_id_subgroup_results_sha256": "c43de24537951170355dfc63dce8aed0aa1e69d0214f40e0b8cf1499497a7fd2",
+    "stage_f_sha256": "e9edc3bf8c6c07f968ff4fb556ceb75a55219ca11076a0130cde419fab5f7196",
+    "t08_positive_to_negative_sha256": "21ff406d12e6e8fae874b3309f176819678e122c513cfea11779f7577eaae304",
+    "t10_source_rows_sha256": "2b99317e9a50f15c9afce0b705a2a3a60c72edc1f4010199d2450eb426423dd5"
+  },
+  "fix_id": "HARNESS_FIX_04",
+  "integrity_error_records": 0,
+  "limitations": [
+    "Fix 4 repairs only the typed Arrow-to-DuckDB representation path after Fix 3.",
+    "Exact source-id preservation is an operational counterfactual, not a normative canonicalization rule.",
+    "T14 does not establish semantic non-equivalence of distinct source ids."
+  ],
+  "per_group": {
+    "0dc7e803e7438c7faf39dfc4b461faef": {
+      "inapplicable_source_id_subgroups": 0,
+      "negative_source_id_subgroups": 1,
+      "positive_source_id_subgroups": 1,
+      "production_metric_config_reconstructed": {
+        "max_score": 3322.1,
+        "metric_kind": "latency",
+        "metric_unit": "seconds",
+        "min_score": 0.0
+      },
+      "retains_positive_source_id_subgroup": true,
+      "source_metric_id_count": 2,
+      "source_metric_ids": [
+        "cocoabench.overall.accuracy_percent",
+        "cocoabench.overall.avg_time_seconds"
+      ]
+    },
+    "d38d8f8e547287b6b0fc78f43f310762": {
+      "inapplicable_source_id_subgroups": 0,
+      "negative_source_id_subgroups": 4,
+      "positive_source_id_subgroups": 0,
+      "production_metric_config_reconstructed": {
+        "max_score": 10.0,
+        "metric_kind": "benchmark_score",
+        "metric_unit": "score",
+        "min_score": 0.0
+      },
+      "retains_positive_source_id_subgroup": false,
+      "source_metric_id_count": 4,
+      "source_metric_ids": [
+        "openeval.wildbench.claude-score",
+        "openeval.wildbench.gpt-score",
+        "openeval.wildbench.llama-score",
+        "openeval.wildbench.wildbench-score-rescaled"
+      ]
+    }
+  },
+  "per_source_metric_id": {
+    "cocoabench.overall.accuracy_percent": {
+      "comparability_group_id": "0dc7e803e7438c7faf39dfc4b461faef",
+      "metric_config": {
+        "max_score": 100.0,
+        "metric_kind": "accuracy",
+        "metric_unit": "percent",
+        "min_score": 0.0
+      },
+      "row_count": 2,
+      "status": "POSITIVE",
+      "variant_result": {
+        "differing_setup_fields": [
+          {
+            "field": "agentic_eval_config",
+            "values": "[{\"available_tools\": null, \"additional_details\": {\"agent_label\": \"Cocoa Agent w/ GPT-5.4-high\", \"agent_name\": \"Cocoa Agent\", \"agent_framework\": \"cocoa-agent\", \"benchmark_version\": \"1.0\", \"agent_organization\": \"CocoaBench\"}}, {\"available_tools\": null, \"additional_details\": {\"agent_label\": \"OpenClaw w/ GPT-5.4-high\", \"agent_name\": \"OpenClaw\", \"agent_framework\": \"openclaw\", \"benchmark_version\": \"1.0\"}}]"
+          }
+        ],
+        "divergence_magnitude": 8.5,
+        "has_variant_divergence": true,
+        "threshold_basis": "percent",
+        "threshold_used": 5.0
+      }
+    },
+    "cocoabench.overall.avg_time_seconds": {
+      "comparability_group_id": "0dc7e803e7438c7faf39dfc4b461faef",
+      "metric_config": {
+        "max_score": 3322.1,
+        "metric_kind": "latency",
+        "metric_unit": "seconds",
+        "min_score": 0.0
+      },
+      "row_count": 2,
+      "status": "NEGATIVE",
+      "variant_result": {
+        "differing_setup_fields": [
+          {
+            "field": "agentic_eval_config",
+            "values": "[{\"available_tools\": null, \"additional_details\": {\"agent_label\": \"Cocoa Agent w/ GPT-5.4-high\", \"agent_name\": \"Cocoa Agent\", \"agent_framework\": \"cocoa-agent\", \"benchmark_version\": \"1.0\", \"agent_organization\": \"CocoaBench\"}}, {\"available_tools\": null, \"additional_details\": {\"agent_label\": \"OpenClaw w/ GPT-5.4-high\", \"agent_name\": \"OpenClaw\", \"agent_framework\": \"openclaw\", \"benchmark_version\": \"1.0\"}}]"
+          }
+        ],
+        "divergence_magnitude": 94.69999999999993,
+        "has_variant_divergence": false,
+        "threshold_basis": "range_5pct",
+        "threshold_used": 166.10500000000002
+      }
+    },
+    "openeval.wildbench.claude-score": {
+      "comparability_group_id": "d38d8f8e547287b6b0fc78f43f310762",
+      "metric_config": {
+        "max_score": 10.0,
+        "metric_kind": "benchmark_score",
+        "metric_unit": "points",
+        "min_score": -1.0
+      },
+      "row_count": 2,
+      "status": "NEGATIVE",
+      "variant_result": {
+        "differing_setup_fields": [
+          {
+            "field": "temperature",
+            "values": "[1.0, 0.0]"
+          },
+          {
+            "field": "max_tokens",
+            "values": "[12000, 2000]"
+          }
+        ],
+        "divergence_magnitude": 0.15800000000000125,
+        "has_variant_divergence": false,
+        "threshold_basis": "range_5pct",
+        "threshold_used": 0.55
+      }
+    },
+    "openeval.wildbench.gpt-score": {
+      "comparability_group_id": "d38d8f8e547287b6b0fc78f43f310762",
+      "metric_config": {
+        "max_score": 10.0,
+        "metric_kind": "benchmark_score",
+        "metric_unit": "points",
+        "min_score": 0.0
+      },
+      "row_count": 2,
+      "status": "NEGATIVE",
+      "variant_result": {
+        "differing_setup_fields": [
+          {
+            "field": "temperature",
+            "values": "[0.0, 1.0]"
+          },
+          {
+            "field": "max_tokens",
+            "values": "[2000, 12000]"
+          }
+        ],
+        "divergence_magnitude": 0.17900000000000027,
+        "has_variant_divergence": false,
+        "threshold_basis": "range_5pct",
+        "threshold_used": 0.5
+      }
+    },
+    "openeval.wildbench.llama-score": {
+      "comparability_group_id": "d38d8f8e547287b6b0fc78f43f310762",
+      "metric_config": {
+        "max_score": 10.0,
+        "metric_kind": "benchmark_score",
+        "metric_unit": "points",
+        "min_score": 0.0
+      },
+      "row_count": 2,
+      "status": "NEGATIVE",
+      "variant_result": {
+        "differing_setup_fields": [
+          {
+            "field": "temperature",
+            "values": "[1.0, 0.0]"
+          },
+          {
+            "field": "max_tokens",
+            "values": "[12000, 2000]"
+          }
+        ],
+        "divergence_magnitude": 0.03349999999999831,
+        "has_variant_divergence": false,
+        "threshold_basis": "range_5pct",
+        "threshold_used": 0.5
+      }
+    },
+    "openeval.wildbench.wildbench-score-rescaled": {
+      "comparability_group_id": "d38d8f8e547287b6b0fc78f43f310762",
+      "metric_config": {
+        "max_score": 1.0,
+        "metric_kind": "benchmark_score",
+        "metric_unit": "score",
+        "min_score": 0.0
+      },
+      "row_count": 2,
+      "status": "NEGATIVE",
+      "variant_result": {
+        "differing_setup_fields": [
+          {
+            "field": "temperature",
+            "values": "[1.0, 0.0]"
+          },
+          {
+            "field": "max_tokens",
+            "values": "[12000, 2000]"
+          }
+        ],
+        "divergence_magnitude": 0.013370370370370255,
+        "has_variant_divergence": false,
+        "threshold_basis": "range_5pct",
+        "threshold_used": 0.05
+      }
+    }
+  },
+  "production_groups_replayed_exact": 2,
+  "production_groups_retaining_positive_source_id_subgroup": 1,
+  "production_positive_groups_losing_all_positive_source_id_subgroups": 1,
+  "production_replay_errors": 0,
+  "row_identity_errors": 0,
+  "source_id_subgroups_applicable": 6,
+  "source_id_subgroups_inapplicable": 0,
+  "source_id_subgroups_negative": 5,
+  "source_id_subgroups_positive": 1,
+  "source_id_subgroups_total": 6,
+  "source_metric_config_consistency_errors": 0,
+  "test_id": "T14_source_metric_identity_preservation",
+  "unique_source_metric_ids": 6,
+  "verdict": "CONFIRMED"
+}

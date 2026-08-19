@@ -1,0 +1,50 @@
+{
+  "files": [
+    {
+      "bytes": 3921,
+      "path": "tests/T12_source_metric_identity_collapse/PREREGISTRATION.md",
+      "sha256": "b520b5b67f571e02190318c18960a36d9363b52b608ab47a7822c4d01c08f1ce"
+    },
+    {
+      "bytes": 778,
+      "path": "tests/T12_source_metric_identity_collapse/README.md",
+      "sha256": "a199f2f728c162316f5186b64d14c3123ae9841006db17b464ed4fbd48e60832"
+    },
+    {
+      "bytes": 2841,
+      "path": "tests/T12_source_metric_identity_collapse/SOURCE_ATTRIBUTION.md",
+      "sha256": "9bf9e6f6d3670862d4b1b00f238e9e980e497fc2116ee72b5540d09652ab5c64"
+    },
+    {
+      "bytes": 3119,
+      "path": "tests/T12_source_metric_identity_collapse/TEST_RATIONALE.md",
+      "sha256": "ea60adfc43b24327ae77f538388fc51ad1ac3cb9c706c4548817f1fd2c7d6c24"
+    },
+    {
+      "bytes": 14735,
+      "path": "tests/T12_source_metric_identity_collapse/analyze.py",
+      "sha256": "affed5661eb17ccec222c821775e8358036209d6164a57594fbade64ccb67f2b"
+    },
+    {
+      "bytes": 3706,
+      "path": "tests/T12_source_metric_identity_collapse/preflight.py",
+      "sha256": "ffee30178e31ff79efb9aa38d6e2791e2e8c8e5259fb7211eccefc80d0767359"
+    },
+    {
+      "bytes": 169,
+      "path": "tests/T12_source_metric_identity_collapse/raw/README.md",
+      "sha256": "b1d16bffdf4a8a0c811994850057722d6e67a52c60c78f6c49e5a0485db79fb2"
+    },
+    {
+      "bytes": 79,
+      "path": "tests/T12_source_metric_identity_collapse/results/README.md",
+      "sha256": "04437989e61c6dac7bc41e9056f34562938260bb49754e4b54e96b9941eaf4d9"
+    },
+    {
+      "bytes": 951,
+      "path": "tests/T12_source_metric_identity_collapse/verify_prereg.py",
+      "sha256": "73b70886d33d32f2b78e9ba97f7b3f21506a4c46d37ccc153072638169718ac9"
+    }
+  ],
+  "test_id": "T12_source_metric_identity_collapse"
+}

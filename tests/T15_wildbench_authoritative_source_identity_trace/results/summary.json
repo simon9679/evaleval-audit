@@ -1,0 +1,115 @@
+{
+  "affected_group_id": "d38d8f8e547287b6b0fc78f43f310762",
+  "affected_rows": 8,
+  "distinct_nonname_source_signatures": 4,
+  "distinct_raw_metric_names": 4,
+  "exact_adapter_derivation_ids": 4,
+  "exact_adapter_derivation_source_ids": [
+    "openeval.wildbench.claude-score",
+    "openeval.wildbench.gpt-score",
+    "openeval.wildbench.llama-score",
+    "openeval.wildbench.wildbench-score-rescaled"
+  ],
+  "integrity_error_records": 0,
+  "limitations": [
+    "Distinct raw metric names do not establish semantic non-equivalence.",
+    "This test does not map source names to official WildBench procedures from names alone.",
+    "A later authoritative semantic adjudication is required."
+  ],
+  "per_source_metric_id": {
+    "openeval.wildbench.claude-score": {
+      "exact_adapter_derivation_all": true,
+      "nonname_signature": {
+        "lower_is_better": false,
+        "max_score": 10.0,
+        "metric_kind": "benchmark_score",
+        "metric_models_json": [
+          "anthropic/claude-3-5-sonnet-20241022"
+        ],
+        "metric_parameters": null,
+        "metric_unit": "points",
+        "min_score": -1.0,
+        "score_type": "continuous"
+      },
+      "raw_metric_names": [
+        "claude_score"
+      ],
+      "row_count": 2
+    },
+    "openeval.wildbench.gpt-score": {
+      "exact_adapter_derivation_all": true,
+      "nonname_signature": {
+        "lower_is_better": false,
+        "max_score": 10.0,
+        "metric_kind": "benchmark_score",
+        "metric_models_json": [
+          "openai/gpt-4o-2024-05-13"
+        ],
+        "metric_parameters": null,
+        "metric_unit": "points",
+        "min_score": 0.0,
+        "score_type": "continuous"
+      },
+      "raw_metric_names": [
+        "gpt_score"
+      ],
+      "row_count": 2
+    },
+    "openeval.wildbench.llama-score": {
+      "exact_adapter_derivation_all": true,
+      "nonname_signature": {
+        "lower_is_better": false,
+        "max_score": 10.0,
+        "metric_kind": "benchmark_score",
+        "metric_models_json": [
+          "meta/llama-3.1-405b-instruct-turbo"
+        ],
+        "metric_parameters": null,
+        "metric_unit": "points",
+        "min_score": 0.0,
+        "score_type": "continuous"
+      },
+      "raw_metric_names": [
+        "llama_score"
+      ],
+      "row_count": 2
+    },
+    "openeval.wildbench.wildbench-score-rescaled": {
+      "exact_adapter_derivation_all": true,
+      "nonname_signature": {
+        "lower_is_better": false,
+        "max_score": 1.0,
+        "metric_kind": "benchmark_score",
+        "metric_models_json": [
+          "anthropic/claude-3-5-sonnet-20241022",
+          "meta/llama-3.1-405b-instruct-turbo",
+          "openai/gpt-4o-2024-05-13"
+        ],
+        "metric_parameters": null,
+        "metric_unit": "score",
+        "min_score": 0.0,
+        "score_type": "continuous"
+      },
+      "raw_metric_names": [
+        "wildbench_score_rescaled"
+      ],
+      "row_count": 2
+    }
+  },
+  "raw_metric_names": [
+    "claude_score",
+    "gpt_score",
+    "llama_score",
+    "wildbench_score_rescaled"
+  ],
+  "source_identity_trace_complete": true,
+  "source_metric_ids": [
+    "openeval.wildbench.claude-score",
+    "openeval.wildbench.gpt-score",
+    "openeval.wildbench.llama-score",
+    "openeval.wildbench.wildbench-score-rescaled"
+  ],
+  "test_id": "T15_wildbench_authoritative_source_identity_trace",
+  "unique_source_metric_ids": 4,
+  "verdict": "CONFIRMED"
+}

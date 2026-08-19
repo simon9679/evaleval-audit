@@ -1,0 +1,81 @@
+{
+  "affected_group_ids": 2,
+  "affected_groups_with_fallback_source_id_collapse": 2,
+  "affected_groups_with_multiple_source_metric_ids": 2,
+  "affected_groups_with_single_stage_metric_id": 2,
+  "affected_groups_with_single_stage_metric_key": 2,
+  "affected_groups_with_single_stage_metric_raw": 2,
+  "affected_groups_with_structured_strategy_rows": 0,
+  "competing_predictions": {
+    "P1": "affected_groups_with_fallback_source_id_collapse = 0",
+    "P2": "affected_groups_with_fallback_source_id_collapse >= 1"
+  },
+  "distinct_source_metric_ids_total": 6,
+  "evidence": {
+    "collapse_groups_sha256": "ceb724ad4e79fcb67be93d51ead4093c915e9fd059c3938f0f30429217d5155c",
+    "group_collapse_summary_sha256": "ceb724ad4e79fcb67be93d51ead4093c915e9fd059c3938f0f30429217d5155c",
+    "input_fact_sha256": "e9edc3bf8c6c07f968ff4fb556ceb75a55219ca11076a0130cde419fab5f7196",
+    "integrity_errors_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "row_identity_trace_sha256": "4256cb66facb58916929570526ab52155d02122d1b8e82c5de9999300d0ed609",
+    "t10_source_rows_sha256": "2b99317e9a50f15c9afce0b705a2a3a60c72edc1f4010199d2450eb426423dd5"
+  },
+  "integrity_error_records": 0,
+  "limitations": [
+    "Source metric-id difference does not automatically prove semantic non-equivalence.",
+    "T12 traces the frozen transformation but does not adjudicate resolver alias correctness.",
+    "Original-publisher intent is outside T12."
+  ],
+  "optional_stage_fields": [
+    "metric_key_effective"
+  ],
+  "per_group": {
+    "0dc7e803e7438c7faf39dfc4b461faef": {
+      "fallback_source_id_collapse": true,
+      "metric_id_structured_row_count": 0,
+      "resolution_strategies": [
+        "exact"
+      ],
+      "source_metric_ids": [
+        "cocoabench.overall.accuracy_percent",
+        "cocoabench.overall.avg_time_seconds"
+      ],
+      "stage_metric_ids": [
+        "score"
+      ],
+      "stage_metric_keys": [
+        "score"
+      ],
+      "stage_metric_raws": [
+        "score"
+      ]
+    },
+    "d38d8f8e547287b6b0fc78f43f310762": {
+      "fallback_source_id_collapse": true,
+      "metric_id_structured_row_count": 0,
+      "resolution_strategies": [
+        "exact"
+      ],
+      "source_metric_ids": [
+        "openeval.wildbench.claude-score",
+        "openeval.wildbench.gpt-score",
+        "openeval.wildbench.llama-score",
+        "openeval.wildbench.wildbench-score-rescaled"
+      ],
+      "stage_metric_ids": [
+        "score"
+      ],
+      "stage_metric_keys": [
+        "score"
+      ],
+      "stage_metric_raws": [
+        "score"
+      ]
+    }
+  },
+  "row_identity_errors": 0,
+  "source_ids_mapping_to_one_metric_key_groups": 2,
+  "source_rows_scanned": 12,
+  "stage_rows_joined": 12,
+  "test_id": "T12_source_metric_identity_collapse",
+  "verdict": "CONFIRMED"
+}

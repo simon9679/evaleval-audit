@@ -1,0 +1,280 @@
+﻿{
+    "schema_version":  "1.0",
+    "test_count":  17,
+    "verdict_counts":  {
+                           "CONFIRMED":  12,
+                           "REFUTED":  5,
+                           "INCONCLUSIVE":  0,
+                           "ERROR":  0
+                       },
+    "tests":  [
+                  {
+                      "test_id":  "T01_signal_calibration",
+                      "final_verdict":  "REFUTED",
+                      "canonical_summary":  "tests/T01_signal_calibration/results/summary.json",
+                      "canonical_summary_sha256":  "deabdd5c8a1712e177d78f3d3c468fb9c0b48ced3492a6f9b742180cf385957a",
+                      "result_history":  [
+                                             {
+                                                 "file":  "tests/T01_signal_calibration/results/summary.json",
+                                                 "verdict":  "REFUTED",
+                                                 "fix_id":  null,
+                                                 "sha256":  "deabdd5c8a1712e177d78f3d3c468fb9c0b48ced3492a6f9b742180cf385957a"
+                                             }
+                                         ]
+                  },
+                  {
+                      "test_id":  "T02_comparability_boundary_robustness",
+                      "final_verdict":  "REFUTED",
+                      "canonical_summary":  "tests/T02_comparability_boundary_robustness/results/summary.json",
+                      "canonical_summary_sha256":  "c8e94213e6ca5280b8aa69ea85c25862efe2656ff019b44704afe8867e7f308d",
+                      "result_history":  [
+                                             {
+                                                 "file":  "tests/T02_comparability_boundary_robustness/results/summary.json",
+                                                 "verdict":  "REFUTED",
+                                                 "fix_id":  null,
+                                                 "sha256":  "c8e94213e6ca5280b8aa69ea85c25862efe2656ff019b44704afe8867e7f308d"
+                                             }
+                                         ]
+                  },
+                  {
+                      "test_id":  "T03_corpus_boundary_impact",
+                      "final_verdict":  "REFUTED",
+                      "canonical_summary":  "tests/T03_corpus_boundary_impact/results/summary.json",
+                      "canonical_summary_sha256":  "6d46a511962724e192ee4bd9aa50383462d232bd4b3426dea56716a55b08d537",
+                      "result_history":  [
+                                             {
+                                                 "file":  "tests/T03_corpus_boundary_impact/results/summary.json",
+                                                 "verdict":  "REFUTED",
+                                                 "fix_id":  null,
+                                                 "sha256":  "6d46a511962724e192ee4bd9aa50383462d232bd4b3426dea56716a55b08d537"
+                                             }
+                                         ]
+                  },
+                  {
+                      "test_id":  "T04_comparability_unit_consistency",
+                      "final_verdict":  "REFUTED",
+                      "canonical_summary":  "tests/T04_comparability_unit_consistency/results/summary.json",
+                      "canonical_summary_sha256":  "76fb9832269d2a52bc5213495236f150fdcd7630dfa7d26a9ce6cb9cad65d948",
+                      "result_history":  [
+                                             {
+                                                 "file":  "tests/T04_comparability_unit_consistency/results/summary.json",
+                                                 "verdict":  "REFUTED",
+                                                 "fix_id":  null,
+                                                 "sha256":  "76fb9832269d2a52bc5213495236f150fdcd7630dfa7d26a9ce6cb9cad65d948"
+                                             }
+                                         ]
+                  },
+                  {
+                      "test_id":  "T05_metric_unit_provenance_decomposition",
+                      "final_verdict":  "REFUTED",
+                      "canonical_summary":  "tests/T05_metric_unit_provenance_decomposition/results/summary.json",
+                      "canonical_summary_sha256":  "7f363c474ed99bbb0dd026fdc695167c6772f8f7cde2e7101a9932d4f552b3f2",
+                      "result_history":  [
+                                             {
+                                                 "file":  "tests/T05_metric_unit_provenance_decomposition/results/summary.json",
+                                                 "verdict":  "REFUTED",
+                                                 "fix_id":  null,
+                                                 "sha256":  "7f363c474ed99bbb0dd026fdc695167c6772f8f7cde2e7101a9932d4f552b3f2"
+                                             }
+                                         ]
+                  },
+                  {
+                      "test_id":  "T06_eee_source_unit_trace",
+                      "final_verdict":  "CONFIRMED",
+                      "canonical_summary":  "tests/T06_eee_source_unit_trace/results/summary.json",
+                      "canonical_summary_sha256":  "e0060686a05e9882384bbbafe9f6d6eae4474eeaa07c301184a0bd54a793d8e5",
+                      "result_history":  [
+                                             {
+                                                 "file":  "tests/T06_eee_source_unit_trace/results/summary.json",
+                                                 "verdict":  "CONFIRMED",
+                                                 "fix_id":  null,
+                                                 "sha256":  "e0060686a05e9882384bbbafe9f6d6eae4474eeaa07c301184a0bd54a793d8e5"
+                                             }
+                                         ]
+                  },
+                  {
+                      "test_id":  "T07_variant_divergence_unit_homogeneity",
+                      "final_verdict":  "CONFIRMED",
+                      "canonical_summary":  "tests/T07_variant_divergence_unit_homogeneity/results/summary.json",
+                      "canonical_summary_sha256":  "f9583531a3dbfb870432fd6173c0f2cb59d0a06c5d9d753b8823d2faf4aad359",
+                      "result_history":  [
+                                             {
+                                                 "file":  "tests/T07_variant_divergence_unit_homogeneity/results/summary.json",
+                                                 "verdict":  "CONFIRMED",
+                                                 "fix_id":  null,
+                                                 "sha256":  "f9583531a3dbfb870432fd6173c0f2cb59d0a06c5d9d753b8823d2faf4aad359"
+                                             }
+                                         ]
+                  },
+                  {
+                      "test_id":  "T08_within_unit_variant_counterfactual",
+                      "final_verdict":  "CONFIRMED",
+                      "canonical_summary":  "tests/T08_within_unit_variant_counterfactual/results/summary.json",
+                      "canonical_summary_sha256":  "c1247fc8783ca2581ef003e358cc0249d80262d21dd7761b1c8327b5b4be3f96",
+                      "result_history":  [
+                                             {
+                                                 "file":  "tests/T08_within_unit_variant_counterfactual/results/summary.json",
+                                                 "verdict":  "CONFIRMED",
+                                                 "fix_id":  null,
+                                                 "sha256":  "c1247fc8783ca2581ef003e358cc0249d80262d21dd7761b1c8327b5b4be3f96"
+                                             }
+                                         ]
+                  },
+                  {
+                      "test_id":  "T09_headline_comparability_impact",
+                      "final_verdict":  "CONFIRMED",
+                      "canonical_summary":  "tests/T09_headline_comparability_impact/results/summary.json",
+                      "canonical_summary_sha256":  "ff3067e2b34ff28440c6ee134a7e898613341ae6310286b8356a27c89adb3900",
+                      "result_history":  [
+                                             {
+                                                 "file":  "tests/T09_headline_comparability_impact/results/summary.json",
+                                                 "verdict":  "CONFIRMED",
+                                                 "fix_id":  null,
+                                                 "sha256":  "ff3067e2b34ff28440c6ee134a7e898613341ae6310286b8356a27c89adb3900"
+                                             }
+                                         ]
+                  },
+                  {
+                      "test_id":  "T10_source_metric_config_heterogeneity",
+                      "final_verdict":  "CONFIRMED",
+                      "canonical_summary":  "tests/T10_source_metric_config_heterogeneity/results/summary.json",
+                      "canonical_summary_sha256":  "fbd181e6dd8d370ec9193749aa09ce16338e5fd82301f46e05784977f8069453",
+                      "result_history":  [
+                                             {
+                                                 "file":  "tests/T10_source_metric_config_heterogeneity/results/summary.json",
+                                                 "verdict":  "CONFIRMED",
+                                                 "fix_id":  null,
+                                                 "sha256":  "fbd181e6dd8d370ec9193749aa09ce16338e5fd82301f46e05784977f8069453"
+                                             }
+                                         ]
+                  },
+                  {
+                      "test_id":  "T11_metric_config_field_decomposition",
+                      "final_verdict":  "CONFIRMED",
+                      "canonical_summary":  "tests/T11_metric_config_field_decomposition/results/summary.json",
+                      "canonical_summary_sha256":  "bfb51f76bfbc38b4eda909d482d1af62e6d8543aa0a2a100f80cf6bddacd2467",
+                      "result_history":  [
+                                             {
+                                                 "file":  "tests/T11_metric_config_field_decomposition/results/summary.json",
+                                                 "verdict":  "CONFIRMED",
+                                                 "fix_id":  null,
+                                                 "sha256":  "bfb51f76bfbc38b4eda909d482d1af62e6d8543aa0a2a100f80cf6bddacd2467"
+                                             }
+                                         ]
+                  },
+                  {
+                      "test_id":  "T12_source_metric_identity_collapse",
+                      "final_verdict":  "CONFIRMED",
+                      "canonical_summary":  "tests/T12_source_metric_identity_collapse/results/summary.json",
+                      "canonical_summary_sha256":  "91f7e0b25b0024b1a754abe7ea7ab38232917a5b27d191a8bcd2e0c6ee9dcdf7",
+                      "result_history":  [
+                                             {
+                                                 "file":  "tests/T12_source_metric_identity_collapse/results/summary.json",
+                                                 "verdict":  "CONFIRMED",
+                                                 "fix_id":  null,
+                                                 "sha256":  "91f7e0b25b0024b1a754abe7ea7ab38232917a5b27d191a8bcd2e0c6ee9dcdf7"
+                                             }
+                                         ]
+                  },
+                  {
+                      "test_id":  "T13_structured_metric_id_rejection",
+                      "final_verdict":  "CONFIRMED",
+                      "canonical_summary":  "tests/T13_structured_metric_id_rejection/results/summary.json",
+                      "canonical_summary_sha256":  "6cca53068d605d4b700756d2661bc733b0e5854171b8dba1fa92fc203ea38280",
+                      "result_history":  [
+                                             {
+                                                 "file":  "tests/T13_structured_metric_id_rejection/results/summary.json",
+                                                 "verdict":  "CONFIRMED",
+                                                 "fix_id":  null,
+                                                 "sha256":  "6cca53068d605d4b700756d2661bc733b0e5854171b8dba1fa92fc203ea38280"
+                                             }
+                                         ]
+                  },
+                  {
+                      "test_id":  "T14_source_metric_identity_preservation",
+                      "final_verdict":  "CONFIRMED",
+                      "canonical_summary":  "tests/T14_source_metric_identity_preservation/results/summary.json",
+                      "canonical_summary_sha256":  "2a2d19808a129f8766071595485d5e2aa4e226ca8dedebc13001fbb6b0f376b6",
+                      "result_history":  [
+                                             {
+                                                 "file":  "tests/T14_source_metric_identity_preservation/results/summary.json",
+                                                 "verdict":  "CONFIRMED",
+                                                 "fix_id":  "HARNESS_FIX_04",
+                                                 "sha256":  "2a2d19808a129f8766071595485d5e2aa4e226ca8dedebc13001fbb6b0f376b6"
+                                             },
+                                             {
+                                                 "file":  "tests/T14_source_metric_identity_preservation/results/summary_fix1.json",
+                                                 "verdict":  "INCONCLUSIVE",
+                                                 "fix_id":  "HARNESS_FIX_01",
+                                                 "sha256":  "f2fac624367857866cdbe223244f6c2b1e79374f95ad96b9a5c1b15ce4c21e14"
+                                             },
+                                             {
+                                                 "file":  "tests/T14_source_metric_identity_preservation/results/summary_fix2.json",
+                                                 "verdict":  "INCONCLUSIVE",
+                                                 "fix_id":  "HARNESS_FIX_02",
+                                                 "sha256":  "019df63a82482b1436d8579ca53f3df2e43b43175ecbfcb1537312e9c3d82e71"
+                                             },
+                                             {
+                                                 "file":  "tests/T14_source_metric_identity_preservation/results/summary_fix3.json",
+                                                 "verdict":  "INCONCLUSIVE",
+                                                 "fix_id":  "HARNESS_FIX_03",
+                                                 "sha256":  "a2a8dea724e1f18ffceb57a55e132bef7b981403b72f074303395bf1a95951ef"
+                                             },
+                                             {
+                                                 "file":  "tests/T14_source_metric_identity_preservation/results/summary_fix4.json",
+                                                 "verdict":  "CONFIRMED",
+                                                 "fix_id":  "HARNESS_FIX_04",
+                                                 "sha256":  "2a2d19808a129f8766071595485d5e2aa4e226ca8dedebc13001fbb6b0f376b6"
+                                             },
+                                             {
+                                                 "file":  "tests/T14_source_metric_identity_preservation/results/summary_initial_error.json",
+                                                 "verdict":  "ERROR",
+                                                 "fix_id":  null,
+                                                 "sha256":  "d4de900202ae4792abe8bcf9d2c838178037e69fbfdf4becaa2e7a589f0c4965"
+                                             }
+                                         ]
+                  },
+                  {
+                      "test_id":  "T15_wildbench_authoritative_source_identity_trace",
+                      "final_verdict":  "CONFIRMED",
+                      "canonical_summary":  "tests/T15_wildbench_authoritative_source_identity_trace/results/summary.json",
+                      "canonical_summary_sha256":  "3217c31e728ea4d78428cbe6c63c1acd11796616327c53d7f82e5f5dc8b20ef1",
+                      "result_history":  [
+                                             {
+                                                 "file":  "tests/T15_wildbench_authoritative_source_identity_trace/results/summary.json",
+                                                 "verdict":  "CONFIRMED",
+                                                 "fix_id":  null,
+                                                 "sha256":  "3217c31e728ea4d78428cbe6c63c1acd11796616327c53d7f82e5f5dc8b20ef1"
+                                             }
+                                         ]
+                  },
+                  {
+                      "test_id":  "T16_wildbench_common_scale_eligibility",
+                      "final_verdict":  "CONFIRMED",
+                      "canonical_summary":  "tests/T16_wildbench_common_scale_eligibility/results/summary.json",
+                      "canonical_summary_sha256":  "7f7e08e6396d24d24a5b243f2b11305048443693ff2d6365281a88ff2fbf1a9e",
+                      "result_history":  [
+                                             {
+                                                 "file":  "tests/T16_wildbench_common_scale_eligibility/results/summary.json",
+                                                 "verdict":  "CONFIRMED",
+                                                 "fix_id":  null,
+                                                 "sha256":  "7f7e08e6396d24d24a5b243f2b11305048443693ff2d6365281a88ff2fbf1a9e"
+                                             }
+                                         ]
+                  },
+                  {
+                      "test_id":  "T17_wildbench_synthetic_group_metric_config",
+                      "final_verdict":  "CONFIRMED",
+                      "canonical_summary":  "tests/T17_wildbench_synthetic_group_metric_config/results/summary.json",
+                      "canonical_summary_sha256":  "558f25429701b36bad8e853ef27900d009bd0ac748d893f363a287151df7b7cd",
+                      "result_history":  [
+                                             {
+                                                 "file":  "tests/T17_wildbench_synthetic_group_metric_config/results/summary.json",
+                                                 "verdict":  "CONFIRMED",
+                                                 "fix_id":  null,
+                                                 "sha256":  "558f25429701b36bad8e853ef27900d009bd0ac748d893f363a287151df7b7cd"
+                                             }
+                                         ]
+                  }
+              ]
+}

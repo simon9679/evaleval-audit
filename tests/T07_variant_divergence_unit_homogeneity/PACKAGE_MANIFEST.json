@@ -1,0 +1,50 @@
+{
+  "files": [
+    {
+      "bytes": 4042,
+      "path": "tests/T07_variant_divergence_unit_homogeneity/PREREGISTRATION.md",
+      "sha256": "eeaeaf4346cee7115843f95ce98e951f08e369cd6748040f2796e5f9dfb29219"
+    },
+    {
+      "bytes": 880,
+      "path": "tests/T07_variant_divergence_unit_homogeneity/README.md",
+      "sha256": "3aaef105ffd67b12f274fe0f5ed4ede7ebab01df932bf4405c8d326f499194cf"
+    },
+    {
+      "bytes": 3482,
+      "path": "tests/T07_variant_divergence_unit_homogeneity/SOURCE_ATTRIBUTION.md",
+      "sha256": "509c3b94668e57964ad5efabadf847dca8cec6f62bb0fa83545bae0cc063b7e0"
+    },
+    {
+      "bytes": 4649,
+      "path": "tests/T07_variant_divergence_unit_homogeneity/TEST_RATIONALE.md",
+      "sha256": "f3000dba818059022a9f610862840ea7b9a17632a7cf43adfcb56873b1ec3766"
+    },
+    {
+      "bytes": 13512,
+      "path": "tests/T07_variant_divergence_unit_homogeneity/analyze.py",
+      "sha256": "f7439fe5b2f9a43611357c0a8de928c1aa8c4294642544c65f9790bea1a82284"
+    },
+    {
+      "bytes": 3328,
+      "path": "tests/T07_variant_divergence_unit_homogeneity/preflight.py",
+      "sha256": "3a0bbc0558b26472e3cc92137e390135ebed0c8f4bba9659b4285ee65b5e5c68"
+    },
+    {
+      "bytes": 151,
+      "path": "tests/T07_variant_divergence_unit_homogeneity/raw/README.md",
+      "sha256": "de735509365226506270b535d6ac77ca7ae0063538be5c4658d1b465d659b3be"
+    },
+    {
+      "bytes": 79,
+      "path": "tests/T07_variant_divergence_unit_homogeneity/results/README.md",
+      "sha256": "04437989e61c6dac7bc41e9056f34562938260bb49754e4b54e96b9941eaf4d9"
+    },
+    {
+      "bytes": 951,
+      "path": "tests/T07_variant_divergence_unit_homogeneity/verify_prereg.py",
+      "sha256": "49fb269175bba299b99a8dc01152eef1c8b1445431b0eee6ba45854510310986"
+    }
+  ],
+  "test_id": "T07_variant_divergence_unit_homogeneity"
+}

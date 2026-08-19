@@ -1,0 +1,45 @@
+{
+  "affected_group_ids": 2,
+  "affected_groups_present": 2,
+  "affected_groups_production_true": 2,
+  "comparability_groups_scanned": 93495,
+  "competing_predictions": {
+    "P1": "headline_variant_divergent_count_delta = 0",
+    "P2": "headline_variant_divergent_count_delta < 0"
+  },
+  "counterfactual_cross_party_divergent_count": 57,
+  "counterfactual_groups_with_cross_party_check": 886,
+  "counterfactual_groups_with_variant_check": 862,
+  "counterfactual_total_triples": 93495,
+  "counterfactual_variant_divergent_count": 341,
+  "counterfactual_variant_divergent_share_of_eligible": 0.39559164733178653,
+  "counterfactual_variant_divergent_share_of_total": 0.0036472538638429863,
+  "evidence": {
+    "affected_groups_sha256": "188c194a585f39920dbaa5f9cfee7315d1e2042babea6b4493869afdb4fc4302",
+    "counterfactual_headline_sha256": "47d7e44e1deff401033c8774001fff7f9ad77d3ad0ae812c8f545e24e11f084f",
+    "input_fact_sha256": "e9edc3bf8c6c07f968ff4fb556ceb75a55219ca11076a0130cde419fab5f7196",
+    "integrity_errors_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "production_headline_sha256": "7e990781e06ed79acf76900b99df4e4ba5271008577a74209a14e0737f09aa3d",
+    "t08_positive_to_negative_sha256": "21ff406d12e6e8fae874b3309f176819678e122c513cfea11779f7577eaae304"
+  },
+  "fact_rows_scanned": 209382,
+  "headline_variant_divergent_count_delta": -2,
+  "integrity_error_records": 0,
+  "limitations": [
+    "T09 measures the frozen backend headline aggregate, not live-site state at another snapshot.",
+    "The derived shares are audit diagnostics; exact frontend percentage rendering is not asserted.",
+    "T09 does not establish semantic invalidity of the two affected groups.",
+    "T09 does not define a materiality threshold for the aggregate change."
+  ],
+  "production_cross_party_divergent_count": 57,
+  "production_groups_with_cross_party_check": 886,
+  "production_groups_with_variant_check": 862,
+  "production_total_triples": 93495,
+  "production_variant_divergent_count": 343,
+  "production_variant_divergent_share_of_eligible": 0.39791183294663574,
+  "production_variant_divergent_share_of_total": 0.003668645382105995,
+  "share_of_eligible_delta": -0.0023201856148492017,
+  "share_of_total_delta": -2.1391518263008842e-05,
+  "test_id": "T09_headline_comparability_impact",
+  "verdict": "CONFIRMED"
+}

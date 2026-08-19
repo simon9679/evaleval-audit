@@ -1,0 +1,34 @@
+﻿[
+    {
+        "source_repository":  "evaleval/eval_cards_backend_pipeline",
+        "source_commit":  "9c16ab3f93a4ba02a5b44590858bbdf824ed09d3",
+        "source_path":  "src/eval_card_backend/registry/benchmark_known_issues.json",
+        "frozen_copy":  "known_issues/source/src__eval_card_backend__registry__benchmark_known_issues.json",
+        "sha256":  "37f3bb967c6e380513eb5082643c27a3efed68de051e1fb5bd596e10bec367a0",
+        "bytes":  4055
+    },
+    {
+        "source_repository":  "evaleval/eval_cards_backend_pipeline",
+        "source_commit":  "9c16ab3f93a4ba02a5b44590858bbdf824ed09d3",
+        "source_path":  "src/eval_card_backend/metric_meta_hotfix.py",
+        "frozen_copy":  "known_issues/source/src__eval_card_backend__metric_meta_hotfix.py",
+        "sha256":  "951545605b70ffcc4af2d6b5e48adb6442c4774ce77a588b1319ba4e63939665",
+        "bytes":  12839
+    },
+    {
+        "source_repository":  "evaleval/eval_cards_backend_pipeline",
+        "source_commit":  "9c16ab3f93a4ba02a5b44590858bbdf824ed09d3",
+        "source_path":  "src/eval_card_backend/canonicalise/resolution_hotfixes.py",
+        "frozen_copy":  "known_issues/source/src__eval_card_backend__canonicalise__resolution_hotfixes.py",
+        "sha256":  "6ac602f8678831aa42618fc51a69c25d484345fe4f9333b2c5d83d2560ca6d0d",
+        "bytes":  11984
+    },
+    {
+        "source_repository":  "evaleval/eval_cards_backend_pipeline",
+        "source_commit":  "9c16ab3f93a4ba02a5b44590858bbdf824ed09d3",
+        "source_path":  "src/eval_card_backend/canonicalise/hierarchy_hotfixes.py",
+        "frozen_copy":  "known_issues/source/src__eval_card_backend__canonicalise__hierarchy_hotfixes.py",
+        "sha256":  "525448d36adab24e683666e91142b7549b6416928f9bf90dae5faec97bb49a64",
+        "bytes":  12219
+    }
+]

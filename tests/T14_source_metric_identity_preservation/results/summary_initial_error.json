@@ -1,0 +1,5 @@
+{
+  "error": "Stage F missing required columns: ['generation_args', 'source_organization_name']",
+  "test_id": "T14_source_metric_identity_preservation",
+  "verdict": "ERROR"
+}

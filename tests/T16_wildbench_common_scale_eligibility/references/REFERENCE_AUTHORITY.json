@@ -1,0 +1,17 @@
+{
+  "every_eval_ever": {
+    "commit": "9bce4136e789ec006c62582f5f9d107d20f8b398",
+    "path": "every_eval_ever/adapters/openeval/adapter.py",
+    "repo": "evaleval/every_eval_ever"
+  },
+  "wildbench_official": {
+    "commit": "d6b8dcaf377d173d031980f97c16e1a82618c03d",
+    "repo": "allenai/WildBench",
+    "supporting_facts": {
+      "wb_reward_pairwise_path": true,
+      "wb_reward_reference_model_count": 3,
+      "wb_score_documented_rescale_formula": "(Y-5)*2",
+      "wb_score_individual_path": true
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "backend_commit": "9c16ab3f93a4ba02a5b44590858bbdf824ed09d3",
+  "by_basis": {
+    "fallback_default": {
+      "cross_party_mismatches": 0,
+      "exact_boundary_mismatches": 0,
+      "groups": 17,
+      "variant_mismatches": 0
+    },
+    "percent": {
+      "cross_party_mismatches": 0,
+      "exact_boundary_mismatches": 0,
+      "groups": 8101,
+      "variant_mismatches": 0
+    },
+    "proportion": {
+      "cross_party_mismatches": 0,
+      "exact_boundary_mismatches": 0,
+      "groups": 77795,
+      "variant_mismatches": 0
+    },
+    "range_5pct": {
+      "cross_party_mismatches": 0,
+      "exact_boundary_mismatches": 0,
+      "groups": 7582,
+      "variant_mismatches": 0
+    }
+  },
+  "claim": "At least one exact-boundary float classification mismatch exists in the full frozen Stage F corpus.",
+  "comparability_groups": 93495,
+  "cross_party_applicable_groups": 886,
+  "cross_party_decimal_true": 57,
+  "cross_party_mismatches": 0,
+  "cross_party_production_true": 57,
+  "evidence": {
+    "fact_results_sha256": "e9edc3bf8c6c07f968ff4fb556ceb75a55219ca11076a0130cde419fab5f7196",
+    "group_scan_sha256": "a2ea080b4159eec43b9d77eecf856efa5d85d6a607466154e9bcb4c368a50657",
+    "mismatches_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "exact_boundary_mismatches": 0,
+  "fact_rows_scanned": 209382,
+  "group_consistency_errors": 0,
+  "limitations": [
+    "Decimal(str(score)) uses the canonical stored score representation, not the original source JSON lexical token.",
+    "Any affected real group must be traced to frozen source records before a final public product-level finding.",
+    "The verdict is snapshot-bound to this frozen corpus and Stage F implementation."
+  ],
+  "nonboundary_mismatches": 0,
+  "pipeline_capture": {
+    "backend_commit": "9c16ab3f93a4ba02a5b44590858bbdf824ed09d3",
+    "cards_local_dir": "C:\\Users\\Limon\\Downloads\\evaleval-audit\\freeze\\hf\\auto-benchmarkcards",
+    "comparability_groups": 93495,
+    "eee_local_dir": "C:\\Users\\Limon\\Downloads\\evaleval-audit\\freeze\\hf\\EEE_datastore",
+    "fact_results_bytes": 20789981,
+    "fact_results_sha256": "e9edc3bf8c6c07f968ff4fb556ceb75a55219ca11076a0130cde419fab5f7196",
+    "fact_rows": 209382,
+    "network_allowed": false,
+    "refresh_enabled": false,
+    "registry_local_dir": "C:\\Users\\Limon\\Downloads\\evaleval-audit\\freeze\\hf\\entity-registry-data",
+    "snapshot_id": "2026-08-19T02:46:43Z",
+    "stage_f_unit_inconsistent_groups": 1425,
+    "taxonomy_seed_dir": "C:\\Users\\Limon\\Downloads\\evaleval-audit\\freeze\\repos\\eval-card-registry\\seed"
+  },
+  "production_false_decimal_true": 0,
+  "production_true_decimal_false": 0,
+  "test_id": "T03_corpus_boundary_impact",
+  "total_mismatches": 0,
+  "variant_applicable_groups": 862,
+  "variant_decimal_true": 343,
+  "variant_mismatches": 0,
+  "variant_production_true": 343,
+  "verdict": "REFUTED"
+}

@@ -1,0 +1,39 @@
+{
+  "problems": [
+    "missing dependency duckdb: ModuleNotFoundError: No module named 'duckdb'"
+  ],
+  "info": {
+    "backend_commit": "9c16ab3f93a4ba02a5b44590858bbdf824ed09d3",
+    "registry_repo": "C:\\Users\\Limon\\Downloads\\evaleval-audit\\freeze\\repos\\eval-card-registry",
+    "EEE_path": "C:\\Users\\Limon\\Downloads\\evaleval-audit\\freeze\\hf\\EEE_datastore",
+    "cards_path": "C:\\Users\\Limon\\Downloads\\evaleval-audit\\freeze\\hf\\auto-benchmarkcards",
+    "registry_data_path": "C:\\Users\\Limon\\Downloads\\evaleval-audit\\freeze\\hf\\entity-registry-data",
+    "dependency_versions": {
+      "duckdb": null,
+      "pyarrow": "24.0.0",
+      "pydantic": "2.12.5",
+      "PyYAML": "6.0.3",
+      "pandas": "2.3.3",
+      "huggingface-hub": "0.36.2"
+    },
+    "resolver_src": "C:\\Users\\Limon\\Downloads\\evaleval-audit\\freeze\\repos\\eval-card-registry\\packages\\eval-entity-resolver\\src",
+    "eval_entity_resolver_import": "ok",
+    "memory_total_gib": 11.748,
+    "memory_available_gib": 3.15,
+    "pagefile_available_gib": 3.543,
+    "disk_free_gib": 222.95,
+    "eee_aggregate_json_files": 24787,
+    "eee_aggregate_json_gib": 0.317,
+    "eee_jsonl_files": 1805,
+    "eee_jsonl_gib": 13.118,
+    "relevant_environment_before_run": {
+      "EEE_REFRESH_SNAPSHOT": null,
+      "BENCHMARK_METADATA_REFRESH": null,
+      "ENTITY_REGISTRY_REFRESH": null,
+      "EEE_REVISION": null,
+      "BENCHMARK_METADATA_REVISION": null,
+      "ENTITY_REGISTRY_REVISION": null,
+      "DIVERGENCE_THRESHOLD_FACTOR": null
+    }
+  }
+}
