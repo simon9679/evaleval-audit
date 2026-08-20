@@ -6,7 +6,7 @@ Canonical public source:
 
 https://github.com/simon9679/tbg-postmortem/blob/main/FALSIFICATION_PROTOCOL.md
 
-Audit-time verified Protocol SHA-256 recorded during the project:
+Protocol Git blob object ID:
 
 `c97f8a4d2b67d502ca54290be55764bd5c1d8ac7`
 
