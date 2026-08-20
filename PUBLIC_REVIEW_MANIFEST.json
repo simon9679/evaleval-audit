@@ -66,8 +66,8 @@
   "publication_files": [
     {
       "file": "README.md",
-      "bytes": 6283,
-      "sha256": "4b269db26bddd18983505d2b504646316950a8f2df5ffcb22d438965263370fb"
+      "bytes": 6390,
+      "sha256": "ccaa39ca4246ccfcb7592df6e608468a67ca08172530482f461c5c1d55721d12"
     },
     {
       "file": "AUDIT_STATUS.md",
@@ -76,13 +76,13 @@
     },
     {
       "file": "CLAIM_INDEX.json",
-      "bytes": 13207,
-      "sha256": "5ad5caac1acdf4f16a3d01c23e255a0d106e179048f1add4b953bb2befcdbe88"
+      "bytes": 13090,
+      "sha256": "a67142cb9636c276825f1721f165e63a26665caa7507a8d1d1e230bf3833c9cd"
     },
     {
       "file": "REVIEW_GUIDE.md",
-      "bytes": 3452,
-      "sha256": "52d27d26e180e1d79de8b3a8de58b396d33fb28bb8328b22ffe90ae7f8f98cfc"
+      "bytes": 4315,
+      "sha256": "1dd1e350e615880e68d112207516e8927807614a3ca649c923862dc10ab85b37"
     },
     {
       "file": "REPRODUCTION.md",
@@ -91,13 +91,13 @@
     },
     {
       "file": "METHOD_SOURCES.md",
-      "bytes": 1081,
-      "sha256": "98f1a1a3b36a6e69ece25d68c26627d01a14b89605a3822c77102fc1136bc4c6"
+      "bytes": 1077,
+      "sha256": "ddb7edadbc1efb2a42367a0b9e1de04d68a5dbf5357059449a5fac20f17ee809"
     },
     {
       "file": "PUBLICATION_CHANGELOG.md",
-      "bytes": 999,
-      "sha256": "87f83d207e39ebd1b47533f49e9f86730fa1a7f1adc51479ee310656fcf8a8de"
+      "bytes": 1097,
+      "sha256": "bd8fbc48a1def997ffe008e0e51f0dfff660121cec1b63e84127ac9b34965db8"
     },
     {
       "file": "tools/verify_public_bundle.py",
@@ -111,8 +111,8 @@
     },
     {
       "file": "method/README.md",
-      "bytes": 592,
-      "sha256": "8bf701599442656d01d707dca582b04a357d458071bedcb619abe5a90172fd09"
+      "bytes": 1183,
+      "sha256": "69e8867cd64aadec67cd6d5d4183933631c60ee5b6faf2d5951558aabf24c1a9"
     },
     {
       "file": "history/README_FREEZE_STAGE.md",
@@ -121,8 +121,8 @@
     },
     {
       "file": "PUBLISH.ps1",
-      "bytes": 812,
-      "sha256": "bd8f9d33bd5e1bdec74471cd0869d10a405fe4102927f10e84ceb850f9a3267d"
+      "bytes": 867,
+      "sha256": "7608bd312b9ec8606c7f168e16102a5bcc2024ac767c7e9cdacc869d85fc4a5e"
     }
   ]
 }
