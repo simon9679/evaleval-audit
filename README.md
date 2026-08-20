@@ -83,9 +83,11 @@ The accepted result is `HARNESS_FIX_04`; canonical `results/summary.json` is byt
 Test selection and construction used two methodological sources:
 
 - the [Falsification Protocol](https://github.com/simon9679/tbg-postmortem/blob/main/FALSIFICATION_PROTOCOL.md), used as a dependency/decision procedure rather than as a literal test checklist;
-- a literature-grounded Validation Handbook used during test construction.
+- a working internal Validation Handbook used during construction of some tests.
 
-The Handbook itself is **not included in this publication snapshot** because its bibliography and venue/source classifications still require an independent source audit before public release. Test-level method provenance is recorded in each `TEST_RATIONALE.md` and `SOURCE_ATTRIBUTION.md`.
+The Validation Handbook is not published in this repository and is not presented as a validated general methodology. Audit conclusions are supported by the frozen artifacts, preregistered test definitions, and observed outputs of the completed tests, rather than by the Handbook's authority.
+
+Test-level method provenance is recorded in each `TEST_RATIONALE.md` and `SOURCE_ATTRIBUTION.md`.
 
 ## Historical files
 
